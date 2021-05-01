@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8544263A0AB00098442A /* AppDelegate.swift */; };
-		F70C8547263A0AB00098442A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8546263A0AB00098442A /* SceneDelegate.swift */; };
 		F70C8549263A0AB00098442A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8548263A0AB00098442A /* ViewController.swift */; };
 		F70C854C263A0AB00098442A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70C854A263A0AB00098442A /* Main.storyboard */; };
 		F70C854E263A0AB20098442A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70C854D263A0AB20098442A /* Assets.xcassets */; };
 		F70C8551263A0AB20098442A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70C854F263A0AB20098442A /* LaunchScreen.storyboard */; };
+		F70C855E263C73330098442A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C855D263C73330098442A /* StartViewController.swift */; };
+		F70C8561263D334C0098442A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8560263D334C0098442A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F70C8541263A0AB00098442A /* panicprotector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = panicprotector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70C8544263A0AB00098442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F70C8546263A0AB00098442A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F70C8548263A0AB00098442A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F70C854B263A0AB00098442A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F70C854D263A0AB20098442A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F70C8550263A0AB20098442A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F70C8552263A0AB20098442A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70C855D263C73330098442A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		F70C8560263D334C0098442A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				F70C8544263A0AB00098442A /* AppDelegate.swift */,
-				F70C8546263A0AB00098442A /* SceneDelegate.swift */,
 				F70C8548263A0AB00098442A /* ViewController.swift */,
 				F70C854A263A0AB00098442A /* Main.storyboard */,
 				F70C854D263A0AB20098442A /* Assets.xcassets */,
 				F70C854F263A0AB20098442A /* LaunchScreen.storyboard */,
 				F70C8552263A0AB20098442A /* Info.plist */,
+				F70C855D263C73330098442A /* StartViewController.swift */,
+				F70C8560263D334C0098442A /* Extensions.swift */,
 			);
 			path = panicprotector;
 			sourceTree = "<group>";
@@ -139,7 +142,8 @@
 			files = (
 				F70C8549263A0AB00098442A /* ViewController.swift in Sources */,
 				F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */,
-				F70C8547263A0AB00098442A /* SceneDelegate.swift in Sources */,
+				F70C855E263C73330098442A /* StartViewController.swift in Sources */,
+				F70C8561263D334C0098442A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
