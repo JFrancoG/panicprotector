@@ -10,7 +10,8 @@ import UIKit
 class StartViewController: UIViewController {
     
     
-
+    @IBOutlet weak var btnStart: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,10 @@ class StartViewController: UIViewController {
     
 
     private func customizeControls() {
+        
+        view.backgroundColor = .colorPrimary
+        
+        btnStart.style(txt: txtStart.uppercased())
         
     }
 

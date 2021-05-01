@@ -16,3 +16,20 @@ extension UIColor {
     }
 
 }
+
+extension UIButton {
+    func style(txt: String){
+        setTitle(txt, for: .normal)
+        layer.cornerRadius = radiusButtons
+        layer.masksToBounds = true
+        tintColor = .colorPrimary
+        backgroundColor = .colorPrimaryDark
+    }
+}
+
+extension String {
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
+}
+
