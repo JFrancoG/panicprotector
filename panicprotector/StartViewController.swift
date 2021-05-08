@@ -20,10 +20,14 @@ class StartViewController: UIViewController {
         customizeControls()
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
 
     private func customizeControls() {
         
-        view.backgroundColor = .colorPrimary
+        view.backgroundColor = .colorPrimaryDark
         
         btnStart.style(txt: txtStart.uppercased())
         

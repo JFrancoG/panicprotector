@@ -14,6 +14,9 @@ extension UIColor {
     @nonobjc class var colorPrimaryDark: UIColor {
       return UIColor(red: 48/255, green: 63/255, blue: 159/255, alpha: 1.0)          // 303f9f
     }
+    @nonobjc class var colorPrimaryBackground: UIColor {
+      return UIColor(red: 225/255, green: 245/255, blue: 254/255, alpha: 1.0)          // E1F5FE
+    }
 
 }
 
@@ -22,7 +25,7 @@ extension UIButton {
         setTitle(txt, for: .normal)
         layer.cornerRadius = radiusButtons
         layer.masksToBounds = true
-        tintColor = .colorPrimary
+        setTitleColor(.colorPrimaryBackground, for: .normal)
         backgroundColor = .colorPrimaryDark
     }
 }

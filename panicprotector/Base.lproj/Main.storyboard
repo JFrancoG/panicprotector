@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5iy-53-PxT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prov_start" translatesAutoresizingMaskIntoConstraints="NO" id="5iy-53-PxT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n52-PL-NC4">
-                                <rect key="frame" x="107" y="718" width="200" height="48"/>
+                                <rect key="frame" x="107" y="706" width="200" height="60"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="X3I-4e-M4e"/>
+                                    <constraint firstAttribute="height" constant="60" id="X3I-4e-M4e"/>
                                     <constraint firstAttribute="width" constant="200" id="aIj-JR-9em"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -32,14 +32,26 @@
                                     <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJo-C0-1Se">
+                                <rect key="frame" x="69.5" y="782" width="275" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="xL6-Nl-H6i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Condiciones de uso &amp; Política de privacidad">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.54146130453020136" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5iy-53-PxT" secondAttribute="trailing" id="0Sr-SB-Mh3"/>
-                            <constraint firstItem="5iy-53-PxT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3MG-KI-eBB"/>
                             <constraint firstItem="5iy-53-PxT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="48h-bV-tUI"/>
+                            <constraint firstItem="QJo-C0-1Se" firstAttribute="top" secondItem="n52-PL-NC4" secondAttribute="bottom" constant="16" id="G2m-rc-CrQ"/>
                             <constraint firstAttribute="bottom" secondItem="5iy-53-PxT" secondAttribute="bottom" id="Jsv-Yq-l0o"/>
+                            <constraint firstItem="5iy-53-PxT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VfQ-L4-rko"/>
+                            <constraint firstItem="QJo-C0-1Se" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YEl-yy-Bdd"/>
                             <constraint firstItem="n52-PL-NC4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="clP-Ex-zth"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n52-PL-NC4" secondAttribute="bottom" constant="96" id="uvK-Sr-gpU"/>
                         </constraints>
@@ -71,6 +83,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="prov_start" width="100" height="189"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
