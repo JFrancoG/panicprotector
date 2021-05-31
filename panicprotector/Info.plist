@@ -22,6 +22,10 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>NSCameraUsageDescription</key>
+    <string>Panic protector needs to use the camera to be able to use the camera and tell you your approximate pulse level.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Panic protector needs to use the microphone in order to take measurements of his lung capacity.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

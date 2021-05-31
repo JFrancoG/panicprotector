@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF4BC5883A8AF4ADBC80B34A /* Pods_panicprotector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */; };
 		F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8544263A0AB00098442A /* AppDelegate.swift */; };
 		F70C8549263A0AB00098442A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8548263A0AB00098442A /* ViewController.swift */; };
 		F70C854C263A0AB00098442A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70C854A263A0AB00098442A /* Main.storyboard */; };
@@ -17,9 +18,21 @@
 		F70C8564263D5EE90098442A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8563263D5EE90098442A /* Constants.swift */; };
 		F70C8567263D5FAC0098442A /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8566263D5FAC0098442A /* Texts.swift */; };
 		F70C856F263D65010098442A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C8571263D65010098442A /* Localizable.strings */; };
+		F78DB72C2663E7E300747269 /* info.plist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* info.plist.strings */; };
+		F7D85E262646AB82007D624D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E252646AB82007D624D /* Messages.swift */; };
+		F7D85E2A265ABD7D007D624D /* BreathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E29265ABD7D007D624D /* BreathViewController.swift */; };
+		F7D85E30265ABF76007D624D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E2F265ABF76007D624D /* MainViewController.swift */; };
+		F7D85E34265AFBEF007D624D /* HeartBeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */; };
+		F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4326603918007D624D /* ColorHeartBeats.swift */; };
+		F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4626603A53007D624D /* HeartRateManager.swift */; };
+		F7D85E4B26603AC9007D624D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4A26603AC9007D624D /* Filter.swift */; };
+		F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4D26603B28007D624D /* PulseDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.debug.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.debug.xcconfig"; sourceTree = "<group>"; };
+		78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.release.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.release.xcconfig"; sourceTree = "<group>"; };
+		A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_panicprotector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70C8541263A0AB00098442A /* panicprotector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = panicprotector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70C8544263A0AB00098442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F70C8548263A0AB00098442A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +47,17 @@
 		F70C8570263D65010098442A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8573263D65180098442A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8574263D652F0098442A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F78DB72D2663E7E300747269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/info.plist.strings; sourceTree = "<group>"; };
+		F78DB7302663E7E800747269 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/info.plist.strings; sourceTree = "<group>"; };
+		F78DB7312663E7E900747269 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/info.plist.strings; sourceTree = "<group>"; };
+		F7D85E252646AB82007D624D /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		F7D85E29265ABD7D007D624D /* BreathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathViewController.swift; sourceTree = "<group>"; };
+		F7D85E2F265ABF76007D624D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsViewController.swift; sourceTree = "<group>"; };
+		F7D85E4326603918007D624D /* ColorHeartBeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHeartBeats.swift; sourceTree = "<group>"; };
+		F7D85E4626603A53007D624D /* HeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
+		F7D85E4A26603AC9007D624D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		F7D85E4D26603B28007D624D /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +65,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4BC5883A8AF4ADBC80B34A /* Pods_panicprotector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B917CB1B91C621B396996719 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */,
+				78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA0146CF47CC4114CF5FF964 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F70C8538263A0AB00098442A = {
 			isa = PBXGroup;
 			children = (
 				F70C8543263A0AB00098442A /* panicprotector */,
 				F70C8542263A0AB00098442A /* Products */,
+				B917CB1B91C621B396996719 /* Pods */,
+				CA0146CF47CC4114CF5FF964 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,19 +111,52 @@
 		F70C8543263A0AB00098442A /* panicprotector */ = {
 			isa = PBXGroup;
 			children = (
+				F7D85E2C265ABD89007D624D /* Controllers */,
+				F7D85E2D265ABDA4007D624D /* Utils */,
 				F70C8544263A0AB00098442A /* AppDelegate.swift */,
 				F70C8548263A0AB00098442A /* ViewController.swift */,
 				F70C854A263A0AB00098442A /* Main.storyboard */,
 				F70C854D263A0AB20098442A /* Assets.xcassets */,
 				F70C854F263A0AB20098442A /* LaunchScreen.storyboard */,
 				F70C8552263A0AB20098442A /* Info.plist */,
-				F70C855D263C73330098442A /* StartViewController.swift */,
-				F70C8560263D334C0098442A /* Extensions.swift */,
-				F70C8563263D5EE90098442A /* Constants.swift */,
-				F70C8566263D5FAC0098442A /* Texts.swift */,
 				F70C8571263D65010098442A /* Localizable.strings */,
+				F78DB72E2663E7E300747269 /* info.plist.strings */,
 			);
 			path = panicprotector;
+			sourceTree = "<group>";
+		};
+		F7D85E2C265ABD89007D624D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F70C855D263C73330098442A /* StartViewController.swift */,
+				F7D85E2F265ABF76007D624D /* MainViewController.swift */,
+				F7D85E4926603A71007D624D /* HeartBeatsControllers */,
+				F7D85E29265ABD7D007D624D /* BreathViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F7D85E2D265ABDA4007D624D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F70C8560263D334C0098442A /* Extensions.swift */,
+				F7D85E252646AB82007D624D /* Messages.swift */,
+				F70C8563263D5EE90098442A /* Constants.swift */,
+				F70C8566263D5FAC0098442A /* Texts.swift */,
+				F7D85E4326603918007D624D /* ColorHeartBeats.swift */,
+				F7D85E4A26603AC9007D624D /* Filter.swift */,
+				F7D85E4D26603B28007D624D /* PulseDetector.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F7D85E4926603A71007D624D /* HeartBeatsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */,
+				F7D85E4626603A53007D624D /* HeartRateManager.swift */,
+			);
+			path = HeartBeatsControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F70C8555263A0AB20098442A /* Build configuration list for PBXNativeTarget "panicprotector" */;
 			buildPhases = (
+				795547EDCB83FC689A122856 /* [CP] Check Pods Manifest.lock */,
 				F70C853D263A0AB00098442A /* Sources */,
 				F70C853E263A0AB00098442A /* Frameworks */,
 				F70C853F263A0AB00098442A /* Resources */,
+				0871D73D9C5AD02B46D20ADE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78DB72C2663E7E300747269 /* info.plist.strings in Resources */,
 				F70C8551263A0AB20098442A /* LaunchScreen.storyboard in Resources */,
 				F70C856F263D65010098442A /* Localizable.strings in Resources */,
 				F70C854E263A0AB20098442A /* Assets.xcassets in Resources */,
@@ -149,15 +230,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0871D73D9C5AD02B46D20ADE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		795547EDCB83FC689A122856 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-panicprotector-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F70C853D263A0AB00098442A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */,
 				F70C8567263D5FAC0098442A /* Texts.swift in Sources */,
 				F70C8564263D5EE90098442A /* Constants.swift in Sources */,
+				F7D85E2A265ABD7D007D624D /* BreathViewController.swift in Sources */,
 				F70C8549263A0AB00098442A /* ViewController.swift in Sources */,
+				F7D85E262646AB82007D624D /* Messages.swift in Sources */,
+				F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */,
+				F7D85E34265AFBEF007D624D /* HeartBeatsViewController.swift in Sources */,
 				F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */,
+				F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */,
+				F7D85E30265ABF76007D624D /* MainViewController.swift in Sources */,
+				F7D85E4B26603AC9007D624D /* Filter.swift in Sources */,
 				F70C855E263C73330098442A /* StartViewController.swift in Sources */,
 				F70C8561263D334C0098442A /* Extensions.swift in Sources */,
 			);
@@ -190,6 +321,16 @@
 				F70C8574263D652F0098442A /* de */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F78DB72E2663E7E300747269 /* info.plist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F78DB72D2663E7E300747269 /* en */,
+				F78DB7302663E7E800747269 /* de */,
+				F78DB7312663E7E900747269 /* es */,
+			);
+			name = info.plist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -315,6 +456,7 @@
 		};
 		F70C8556263A0AB20098442A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -336,6 +478,7 @@
 		};
 		F70C8557263A0AB20098442A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

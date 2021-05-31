@@ -1,0 +1,10 @@
+/* 
+  info.plist.strings
+  panicprotector
+
+  Created by Jesús Franco García on 30/05/2021.
+  
+*/
+
+"NSCameraUsageDescription" = "Panic protector necesita usar la cámara para poder usar la cámara y decirle su nivel aproximado de pulsaciones.";
+"NSMicrophoneUsageDescription" = "Panic protector necesita usar el micrófono para poder tomar medidas de su capacidad pulmonar.";
