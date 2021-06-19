@@ -8,4 +8,5 @@
 import Foundation
 import UIKit
 
-let radiusButtons = CGFloat(16)
+let radius16 = CGFloat(16)
+let radius24 = CGFloat(24)

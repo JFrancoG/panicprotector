@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,15 +18,17 @@
 		F70C8564263D5EE90098442A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8563263D5EE90098442A /* Constants.swift */; };
 		F70C8567263D5FAC0098442A /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8566263D5FAC0098442A /* Texts.swift */; };
 		F70C856F263D65010098442A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C8571263D65010098442A /* Localizable.strings */; };
+		F77FBAC9267DD9180059517D /* PulseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBAC8267DD9170059517D /* PulseViewController.swift */; };
 		F78DB72C2663E7E300747269 /* info.plist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* info.plist.strings */; };
+		F7C426802671605700EE11C8 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4267F2671605700EE11C8 /* TransitionViewController.swift */; };
 		F7D85E262646AB82007D624D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E252646AB82007D624D /* Messages.swift */; };
-		F7D85E2A265ABD7D007D624D /* BreathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E29265ABD7D007D624D /* BreathViewController.swift */; };
 		F7D85E30265ABF76007D624D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E2F265ABF76007D624D /* MainViewController.swift */; };
 		F7D85E34265AFBEF007D624D /* HeartBeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */; };
 		F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4326603918007D624D /* ColorHeartBeats.swift */; };
 		F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4626603A53007D624D /* HeartRateManager.swift */; };
 		F7D85E4B26603AC9007D624D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4A26603AC9007D624D /* Filter.swift */; };
 		F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4D26603B28007D624D /* PulseDetector.swift */; };
+		F7FA73FF267E5726004C331C /* BreathingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA73FE267E5726004C331C /* BreathingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,17 +49,19 @@
 		F70C8570263D65010098442A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8573263D65180098442A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8574263D652F0098442A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F77FBAC8267DD9170059517D /* PulseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewController.swift; sourceTree = "<group>"; };
 		F78DB72D2663E7E300747269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/info.plist.strings; sourceTree = "<group>"; };
 		F78DB7302663E7E800747269 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/info.plist.strings; sourceTree = "<group>"; };
 		F78DB7312663E7E900747269 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/info.plist.strings; sourceTree = "<group>"; };
+		F7C4267F2671605700EE11C8 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		F7D85E252646AB82007D624D /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		F7D85E29265ABD7D007D624D /* BreathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathViewController.swift; sourceTree = "<group>"; };
 		F7D85E2F265ABF76007D624D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsViewController.swift; sourceTree = "<group>"; };
 		F7D85E4326603918007D624D /* ColorHeartBeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHeartBeats.swift; sourceTree = "<group>"; };
 		F7D85E4626603A53007D624D /* HeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
 		F7D85E4A26603AC9007D624D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		F7D85E4D26603B28007D624D /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
+		F7FA73FE267E5726004C331C /* BreathingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,6 @@
 				29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */,
 				78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,10 +131,11 @@
 		F7D85E2C265ABD89007D624D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F70C855D263C73330098442A /* StartViewController.swift */,
 				F7D85E2F265ABF76007D624D /* MainViewController.swift */,
+				F70C855D263C73330098442A /* StartViewController.swift */,
+				F7C4267F2671605700EE11C8 /* TransitionViewController.swift */,
 				F7D85E4926603A71007D624D /* HeartBeatsControllers */,
-				F7D85E29265ABD7D007D624D /* BreathViewController.swift */,
+				F7E79F72266B915B00DF5CE2 /* BreathControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,8 +159,17 @@
 			children = (
 				F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */,
 				F7D85E4626603A53007D624D /* HeartRateManager.swift */,
+				F77FBAC8267DD9170059517D /* PulseViewController.swift */,
 			);
 			path = HeartBeatsControllers;
+			sourceTree = "<group>";
+		};
+		F7E79F72266B915B00DF5CE2 /* BreathControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7FA73FE267E5726004C331C /* BreathingViewController.swift */,
+			);
+			path = BreathControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +293,6 @@
 				F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */,
 				F70C8567263D5FAC0098442A /* Texts.swift in Sources */,
 				F70C8564263D5EE90098442A /* Constants.swift in Sources */,
-				F7D85E2A265ABD7D007D624D /* BreathViewController.swift in Sources */,
 				F70C8549263A0AB00098442A /* ViewController.swift in Sources */,
 				F7D85E262646AB82007D624D /* Messages.swift in Sources */,
 				F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */,
@@ -288,8 +300,11 @@
 				F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */,
 				F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */,
 				F7D85E30265ABF76007D624D /* MainViewController.swift in Sources */,
+				F7FA73FF267E5726004C331C /* BreathingViewController.swift in Sources */,
 				F7D85E4B26603AC9007D624D /* Filter.swift in Sources */,
+				F77FBAC9267DD9180059517D /* PulseViewController.swift in Sources */,
 				F70C855E263C73330098442A /* StartViewController.swift in Sources */,
+				F7C426802671605700EE11C8 /* TransitionViewController.swift in Sources */,
 				F70C8561263D334C0098442A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

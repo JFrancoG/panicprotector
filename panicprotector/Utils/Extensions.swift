@@ -9,6 +9,33 @@ import UIKit
 import Foundation
 import AVFoundation
 
+extension UILabel {
+  func animate(fontSize: CGFloat, duration: TimeInterval) {
+    let startTransform = transform
+    let oldFrame = frame
+    var newFrame = oldFrame
+    let scaleRatio = fontSize / font.pointSize
+
+    newFrame.size.width *= scaleRatio
+    newFrame.size.height *= scaleRatio
+    newFrame.origin.x = oldFrame.origin.x - (newFrame.size.width - oldFrame.size.width) * 0.5
+    newFrame.origin.y = oldFrame.origin.y - (newFrame.size.height - oldFrame.size.height) * 0.5
+    frame = newFrame
+
+    font = font.withSize(fontSize)
+
+    transform = CGAffineTransform.init(scaleX: 1 / scaleRatio, y: 1 / scaleRatio);
+    layoutIfNeeded()
+
+    UIView.animate(withDuration: duration, animations: {
+      self.transform = startTransform
+      newFrame = self.frame
+    }) { (Bool) in
+      self.frame = newFrame
+    }
+  }
+}
+
 extension UIColor {
     @nonobjc class var colorPrimary: UIColor {
       return UIColor(red: 77/255, green: 208/255, blue: 225/255, alpha: 1.0)          // 4DD0E1
@@ -19,15 +46,24 @@ extension UIColor {
     @nonobjc class var colorPrimaryBackground: UIColor {
       return UIColor(red: 225/255, green: 245/255, blue: 254/255, alpha: 1.0)          // E1F5FE
     }
-
+    @nonobjc class var colorGreyTranslucid: UIColor {
+      return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)          
+    }
 }
 
 extension UIButton {
     func style(txt: String){
         setTitle(txt, for: .normal)
-        layer.cornerRadius = radiusButtons
+        layer.cornerRadius = radius16
         layer.masksToBounds = true
         setTitleColor(.colorPrimaryBackground, for: .normal)
+        backgroundColor = .colorPrimaryDark
+    }
+    func styleDialog(txt: String){
+        setTitle(txt, for: .normal)
+        layer.cornerRadius = radius24
+        layer.masksToBounds = true
+        setTitleColor(.colorPrimary, for: .normal)
         backgroundColor = .colorPrimaryDark
     }
 }

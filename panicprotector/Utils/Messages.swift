@@ -9,3 +9,6 @@ import Foundation
 
 let txtTermsUsePrivacyPolicy = "txtTermsUsePrivacyPolicy".localized
 let txtHeartBeats = "txtHeartBeats".localized
+let txtBreathing = "txtBreathing".localized
+let txtContinue = "txtContinue".localized
+let txtFinalise = "txtFinalise".localized

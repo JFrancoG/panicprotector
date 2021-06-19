@@ -7,24 +7,34 @@
 
 import UIKit
 import AVFoundation
-import LinearProgressBar
+import KDCircularProgress
 
 class HeartBeatsViewController: UIViewController {
+
+    @IBOutlet weak var toolbar: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
     
-    
+    @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var viewBackHand: UIView!
-    
     @IBOutlet weak var viewBackHeart: UIView!
-    
     @IBOutlet weak var imgShapeHeart: UIImageView!
-    
     @IBOutlet weak var viewVisor: UIView!
-    
     @IBOutlet weak var lblMessage: UILabel!
-    
     @IBOutlet weak var lblBPM: UILabel!
+    @IBOutlet weak var progress: KDCircularProgress!
     
-    @IBOutlet weak var progress: LinearProgressBar!
+    @IBOutlet weak var keypad: UIView!
+    @IBOutlet weak var viewInterrogation: UIView!
+    @IBOutlet weak var btnHelp: UIButton!
+    @IBOutlet weak var viewNextProcess: UIView!
+    @IBOutlet weak var btnNextProcess: UIButton!
+    
+    @IBOutlet weak var viewBackDialogContinue: UIView!
+    @IBOutlet weak var viewDialogContinue: UIView!
+    @IBOutlet weak var lblContinue: UILabel!
+    @IBOutlet weak var lblRemoveFinger: UILabel!
+    @IBOutlet weak var lblFindQuietPlace: UILabel!
+    @IBOutlet weak var btnContinue: UIButton!
     
     
     var delegate: HeartBeatsProtocol?
@@ -50,46 +60,83 @@ class HeartBeatsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        initCaptureSession()
         startProcessHeartBeats()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        resetValues()
+    }
+    
+    func resetValues() {
         deinitCaptureSession()
+        initializeValues()
     }
     
     private func customizeControls(){
+        view.backgroundColor = .colorPrimaryDark
+        viewBackground.backgroundColor = .colorPrimaryBackground
+        toolbar.backgroundColor = .colorPrimaryBackground
+        toolbar.showShadow()
+        keypad.backgroundColor = .colorPrimary
+        viewInterrogation.backgroundColor = .colorPrimaryDark
+        viewInterrogation.roundBorderComplete()
+        viewNextProcess.backgroundColor = .colorPrimaryDark
+        viewNextProcess.roundBorderComplete()
+        viewBackDialogContinue.backgroundColor = .colorGreyTranslucid
+        viewBackDialogContinue.isHidden = true
+
+        lblTitle.textColor = .colorPrimary
+        lblTitle.text = txtHeartBeats.uppercased()
         lblBPM.textColor = .colorPrimaryDark
         lblBPM.text = ""
         lblMessage.textColor = .colorPrimaryDark
-        lblMessage.text = "Cover the back camera until the image turns red"
-        progress.barColor = .colorPrimaryDark
-        progress.trackColor = .clear
-        progress.barThickness = 55
-        progress.barPadding = -25
-        progress.progressValue = 0
+        lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
         
+        btnContinue.styleDialog(txt: txtContinue.uppercased())
+        
+        progress.clockwise = false
+        progress.progressColors = [.colorPrimaryDark]
+        progress.progressThickness = 0.5
+        progress.trackThickness = 0
+        progress.startAngle = 142.0
+        progress.angle = 0.0
+    }
+    
+    func initializeValues() {
+        lblBPM.text = ""
+        lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
+        //progress.angle = 0.0
+        progress.stopAnimation()
     }
     
     func startProcessHeartBeats(){
+        //initVideoCapture()
+        initCaptureSession()
+        initializeValues()
         isCanCheck = true
         counter = 0
-        animationPulse(img: imgShapeHeart)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.animationPulse(img: self.imgShapeHeart)
+        }
     }
     
     private func checkProcess(){
         if isCanCheck {
             if counter > 0 {
-                progress.progressValue = CGFloat(counter * 10)
+                // bloquear botón siguiente proceso
+                progress.animate(fromAngle: Double(counter * 10), toAngle: min(Double((counter+1) * 10), 110.0), duration: getPulseSec()) { (success) in
+                    print("finish")
+                }
                 print("counter:\(counter)")
                 if counter <= 10 {
                     isCanCheck = false
                     animationPulse(img: imgShapeHeart)
                 } else {
-                    delegate?.endProcess()
-                    self.dismiss(animated: true, completion: nil)
+                    delegate?.endProcessPulse()
+                    resetValues()
+                    // lblcontinue  = medición completa
+                    viewBackDialogContinue.isHidden = false
                 }
             }
             if isPulse {
@@ -119,9 +166,19 @@ class HeartBeatsViewController: UIViewController {
         if bpm > 40.0 && bpm < 200.0 {
             rate = 60.0 / bpm
         }
+        print("rate: \(rate)")
         return rate
     }
     
+    @IBAction func actionContinue(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindPulse", sender: nil)
+    }
+    
+    
+    @IBAction func actionNextProcess(_ sender: UIButton) {
+        // lblContinue = continuar
+        viewBackDialogContinue.isHidden = false
+    }
     
     // MARK: - Frames Capture Methods
     private func initVideoCapture() {
@@ -137,7 +194,7 @@ class HeartBeatsViewController: UIViewController {
         heartRateManager.startCapture()
     }
     
-    private func deinitCaptureSession() {
+    func deinitCaptureSession() {
         heartRateManager.stopCapture()
         toggleTorch(status: false)
     }
@@ -184,7 +241,7 @@ class HeartBeatsViewController: UIViewController {
 }
 
 protocol HeartBeatsProtocol {
-    func endProcess()
+    func endProcessPulse()
 }
 
 //MARK: - Handle Image Buffer
@@ -230,7 +287,7 @@ extension HeartBeatsViewController {
         // Do a sanity check to see if a finger is placed over the camera
         if (hsv.1 > 0.5 && hsv.2 > 0.5) {
             DispatchQueue.main.async {
-                self.lblMessage.text = "Hold your index finger still."
+                self.lblMessage.text = "Ahora no muevas el dedo"//"Hold your index finger still"
                 self.toggleTorch(status: true)
                 if !self.measurementStartedFlag {
                     self.startMeasurement()
@@ -249,7 +306,7 @@ extension HeartBeatsViewController {
             measurementStartedFlag = false
             pulseDetector.reset()
             DispatchQueue.main.async {
-                self.lblMessage.text = "Cover the back camera until the image turns red"
+                self.lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
             }
         }
     }

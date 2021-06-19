@@ -8,6 +8,8 @@
 import UIKit
 import AVFoundation
 
+
+
 class MainViewController: UIViewController {
 
     @IBOutlet weak var viewBackground: UIView!
@@ -21,15 +23,21 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var viewNextProcess: UIView!
     
+    @IBOutlet weak var btnNextProcess: UIButton!
     @IBOutlet weak var containerHeartBeats: UIView!
     
     @IBOutlet weak var containerBreathing: UIView!
     
     
+    var state = StateProcess.heartbeats
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         showHeartBeatsProcess()
+        //showBreathProcess()
 
         customizeControls()
     }
@@ -54,18 +62,43 @@ class MainViewController: UIViewController {
     }
     
     private func showBreathProcess(){
+        state = .breath
         containerHeartBeats.isHidden = true
         containerBreathing.isHidden = false
+        lblTitle.text = txtBreathing.uppercased()
     }
     
     private func showHeartBeatsProcess(){
+        state = .heartbeats
         containerHeartBeats.isHidden = false
         containerBreathing.isHidden = true
+        lblTitle.text = txtHeartBeats.uppercased()
+        let pulseVC = children.first(where: { $0 is HeartBeatsViewController }) as! HeartBeatsViewController
+        pulseVC.startProcessHeartBeats()
     }
     
     private func showAlertHeartBeats(){
         
     }
+    
+    private func startProcessBreath(){
+        let pulseVC = children.first(where: { $0 is HeartBeatsViewController }) as! HeartBeatsViewController
+        pulseVC.resetValues()
+        showBreathProcess()
+    }
+    
+    
+    @IBAction func actionNextProcess(_ sender: UIButton) {
+        if state == .heartbeats {
+            startProcessBreath()
+        } else {
+            // Poner en respiracion todo como al principio e iniciar las pulsaciones
+            showHeartBeatsProcess()
+        }
+    }
+    
+    
+    
 
     private func toggleTorch(on: Bool){
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
@@ -91,29 +124,18 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "containerBreath" {
-            let destinationVC = segue.destination as! BreathViewController
-            destinationVC.delegate = self
-        }else
-            if segue.identifier == "containerHeartBeats" {
-            let destinationVC = segue.destination as! HeartBeatsViewController
-            destinationVC.delegate = self
-        }
-    }
-    
+
     
 }
 
 extension MainViewController: HeartBeatsProtocol {
-    func endProcess() {
+    func endProcessPulse() {
         // mostrar el dialog de exito
-        dismiss(animated: true, completion: nil)
+        // y cuando lo cierre
+        showBreathProcess()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.showBreathProcess()
+        }
     }
 }
 
-extension MainViewController: BreathProtocol {
-    func prueba() {
-        
-    }
-}

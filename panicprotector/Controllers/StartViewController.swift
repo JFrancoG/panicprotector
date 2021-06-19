@@ -37,7 +37,7 @@ class StartViewController: UIViewController {
     }
 
     @IBAction func actionStart(_ sender: UIButton) {
-        performSegue(withIdentifier: "segueMain", sender: nil)
+        performSegue(withIdentifier: "segueTransition", sender: nil)
     }
     
     
