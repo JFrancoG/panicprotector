@@ -10,3 +10,5 @@ import UIKit
 
 let radius16 = CGFloat(16)
 let radius24 = CGFloat(24)
+
+let toolbarHeight = CGFloat(64)
