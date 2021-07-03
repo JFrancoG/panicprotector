@@ -52,10 +52,10 @@ class BreathingViewController: UIViewController {
     var recorder: AVAudioRecorder!
     var levelTimer = Timer()
 
-    let THRESHOLD: Float = -16.0
+    let THRESHOLD: Float = -18.0
     
     var limInfGeniusY: CGFloat = 500.0
-    var limSupGeniusY: CGFloat = 190.0
+    var limSupGeniusY: CGFloat = 205.0
     
     var isUp = false
     
@@ -105,7 +105,7 @@ class BreathingViewController: UIViewController {
     private func animationCountdown() {
         let arrCount = ["3","2","1","GO!"]
         for i in 0...3 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 1.1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 1.0) {
                 self.lblCount.text = arrCount[i]
                 self.animationCountdownUp(view: self.viewCountdown)
             }
@@ -127,7 +127,7 @@ class BreathingViewController: UIViewController {
     private func animationCountdownDown(view: UIView){
         let originalTransform = view.transform
         let scaledTransform = originalTransform.scaledBy(x: 0.1, y: 0.1)
-        UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), delay: 0.2, animations: {
+        UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), delay: 0.1, animations: {
                 view.transform = scaledTransform
         }, completion: { _ in
             self.viewCountdown.isHidden = true
@@ -158,9 +158,9 @@ class BreathingViewController: UIViewController {
     private func animateGenius(view: UIView, isBreathing: Bool){
 
         let originalTransform = view.transform
-        var transY: CGFloat = 5.0
+        var transY: CGFloat = 2.0
         if isBreathing {
-            transY = -10.0
+            transY = -5.0
         }
         
         print("limSupGeniusY: \(limSupGeniusY)")
@@ -232,7 +232,7 @@ class BreathingViewController: UIViewController {
         recorder.isMeteringEnabled = true
         recorder.record()
 
-        levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
+        levelTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
     }
     
     @objc func levelTimerCallback() {
