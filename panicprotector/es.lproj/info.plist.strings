@@ -6,5 +6,5 @@
   
 */
 
-"NSCameraUsageDescription" = "Panic protector necesita usar la cámara para poder usar la cámara y decirle su nivel aproximado de pulsaciones.";
-"NSMicrophoneUsageDescription" = "Panic protector necesita usar el micrófono para poder tomar medidas de su capacidad pulmonar.";
+"NSCameraUsageDescription" = "Panic protector necesita usar la cámara para poder decirle su nivel aproximado de pulsaciones. No se almacenará ningún dato, ni será transmitido a terceros.";
+"NSMicrophoneUsageDescription" = "Panic protector necesita usar el micrófono para poder tomar medidas aproximadas de su respiración. No se almacenará ningún dato, ni será transmitido a terceros.";

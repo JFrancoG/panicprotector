@@ -6,5 +6,5 @@
   
 */
 
-"NSCameraUsageDescription" = "Panic protector needs to use the camera to be able to use the camera and tell you your approximate pulse level.";
+"NSCameraUsageDescription" = "We need to use the camera to measure the heart rate. No data will be stored or transmitted to third parties.";
 "NSMicrophoneUsageDescription" = "Panic protector needs to use the microphone in order to take measurements of his lung capacity.";

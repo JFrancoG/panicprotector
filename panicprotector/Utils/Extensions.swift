@@ -46,8 +46,14 @@ extension UIColor {
     @nonobjc class var colorPrimaryBackground: UIColor {
       return UIColor(red: 225/255, green: 245/255, blue: 254/255, alpha: 1.0)          // E1F5FE
     }
+    @nonobjc class var colorOrangeBreath: UIColor {
+      return UIColor(red: 255/255, green: 138/255, blue: 101/255, alpha: 1.0)          // FF8A65
+    }
     @nonobjc class var colorGreyTranslucid: UIColor {
-      return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)          
+      return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+    }
+    @nonobjc class var colorOrangeTranslucid: UIColor {
+      return UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 0.5)
     }
 }
 

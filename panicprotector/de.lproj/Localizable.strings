@@ -6,7 +6,13 @@
   
 */
 
-"txtStart" = "Start";
+"txtStart" = "Starten";
 "txtTermsUsePrivacyPolicy" = "Nutzungsbedingungen & Datenschutzrichtlinien";
-"txtHeartBeats" = "Tastendrücke";
-"txtBreathing" = "Atmen";
+"txtHeartBeats" = "Herzfrequenz";
+"txtBreathing" = "Atmung";
+"txtContinue" = "Weiter";
+"txtToContinue" = "Weiter";
+"txtEnd" = "Ende";
+"txtBlow" = "Puste";
+"txtBreathAndBlow" = "Atme ein und puste";
+"txtRest" = "Erhole dich";

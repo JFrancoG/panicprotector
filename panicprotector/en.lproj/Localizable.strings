@@ -8,8 +8,11 @@
 
 "txtStart" = "Start";
 "txtTermsUsePrivacyPolicy" = "Terms of use & Privacy policy";
-"txtHeartBeats" = "Heart beats";
+"txtHeartBeats" = "Heartbeats";
 "txtBreathing" = "Breathing";
 "txtContinue" = "Continue";
 "txtToContinue" = "Continue";
-"txtFinalise" = "Finalise";
+"txtEnd" = "End";
+"txtBlow" = "Blow";
+"txtBreathAndBlow" = "Take deep breath and blow";
+"txtRest" = "Rest";

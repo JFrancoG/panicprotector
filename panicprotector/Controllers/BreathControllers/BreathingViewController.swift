@@ -57,7 +57,9 @@ class BreathingViewController: UIViewController {
     var limInfGeniusY: CGFloat = 500.0
     var limSupGeniusY: CGFloat = 205.0
     
-    var isUp = false
+    var orangePoints = 0
+    
+    var isBreathingOK = false
     
     
     override func viewDidLoad() {
@@ -74,6 +76,10 @@ class BreathingViewController: UIViewController {
         animateCloud(view: viewCloud2)
         animationCountdown()
         limInfGeniusY = viewGenius.frame.maxY
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        recorder.stop()
     }
     
     private func customizeControls(){
@@ -97,9 +103,10 @@ class BreathingViewController: UIViewController {
 
         lblTitle.textColor = .colorPrimary
         lblTitle.text = txtBreathing.uppercased()
+        lblBreathMessages.text = txtBreathAndBlow
         lblBreathMessages.isHidden = true
  
-        btnEndProcess.styleDialog(txt: txtFinalise.uppercased())
+        btnEndProcess.styleDialog(txt: txtEnd.uppercased())
     }
     
     private func animationCountdown() {
@@ -158,9 +165,13 @@ class BreathingViewController: UIViewController {
     private func animateGenius(view: UIView, isBreathing: Bool){
 
         let originalTransform = view.transform
-        var transY: CGFloat = 2.0
+        var transY: CGFloat = 3.8
         if isBreathing {
-            transY = -5.0
+            transY = -4.5
+        } else if isBreathingOK {
+            transY = 1.75
+        } else {
+            transY = 3.8
         }
         
         print("limSupGeniusY: \(limSupGeniusY)")
@@ -173,14 +184,17 @@ class BreathingViewController: UIViewController {
         
         if isBreathing {
             if viewGenius.frame.maxY + transY < limSupGeniusY {
-                // calcular lo que queda y parar
-                //transY = limSupGeniusY - viewGenius.frame.minY
-                // poner fondo naranja 0.2 seg
-                // encender punto naranja redondo
-                // hacer animación hasta abajo
-                // para la grabación de audio
-                // cuando llegue abajo hacer setup
+                recorder.stop()
+                lblBreathMessages.text = txtRest
+                viewBackground.backgroundColor = .colorOrangeBreath
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
+                    self.viewBackground.backgroundColor = .colorPrimaryBackground
+                }
+                checkOrangePoint()
+                isBreathingOK = true
+                lblBreathMessages.text = txtRest
             } else {
+                lblBreathMessages.text = txtBlow
                 let translatedTransform = originalTransform.translatedBy(x: 0.0, y: transY)
                 UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), animations: {
                         view.transform = translatedTransform
@@ -188,8 +202,11 @@ class BreathingViewController: UIViewController {
             }
         } else {
             if viewGenius.frame.maxY + transY > limInfGeniusY {
-                // calcular lo que queda hasta abajo y parar ahí
-                //transY = viewGenius.frame.minY - limInfGeniusY
+                lblBreathMessages.text = txtBreathAndBlow
+                if isBreathingOK {
+                    recorder.record()
+                    isBreathingOK = false
+                }
             } else {
                 let translatedTransform = originalTransform.translatedBy(x: 0.0, y: transY)
                 UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), animations: {
@@ -197,9 +214,27 @@ class BreathingViewController: UIViewController {
                     })
             }
         }
-        
-        
-        
+    }
+    
+    private func checkOrangePoint(){
+        switch orangePoints {
+        case 0:
+            viewBreath1.backgroundColor = .colorOrangeBreath
+        case 1:
+            viewBreath2.backgroundColor = .colorOrangeBreath
+        case 2:
+            viewBreath3.backgroundColor = .colorOrangeBreath
+        case 3:
+            viewBreath4.backgroundColor = .colorOrangeBreath
+        case 4:
+            viewBreath5.backgroundColor = .colorOrangeBreath
+        default:
+            break
+        }
+        orangePoints += 1
+        if orangePoints == 5 {
+            nextProcess()
+        }
     }
     
     func getDocumentsDirectory() -> URL {
@@ -239,17 +274,22 @@ class BreathingViewController: UIViewController {
         recorder.updateMeters()
 
         let level = recorder.averagePower(forChannel: 0)
-        
-        print("LEVEL: \(level)")
-        
+
         if level > THRESHOLD {
             print("******************************* LEVEL: \(level)")
             animateGenius(view: viewGenius, isBreathing: true)
         } else {
+            print("LEVEL: \(level)")
             animateGenius(view: viewGenius, isBreathing: false)
         }
-
-        // do whatever you want with isLoud
+    }
+    
+    private func nextProcess(){
+        if recorder != nil {
+            recorder.stop()
+        }
+        levelTimer.invalidate()
+        viewBackDialogEndProcess.isHidden = false
     }
     
 
@@ -257,8 +297,7 @@ class BreathingViewController: UIViewController {
     }
     
     @IBAction func actionNextProcess(_ sender: UIButton) {
-        
-        viewBackDialogEndProcess.isHidden = false
+        nextProcess()
     }
     
     @IBAction func actionFinaliseProcess(_ sender: UIButton) {

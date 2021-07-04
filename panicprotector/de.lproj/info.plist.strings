@@ -6,5 +6,5 @@
   
 */
 
-"NSCameraUsageDescription" = "Der Panikschutz muss die Kamera verwenden können, um Ihnen Ihren ungefähren Pulsstand mitteilen zu können.";
+"NSCameraUsageDescription" = "Wir müssen die Kamera benutzen, um die Herzfrequenz zu messen. Es werden keinerlei Daten gespeichert oder an Dritte weitergegeben.";
 "NSMicrophoneUsageDescription" = "Panic Protector muss das Mikrofon verwenden, um Messungen Ihrer Lungenkapazität vorzunehmen.";

@@ -12,4 +12,7 @@
 "txtBreathing" = "Respiración";
 "txtContinue" = "Seguir";
 "txtToContinue" = "Continuar";
-"txtFinalise" = "Finalizar";
+"txtEnd" = "Finalizar";
+"txtBlow" = "Sopla";
+"txtBreathAndBlow" = "Toma aire y sopla";
+"txtRest" = "Tiempo de espera";
