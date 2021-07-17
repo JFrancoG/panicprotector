@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import AVFoundation
+import BEMCheckBox
 
 extension UILabel {
   func animate(fontSize: CGFloat, duration: TimeInterval) {
@@ -92,6 +93,19 @@ extension UIView {
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 5.0
 
+    }
+}
+
+extension BEMCheckBox {
+    func customizeCheckBox() {
+        boxType = .square
+        onAnimationType = .fill
+        offAnimationType = .fill
+        lineWidth = 2
+        cornerRadius = 4
+        onTintColor = .colorOrangeBreath
+        onCheckColor = .white
+        onFillColor = .colorOrangeBreath
     }
 }
 

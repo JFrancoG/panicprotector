@@ -17,7 +17,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        savePreferencesPulseLevel(level: 0)
         
         customizeControls()
     }

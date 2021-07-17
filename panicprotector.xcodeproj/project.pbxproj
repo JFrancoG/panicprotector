@@ -30,6 +30,7 @@
 		F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4D26603B28007D624D /* PulseDetector.swift */; };
 		F7FA73FF267E5726004C331C /* BreathingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA73FE267E5726004C331C /* BreathingViewController.swift */; };
 		F7FED1DF268E36660096E05A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FED1DE268E36660096E05A /* Device.swift */; };
+		F7FED1E6269771D50096E05A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FED1E5269771D50096E05A /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		F7D85E4D26603B28007D624D /* PulseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseDetector.swift; sourceTree = "<group>"; };
 		F7FA73FE267E5726004C331C /* BreathingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewController.swift; sourceTree = "<group>"; };
 		F7FED1DE268E36660096E05A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		F7FED1E5269771D50096E05A /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				F7D85E4A26603AC9007D624D /* Filter.swift */,
 				F7D85E4D26603B28007D624D /* PulseDetector.swift */,
 				F7FED1DE268E36660096E05A /* Device.swift */,
+				F7FED1E5269771D50096E05A /* Preferences.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				F7D85E262646AB82007D624D /* Messages.swift in Sources */,
 				F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */,
 				F7D85E34265AFBEF007D624D /* HeartBeatsViewController.swift in Sources */,
+				F7FED1E6269771D50096E05A /* Preferences.swift in Sources */,
 				F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */,
 				F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */,
 				F7D85E30265ABF76007D624D /* MainViewController.swift in Sources */,
@@ -481,7 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

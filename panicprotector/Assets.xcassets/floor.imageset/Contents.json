@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "floor@1x.png",
+      "filename" : "floor.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "floor@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "floor@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -79,7 +79,9 @@ class BreathingViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        recorder.stop()
+        if recorder != nil {
+            recorder.stop()
+        }
     }
     
     private func customizeControls(){

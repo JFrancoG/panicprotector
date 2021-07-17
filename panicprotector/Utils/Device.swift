@@ -58,3 +58,21 @@ func getFloatStatusBarHeight() -> CGFloat {
         return 20
     }
 }
+
+func getPulsationLevel(pulse: Int) -> Int {
+    if pulse < 75 {
+        return 0
+    } else if pulse < 90 {
+        return 1
+    } else if pulse < 105 {
+        return 2
+    } else if pulse < 120 {
+        return 3
+    } else if pulse < 135 {
+        return 4
+    } else if pulse < 150 {
+        return 5
+    } else {
+        return 6
+    }
+}
