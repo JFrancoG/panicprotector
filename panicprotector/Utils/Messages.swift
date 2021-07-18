@@ -7,6 +7,7 @@
 
 import Foundation
 
+let txtStart = "txtStart".localized
 let txtTermsUsePrivacyPolicy = "txtTermsUsePrivacyPolicy".localized
 let txtHeartBeats = "txtHeartBeats".localized
 let txtBreathing = "txtBreathing".localized

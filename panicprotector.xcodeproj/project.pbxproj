@@ -16,7 +16,6 @@
 		F70C855E263C73330098442A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C855D263C73330098442A /* StartViewController.swift */; };
 		F70C8561263D334C0098442A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8560263D334C0098442A /* Extensions.swift */; };
 		F70C8564263D5EE90098442A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8563263D5EE90098442A /* Constants.swift */; };
-		F70C8567263D5FAC0098442A /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8566263D5FAC0098442A /* Texts.swift */; };
 		F70C856F263D65010098442A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C8571263D65010098442A /* Localizable.strings */; };
 		F77FBAC9267DD9180059517D /* PulseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBAC8267DD9170059517D /* PulseViewController.swift */; };
 		F78DB72C2663E7E300747269 /* info.plist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* info.plist.strings */; };
@@ -47,7 +46,6 @@
 		F70C855D263C73330098442A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F70C8560263D334C0098442A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F70C8563263D5EE90098442A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F70C8566263D5FAC0098442A /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		F70C8570263D65010098442A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8573263D65180098442A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8574263D652F0098442A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				F70C8560263D334C0098442A /* Extensions.swift */,
 				F7D85E252646AB82007D624D /* Messages.swift */,
 				F70C8563263D5EE90098442A /* Constants.swift */,
-				F70C8566263D5FAC0098442A /* Texts.swift */,
 				F7D85E4326603918007D624D /* ColorHeartBeats.swift */,
 				F7D85E4A26603AC9007D624D /* Filter.swift */,
 				F7D85E4D26603B28007D624D /* PulseDetector.swift */,
@@ -297,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */,
-				F70C8567263D5FAC0098442A /* Texts.swift in Sources */,
 				F70C8564263D5EE90098442A /* Constants.swift in Sources */,
 				F7FED1DF268E36660096E05A /* Device.swift in Sources */,
 				F70C8549263A0AB00098442A /* ViewController.swift in Sources */,

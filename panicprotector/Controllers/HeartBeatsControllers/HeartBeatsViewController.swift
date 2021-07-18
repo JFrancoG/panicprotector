@@ -37,6 +37,10 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var lblFindQuietPlace: UILabel!
     @IBOutlet weak var btnContinue: UIButton!
     
+    @IBOutlet weak var viewBackDialogStart: UIView!
+    @IBOutlet weak var viewDialogStart: UIView!
+    @IBOutlet weak var lblDialogStart: UILabel!
+    @IBOutlet weak var btnStart: UIButton!
     
     @IBOutlet weak var viewBackHelp: UIView!
     @IBOutlet weak var viewHelp: UIView!
@@ -108,24 +112,27 @@ class HeartBeatsViewController: UIViewController {
         viewBackDialogContinue.backgroundColor = .colorGreyTranslucid
         viewBackDialogContinue.isHidden = true
         viewBackHelp.backgroundColor = .colorGreyTranslucid
-        //viewBackHelp.isHidden = true
         viewHelp2.isHidden = true
         viewHelp3.isHidden = true
         viewBackPreviousHelp.isHidden = true
         viewBackCheckBox.isHidden = true
+        viewBackDialogStart.backgroundColor = .colorGreyTranslucid
+        viewBackDialogStart.isHidden = true
 
         lblTitle.textColor = .colorPrimary
         lblTitle.text = txtHeartBeats.uppercased()
         lblBPM.textColor = .colorPrimaryDark
         lblBPM.text = ""
         lblMessage.textColor = .colorPrimaryDark
-        lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
+        lblMessage.text = ""//Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
         lblCheckBox.textColor = .colorPrimaryDark
         lblCheckBox.text = "No volver a mostrar"
+        lblDialogStart.text = "¿Está el dedo tapando el objetivo y el flash? Si es así, pulsa COMENZAR."
         
         btnContinue.styleDialog(txt: txtContinue.uppercased())
         btnEndHelp.style(txt: txtContinue.uppercased())
         btnEndHelp.isHidden = true
+        btnStart.styleDialog(txt: txtStart.uppercased())
         
         progress.clockwise = false
         progress.progressColors = [.colorPrimaryDark]
@@ -141,6 +148,8 @@ class HeartBeatsViewController: UIViewController {
         print("readNotShowPulseHelpPreferences(): \(readNotShowPulseHelpPreferences())")
         if readNotShowPulseHelpPreferences() {
             viewBackHelp.isHidden = true
+            viewBackDialogStart.isHidden = false
+            checkBoxHelp.on = true
         } else {
             viewBackHelp.isHidden = false
         }
@@ -148,7 +157,7 @@ class HeartBeatsViewController: UIViewController {
     
     func initializeValues() {
         lblBPM.text = ""
-        lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
+        lblMessage.text = ""//"Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
         //progress.angle = 0.0
         progress.stopAnimation()
     }
@@ -227,6 +236,12 @@ class HeartBeatsViewController: UIViewController {
         }
     }
     
+    @IBAction func actionShowHelp(_ sender: UIButton) {
+        resetValues()
+        toggleTorch(status: false)
+        viewBackHelp.isHidden = false
+    }
+    
     @IBAction func actionContinue(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindPulse", sender: nil)
     }
@@ -281,9 +296,15 @@ class HeartBeatsViewController: UIViewController {
     
     @IBAction func actionEndHelp(_ sender: UIButton) {
         viewBackHelp.isHidden = true
-        startProcessHeartBeats()
+        viewBackDialogStart.isHidden = false
         disableHelp()
     }
+    
+    @IBAction func actionStart(_ sender: UIButton) {
+        viewBackDialogStart.isHidden = true
+        startProcessHeartBeats()
+    }
+    
     
     // MARK: - Frames Capture Methods
     private func initVideoCapture() {
@@ -392,7 +413,7 @@ extension HeartBeatsViewController {
         // Do a sanity check to see if a finger is placed over the camera
         if (hsv.1 > 0.5 && hsv.2 > 0.5) {
             DispatchQueue.main.async {
-                self.lblMessage.text = "Ahora no muevas el dedo"//"Hold your index finger still"
+                self.lblMessage.text = ""//"Ahora no muevas el dedo"//"Hold your index finger still"
                 self.toggleTorch(status: true)
                 if !self.measurementStartedFlag {
                     self.startMeasurement()
@@ -411,7 +432,7 @@ extension HeartBeatsViewController {
             measurementStartedFlag = false
             pulseDetector.reset()
             DispatchQueue.main.async {
-                self.lblMessage.text = "Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
+                self.lblMessage.text = ""//"Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
             }
         }
     }
