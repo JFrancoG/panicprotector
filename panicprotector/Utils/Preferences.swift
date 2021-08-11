@@ -20,3 +20,10 @@ func savePreferencesNotShowPulseHelp(notshow: Bool) {
 func readNotShowPulseHelpPreferences() -> Bool {
     return UserDefaults.standard.bool(forKey: "notshowpulsehelp")
 }
+
+func savePreferencesNotShowBreathHelp(notshow: Bool) {
+    UserDefaults.standard.set(notshow, forKey: "notshowbreathhelp")
+}
+func readNotShowBreathHelpPreferences() -> Bool {
+    return UserDefaults.standard.bool(forKey: "notshowbreathhelp")
+}

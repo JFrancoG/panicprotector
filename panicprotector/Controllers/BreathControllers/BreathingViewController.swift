@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import CoreAudio
+import BEMCheckBox
 
 class BreathingViewController: UIViewController {
     
@@ -24,6 +25,25 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewNextProcess: UIView!
     @IBOutlet weak var btnNextProcess: UIButton!
     
+    @IBOutlet weak var viewBackHelp: UIView!
+    @IBOutlet weak var viewHelp: UIView!
+    @IBOutlet weak var viewHelp1: UIView!
+    @IBOutlet weak var viewHelp2: UIView!
+    @IBOutlet weak var viewHelp3: UIView!
+    
+    @IBOutlet weak var lblInstruction11: UILabel!
+    @IBOutlet weak var lblInstruction12: UILabel!
+    @IBOutlet weak var lblInstruction13: UILabel!
+    @IBOutlet weak var lblInstruction21: UILabel!
+    @IBOutlet weak var lblInstruction22: UILabel!
+    @IBOutlet weak var lblInstruction23: UILabel!
+    @IBOutlet weak var lblInstruction24: UILabel!
+    @IBOutlet weak var lblInstruction31: UILabel!
+    @IBOutlet weak var lblInstruction32: UILabel!
+    @IBOutlet weak var lblInstruction33: UILabel!
+    @IBOutlet weak var lblInstruction34: UILabel!
+    @IBOutlet weak var lblInstruction35: UILabel!
+    
     @IBOutlet weak var viewGenius: UIView!
     
     @IBOutlet weak var lblBreathMessages: UILabel!
@@ -32,6 +52,13 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewBreath3: UIView!
     @IBOutlet weak var viewBreath4: UIView!
     @IBOutlet weak var viewBreath5: UIView!
+    
+    @IBOutlet weak var viewBackCheckBox: UIView!
+    @IBOutlet weak var checkBoxHelp: BEMCheckBox!
+    @IBOutlet weak var lblCheckBox: UILabel!
+    @IBOutlet weak var viewBackPreviousHelp: UIView!
+    @IBOutlet weak var viewBackNextHelp: UIView!
+    @IBOutlet weak var btnEndHelp: UIButton!
     
     @IBOutlet weak var viewCloud1: UIView!
     @IBOutlet weak var viewCloud2: UIView!
@@ -60,22 +87,21 @@ class BreathingViewController: UIViewController {
     var orangePoints = 0
     
     var isBreathingOK = false
+    var isCanCheck = false
     
+    var currentHelp = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
+    
         customizeControls()
+        checkHelp()
     }
     
 
     override func viewDidAppear(_ animated: Bool) {
-        animateCloud(view: viewCloud1)
-        animateCloud(view: viewCloud2)
-        animationCountdown()
-        limInfGeniusY = viewGenius.frame.maxY
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -84,12 +110,19 @@ class BreathingViewController: UIViewController {
         }
     }
     
+    private func startProcessBreath(){
+        animateCloud(view: viewCloud1)
+        animateCloud(view: viewCloud2)
+        animationCountdown()
+        limInfGeniusY = viewGenius.frame.maxY
+    }
+    
     private func customizeControls(){
         view.backgroundColor = .colorPrimaryDark
         viewBackground.backgroundColor = .colorPrimaryBackground
         toolbar.backgroundColor = .colorPrimaryBackground
         toolbar.showShadow()
-        keypad.backgroundColor = .colorPrimary
+        keypad.backgroundColor = .colorPrimaryDark
         viewInterrogation.backgroundColor = .colorPrimary
         viewInterrogation.roundBorderComplete()
         viewNextProcess.backgroundColor = .colorPrimary
@@ -102,13 +135,92 @@ class BreathingViewController: UIViewController {
         viewBackDialogEndProcess.backgroundColor = .colorGreyTranslucid
         viewBackDialogEndProcess.isHidden = true
         viewCountdown.isHidden = true
+        viewBackHelp.backgroundColor = .colorGreyTranslucid
+        viewHelp2.isHidden = true
+        viewHelp3.isHidden = true
+        viewBackCheckBox.isHidden = true
+        viewBackPreviousHelp.isHidden = true
 
-        lblTitle.textColor = .colorPrimary
-        lblTitle.text = txtBreathing.uppercased()
-        lblBreathMessages.text = txtBreathAndBlow
+        lblTitle.style(text: txtBreathing.uppercased(),
+                       color: .colorPrimary,
+                       size: 16,
+                       fontName: fontArialRegular)
+        lblBreathMessages.style(text: txtBreathAndBlow,
+                                color: .white,
+                                size: 20,
+                                fontName: fontArialBold)
         lblBreathMessages.isHidden = true
- 
+        
+        lblCheckBox.style(text: txtDontShowAgain,
+                          color: .colorPrimaryDark,
+                          size: 13,
+                          fontName: fontArialBold)
+        
+        lblInstruction11.style(text: txtBreathInstruction11,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction12.style(text: txtBreathInstruction12,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction13.style(text: txtBreathInstruction13,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction21.style(text: txtBreathInstruction21,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction22.style(text: txtBreathInstruction22,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction23.style(text: txtBreathInstruction23,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction24.style(text: txtBreathInstruction24,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction31.style(text: txtBreathInstruction31,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction32.style(text: txtBreathInstruction32,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction33.style(text: txtBreathInstruction33,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction34.style(text: txtBreathInstruction34,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction35.style(text: txtBreathInstruction35,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        
         btnEndProcess.styleDialog(txt: txtEnd.uppercased())
+        btnEndHelp.style(txt: txtContinue.uppercased(), size: 16)
+        btnEndHelp.isHidden = true
+        
+        checkBoxHelp.customizeCheckBox()
+    }
+    
+    private func checkHelp() {
+        print("readNotShowBreathHelpPreferences(): \(readNotShowBreathHelpPreferences())")
+        if readNotShowBreathHelpPreferences() {
+            viewBackHelp.isHidden = true
+            checkBoxHelp.on = true
+            startProcessBreath()
+        } else {
+            viewBackHelp.isHidden = false
+        }
     }
     
     private func animationCountdown() {
@@ -181,8 +293,8 @@ class BreathingViewController: UIViewController {
         
         print("transY: \(transY)")
         
-        print("iewGenius.frame.minY: \(viewGenius.frame.minY)")
-        print("iewGenius.frame.maxY: \(viewGenius.frame.maxY)")
+        print("viewGenius.frame.minY: \(viewGenius.frame.minY)")
+        print("viewGenius.frame.maxY: \(viewGenius.frame.maxY)")
         
         if isBreathing {
             if viewGenius.frame.maxY + transY < limSupGeniusY {
@@ -294,8 +406,70 @@ class BreathingViewController: UIViewController {
         viewBackDialogEndProcess.isHidden = false
     }
     
+    private func disableHelp(){
+        viewInterrogation.backgroundColor = .lightGray
+        btnHelp.isUserInteractionEnabled = false
+    }
+    
+    @IBAction func actionCheckBox(_ sender: BEMCheckBox) {
+        if sender.on {
+            savePreferencesNotShowBreathHelp(notshow: true)
+        } else {
+            savePreferencesNotShowBreathHelp(notshow: false)
+        }
+    }
+    
+    @IBAction func actionPreviousHelp(_ sender: UIButton) {
+        switch currentHelp {
+        case 1:
+            break
+        case 2:
+            viewHelp1.isHidden = false
+            viewHelp2.isHidden = true
+            viewBackPreviousHelp.isHidden = true
+            currentHelp -= 1
+        case 3:
+            viewHelp2.isHidden = false
+            viewHelp3.isHidden = true
+            viewBackNextHelp.isHidden = false
+            btnEndHelp.isHidden = true
+            viewBackCheckBox.isHidden = true
+            currentHelp -= 1
+        default:
+            break
+        }
+    }
+    
+    @IBAction func actionNextHelp(_ sender: UIButton) {
+        switch currentHelp {
+        case 1:
+            viewHelp1.isHidden = true
+            viewHelp2.isHidden = false
+            viewBackPreviousHelp.isHidden = false
+            currentHelp += 1
+        case 2:
+            viewHelp2.isHidden = true
+            viewHelp3.isHidden = false
+            viewBackNextHelp.isHidden = true
+            btnEndHelp.isHidden = false
+            viewBackCheckBox.isHidden = false
+            currentHelp += 1
+        case 3:
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    @IBAction func actionEndHelp(_ sender: UIButton) {
+        viewBackHelp.isHidden = true
+        disableHelp()
+        startProcessBreath()
+    }
 
     @IBAction func actionHelp(_ sender: Any) {
+        viewBackHelp.isHidden = false
     }
     
     @IBAction func actionNextProcess(_ sender: UIButton) {

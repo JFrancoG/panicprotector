@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF4BC5883A8AF4ADBC80B34A /* Pods_panicprotector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */; };
+		EEC410A261308B42B11D05C4 /* Pods_panicprotector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CD8CDAB7A146BD7C54C1A5 /* Pods_panicprotector.framework */; };
 		F70C8545263A0AB00098442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8544263A0AB00098442A /* AppDelegate.swift */; };
 		F70C8549263A0AB00098442A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8548263A0AB00098442A /* ViewController.swift */; };
 		F70C854C263A0AB00098442A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70C854A263A0AB00098442A /* Main.storyboard */; };
@@ -27,15 +27,16 @@
 		F7D85E4726603A53007D624D /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4626603A53007D624D /* HeartRateManager.swift */; };
 		F7D85E4B26603AC9007D624D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4A26603AC9007D624D /* Filter.swift */; };
 		F7D85E4E26603B28007D624D /* PulseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E4D26603B28007D624D /* PulseDetector.swift */; };
+		F7E9C6AD26C44F2900ACDCFF /* BEMCheckBox in Frameworks */ = {isa = PBXBuildFile; productRef = F7E9C6AC26C44F2900ACDCFF /* BEMCheckBox */; };
 		F7FA73FF267E5726004C331C /* BreathingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA73FE267E5726004C331C /* BreathingViewController.swift */; };
 		F7FED1DF268E36660096E05A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FED1DE268E36660096E05A /* Device.swift */; };
 		F7FED1E6269771D50096E05A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FED1E5269771D50096E05A /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.debug.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.debug.xcconfig"; sourceTree = "<group>"; };
-		78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.release.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.release.xcconfig"; sourceTree = "<group>"; };
-		A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_panicprotector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35CD8CDAB7A146BD7C54C1A5 /* Pods_panicprotector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_panicprotector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		434C548F1FFF8301A05F50D0 /* Pods-panicprotector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.release.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.release.xcconfig"; sourceTree = "<group>"; };
+		BB7E4E16436693FB960E813F /* Pods-panicprotector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-panicprotector.debug.xcconfig"; path = "Target Support Files/Pods-panicprotector/Pods-panicprotector.debug.xcconfig"; sourceTree = "<group>"; };
 		F70C8541263A0AB00098442A /* panicprotector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = panicprotector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70C8544263A0AB00098442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F70C8548263A0AB00098442A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,28 +72,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF4BC5883A8AF4ADBC80B34A /* Pods_panicprotector.framework in Frameworks */,
+				F7E9C6AD26C44F2900ACDCFF /* BEMCheckBox in Frameworks */,
+				EEC410A261308B42B11D05C4 /* Pods_panicprotector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		780B1B307ACFACDF730C8B14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35CD8CDAB7A146BD7C54C1A5 /* Pods_panicprotector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B917CB1B91C621B396996719 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */,
-				78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */,
+				BB7E4E16436693FB960E813F /* Pods-panicprotector.debug.xcconfig */,
+				434C548F1FFF8301A05F50D0 /* Pods-panicprotector.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CA0146CF47CC4114CF5FF964 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A2C4B68C1FD03B01A4FC453C /* Pods_panicprotector.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F70C8538263A0AB00098442A = {
@@ -101,7 +103,7 @@
 				F70C8543263A0AB00098442A /* panicprotector */,
 				F70C8542263A0AB00098442A /* Products */,
 				B917CB1B91C621B396996719 /* Pods */,
-				CA0146CF47CC4114CF5FF964 /* Frameworks */,
+				780B1B307ACFACDF730C8B14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,17 +184,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F70C8555263A0AB20098442A /* Build configuration list for PBXNativeTarget "panicprotector" */;
 			buildPhases = (
-				795547EDCB83FC689A122856 /* [CP] Check Pods Manifest.lock */,
+				434AEC2842B6BDDECA2541E3 /* [CP] Check Pods Manifest.lock */,
 				F70C853D263A0AB00098442A /* Sources */,
 				F70C853E263A0AB00098442A /* Frameworks */,
 				F70C853F263A0AB00098442A /* Resources */,
-				0871D73D9C5AD02B46D20ADE /* [CP] Embed Pods Frameworks */,
+				F54D3D2AC700513E90D07506 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = panicprotector;
+			packageProductDependencies = (
+				F7E9C6AC26C44F2900ACDCFF /* BEMCheckBox */,
+			);
 			productName = panicprotector;
 			productReference = F70C8541263A0AB00098442A /* panicprotector.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +227,9 @@
 				de,
 			);
 			mainGroup = F70C8538263A0AB00098442A;
+			packageReferences = (
+				F7E9C6AB26C44F2900ACDCFF /* XCRemoteSwiftPackageReference "BEMCheckBox" */,
+			);
 			productRefGroup = F70C8542263A0AB00098442A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,24 +255,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0871D73D9C5AD02B46D20ADE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		795547EDCB83FC689A122856 /* [CP] Check Pods Manifest.lock */ = {
+		434AEC2842B6BDDECA2541E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,6 +275,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F54D3D2AC700513E90D07506 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-panicprotector/Pods-panicprotector-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -475,7 +483,7 @@
 		};
 		F70C8556263A0AB20098442A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29CEFD853D8CB0BA8EDF8F7F /* Pods-panicprotector.debug.xcconfig */;
+			baseConfigurationReference = BB7E4E16436693FB960E813F /* Pods-panicprotector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -497,7 +505,7 @@
 		};
 		F70C8557263A0AB20098442A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78DD13E624CD4621B430D3BD /* Pods-panicprotector.release.xcconfig */;
+			baseConfigurationReference = 434C548F1FFF8301A05F50D0 /* Pods-panicprotector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -539,6 +547,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7E9C6AB26C44F2900ACDCFF /* XCRemoteSwiftPackageReference "BEMCheckBox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/BEMCheckBox";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7E9C6AC26C44F2900ACDCFF /* BEMCheckBox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7E9C6AB26C44F2900ACDCFF /* XCRemoteSwiftPackageReference "BEMCheckBox" */;
+			productName = BEMCheckBox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F70C8539263A0AB00098442A /* Project object */;
 }
