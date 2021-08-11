@@ -12,3 +12,7 @@ let radius16 = CGFloat(16)
 let radius24 = CGFloat(24)
 
 let toolbarHeight = CGFloat(64)
+
+let fontArialRegular = "ArialMT"
+let fontArialBold = "Arial-BoldMT"
+

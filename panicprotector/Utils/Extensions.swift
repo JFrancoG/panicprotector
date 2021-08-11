@@ -35,6 +35,12 @@ extension UILabel {
       self.frame = newFrame
     }
   }
+    
+    func style(text: String, color: UIColor, size: CGFloat, fontName: String) {
+        self.font = UIFont(name: fontName, size: size) ?? UIFont.systemFont(ofSize: size)
+        self.textColor = color
+        self.text = text
+    }
 }
 
 extension UIColor {
@@ -59,7 +65,8 @@ extension UIColor {
 }
 
 extension UIButton {
-    func style(txt: String){
+    func style(txt: String, size: CGFloat = 20){
+        titleLabel!.font = UIFont(name: fontArialRegular, size: size)
         setTitle(txt, for: .normal)
         layer.cornerRadius = radius16
         layer.masksToBounds = true

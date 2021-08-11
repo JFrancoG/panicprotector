@@ -90,9 +90,9 @@ class BreathingViewController: UIViewController {
         toolbar.backgroundColor = .colorPrimaryBackground
         toolbar.showShadow()
         keypad.backgroundColor = .colorPrimary
-        viewInterrogation.backgroundColor = .colorPrimaryDark
+        viewInterrogation.backgroundColor = .colorPrimary
         viewInterrogation.roundBorderComplete()
-        viewNextProcess.backgroundColor = .colorPrimaryDark
+        viewNextProcess.backgroundColor = .colorPrimary
         viewNextProcess.roundBorderComplete()
         viewBreath1.roundBorderComplete()
         viewBreath2.roundBorderComplete()

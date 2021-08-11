@@ -42,7 +42,7 @@ class StartViewController: UIViewController {
     
     
     @IBAction func actionTermsUsePrivacyPolicy(_ sender: UIButton) {
-        performSegue(withIdentifier: "segueTermsUsePP", sender: nil)
+        //performSegue(withIdentifier: "segueTermsUsePP", sender: nil)
     }
     
     

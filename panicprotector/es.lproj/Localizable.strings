@@ -16,3 +16,14 @@
 "txtBlow" = "Sopla";
 "txtBreathAndBlow" = "Toma aire y sopla";
 "txtRest" = "Tiempo de espera";
+"txtDontShowAgain" = "no volver a mostrar";
+"txtDialogStartHeartBeats" = "¿Está el dedo tapando el objetivo y el flash?\nSi es así,\nPULSA COMENZAR.";
+"txtRemoveFinger" = "Retira el dedo de la cámara y pasa a la pantalla de respiración.";
+"txtFindQuietPlace" = "A ser posible, busca un sitio tranquilo para evitar interferencias con la señal de respiración.";
+"txtHeartBeatsInstruction1" = "TAPAR con UN SOLO DEDO el OBJETIVO y el FLASH de tu smartphone al mismo tiempo";
+"txtHeartBeatsInstruction2" = "Comprobar que la parte del dedo apoyada en el FLASH se vuelve ROJA";
+"txtHeartBeatsInstruction3" = "Esperar a que el CORAZÓN se vuelva ROJO y palpite";
+"txtHeartBeatsInstruction4" = "Se inicia la MEDICIÓN de tus PULSACIONES";
+"txtHeartBeatsInstruction5" = "¡NO MOVER EL DEDO hasta que no haya acabado la operación!";
+"txtHeartBeatsInstruction6" = "LA SONRISA va indicando el proceso de entrada de tus PULSACIONES";
+"txtHeartBeatsInstruction7" = "Cuando la sonrisa esté COMPLETA, habrá finalizado el proceso";

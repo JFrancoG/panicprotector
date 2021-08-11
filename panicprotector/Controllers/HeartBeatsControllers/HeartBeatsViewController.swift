@@ -20,8 +20,6 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var viewBackHeart: UIView!
     @IBOutlet weak var imgShapeHeart: UIImageView!
     @IBOutlet weak var viewVisor: UIView!
-    @IBOutlet weak var lblMessage: UILabel!
-    @IBOutlet weak var lblBPM: UILabel!
     @IBOutlet weak var progress: KDCircularProgress!
     
     @IBOutlet weak var keypad: UIView!
@@ -47,6 +45,14 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var viewHelp1: UIView!
     @IBOutlet weak var viewHelp2: UIView!
     @IBOutlet weak var viewHelp3: UIView!
+    
+    @IBOutlet weak var lblInstruction1: UILabel!
+    @IBOutlet weak var lblInstruction2: UILabel!
+    @IBOutlet weak var lblInstruction3: UILabel!
+    @IBOutlet weak var lblInstruction4: UILabel!
+    @IBOutlet weak var lblInstruction5: UILabel!
+    @IBOutlet weak var lblInstruction6: UILabel!
+    @IBOutlet weak var lblInstruction7: UILabel!
     
     @IBOutlet weak var viewBackPreviousHelp: UIView!
     @IBOutlet weak var viewBackNextHelp: UIView!
@@ -100,15 +106,20 @@ class HeartBeatsViewController: UIViewController {
     }
     
     private func customizeControls(){
-        view.backgroundColor = .colorPrimaryDark
-        viewBackground.backgroundColor = .colorPrimaryBackground
+        // toolbar
         toolbar.backgroundColor = .colorPrimaryBackground
         toolbar.showShadow()
-        keypad.backgroundColor = .colorPrimary
-        viewInterrogation.backgroundColor = .colorPrimaryDark
+        
+        // keypad
+        keypad.backgroundColor = .clear
+        viewInterrogation.backgroundColor = .colorPrimary
         viewInterrogation.roundBorderComplete()
-        viewNextProcess.backgroundColor = .colorPrimaryDark
+        viewNextProcess.backgroundColor = .colorPrimary
         viewNextProcess.roundBorderComplete()
+        
+        // views
+        view.backgroundColor = .colorPrimaryDark
+        viewBackground.backgroundColor = .colorPrimaryBackground
         viewBackDialogContinue.backgroundColor = .colorGreyTranslucid
         viewBackDialogContinue.isHidden = true
         viewBackHelp.backgroundColor = .colorGreyTranslucid
@@ -119,21 +130,71 @@ class HeartBeatsViewController: UIViewController {
         viewBackDialogStart.backgroundColor = .colorGreyTranslucid
         viewBackDialogStart.isHidden = true
 
-        lblTitle.textColor = .colorPrimary
-        lblTitle.text = txtHeartBeats.uppercased()
-        lblBPM.textColor = .colorPrimaryDark
-        lblBPM.text = ""
-        lblMessage.textColor = .colorPrimaryDark
-        lblMessage.text = ""//Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
-        lblCheckBox.textColor = .colorPrimaryDark
-        lblCheckBox.text = "No volver a mostrar"
-        lblDialogStart.text = "¿Está el dedo tapando el objetivo y el flash? Si es así, pulsa COMENZAR."
+        // labels
+        lblTitle.style(text: txtHeartBeats.uppercased(),
+                       color: .colorPrimary,
+                       size: 16,
+                       fontName: fontArialRegular)
+
+        lblCheckBox.style(text: txtDontShowAgain,
+                          color: .colorPrimaryDark,
+                          size: 13,
+                          fontName: fontArialBold)
+  
+        lblDialogStart.style(text: txtDialogStartHeartBeats,
+                             color: .white,
+                             size: 18,
+                             fontName: fontArialBold)
         
+        lblContinue.style(text: txtToContinue.lowercased(),
+                          color: .white,
+                          size: 26,
+                          fontName: fontArialBold)
+        lblRemoveFinger.style(text: txtRemoveFinger.uppercased(),
+                              color: .white,
+                              size: 20,
+                              fontName: fontArialRegular)
+        lblFindQuietPlace.style(text: txtFindQuietPlace.uppercased(),
+                                color: .white,
+                                size: 20,
+                                fontName: fontArialRegular)
+        
+        lblInstruction1.style(text: txtHeartBeatsInstruction1,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction2.style(text: txtHeartBeatsInstruction2,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction3.style(text: txtHeartBeatsInstruction3,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction4.style(text: txtHeartBeatsInstruction4,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction5.style(text: txtHeartBeatsInstruction5,
+                              color: .colorPrimaryDark,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction6.style(text: txtHeartBeatsInstruction6,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        lblInstruction7.style(text: txtHeartBeatsInstruction7,
+                              color: .white,
+                              size: 14,
+                              fontName: fontArialRegular)
+        
+        // buttons
         btnContinue.styleDialog(txt: txtContinue.uppercased())
-        btnEndHelp.style(txt: txtContinue.uppercased())
+        btnEndHelp.style(txt: txtContinue.uppercased(), size: 16)
         btnEndHelp.isHidden = true
         btnStart.styleDialog(txt: txtStart.uppercased())
         
+        // progress
         progress.clockwise = false
         progress.progressColors = [.colorPrimaryDark]
         progress.progressThickness = 0.5
@@ -141,6 +202,7 @@ class HeartBeatsViewController: UIViewController {
         progress.startAngle = 142.0
         progress.angle = 0.0
         
+        // checkBox
         checkBoxHelp.customizeCheckBox()
     }
     
@@ -156,9 +218,7 @@ class HeartBeatsViewController: UIViewController {
     }
     
     func initializeValues() {
-        lblBPM.text = ""
-        lblMessage.text = ""//"Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
-        //progress.angle = 0.0
+        //lblBPM.text = ""
         progress.stopAnimation()
     }
     
@@ -339,26 +399,13 @@ class HeartBeatsViewController: UIViewController {
                 let average = self.pulseDetector.getAverage()
                 let pulse = 60.0/average
                 if pulse == -60 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.lblBPM.alpha = 0
-                        
-                    }) { (finished) in
-                        self.lblBPM.isHidden = finished
-                        self.isPulse = false
-                        print("false")
-                        //self.checkProcess()
-                    }
+                    self.isPulse = false
+                    print("pulse false")
                 } else {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.lblBPM.alpha = 1.0
-                    }) { (_) in
-                        self.lblBPM.isHidden = false
-                        self.lblBPM.text = "\(lroundf(pulse))"
-                        self.bpm = Double(pulse)
-                        self.isPulse = true
-                        print("tryue")
-                        self.checkProcess()
-                    }
+                    self.bpm = Double(pulse)
+                    self.isPulse = true
+                    print("pulse true \(lroundf(pulse))")
+                    self.checkProcess()
                 }
             })
         }
@@ -413,7 +460,6 @@ extension HeartBeatsViewController {
         // Do a sanity check to see if a finger is placed over the camera
         if (hsv.1 > 0.5 && hsv.2 > 0.5) {
             DispatchQueue.main.async {
-                self.lblMessage.text = ""//"Ahora no muevas el dedo"//"Hold your index finger still"
                 self.toggleTorch(status: true)
                 if !self.measurementStartedFlag {
                     self.startMeasurement()
@@ -431,9 +477,6 @@ extension HeartBeatsViewController {
             validFrameCounter = 0
             measurementStartedFlag = false
             pulseDetector.reset()
-            DispatchQueue.main.async {
-                self.lblMessage.text = ""//"Cubre la cámara trasera hasta que la imagen se vuelva rojo oscuro"//"Cover the back camera until the image turns red"
-            }
         }
     }
 }
