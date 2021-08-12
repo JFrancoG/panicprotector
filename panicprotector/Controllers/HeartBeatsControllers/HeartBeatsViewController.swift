@@ -138,7 +138,7 @@ class HeartBeatsViewController: UIViewController {
 
         lblCheckBox.style(text: txtDontShowAgain,
                           color: .colorPrimaryDark,
-                          size: 13,
+                          size: 14,
                           fontName: fontArialBold)
   
         lblDialogStart.style(text: txtDialogStartHeartBeats,
