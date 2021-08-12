@@ -165,7 +165,7 @@ class BreathingViewController: UIViewController {
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction13.style(text: txtBreathInstruction13,
-                              color: .white,
+                              color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction21.style(text: txtBreathInstruction21,
@@ -173,7 +173,7 @@ class BreathingViewController: UIViewController {
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction22.style(text: txtBreathInstruction22,
-                              color: .white,
+                              color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction23.style(text: txtBreathInstruction23,
@@ -181,7 +181,7 @@ class BreathingViewController: UIViewController {
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction24.style(text: txtBreathInstruction24,
-                              color: .white,
+                              color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction31.style(text: txtBreathInstruction31,
@@ -189,7 +189,7 @@ class BreathingViewController: UIViewController {
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction32.style(text: txtBreathInstruction32,
-                              color: .white,
+                              color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction33.style(text: txtBreathInstruction33,
@@ -201,7 +201,7 @@ class BreathingViewController: UIViewController {
                               size: 14,
                               fontName: fontArialRegular)
         lblInstruction35.style(text: txtBreathInstruction35,
-                              color: .white,
+                              color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
         
