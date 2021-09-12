@@ -8,7 +8,9 @@
 import Foundation
 
 let txtStart = "txtStart".localized
+let txtAccept = "txtAccept".localized
 let txtTermsUsePrivacyPolicy = "txtTermsUsePrivacyPolicy".localized
+let txtPrivacyPolicy = "txtPrivacyPolicy".localized
 let txtHeartBeats = "txtHeartBeats".localized
 let txtBreathing = "txtBreathing".localized
 let txtContinue = "txtContinue".localized
@@ -40,3 +42,8 @@ let txtBreathInstruction32 = "txtBreathInstruction32".localized
 let txtBreathInstruction33 = "txtBreathInstruction33".localized
 let txtBreathInstruction34 = "txtBreathInstruction34".localized
 let txtBreathInstruction35 = "txtBreathInstruction35".localized
+let txtTerms1 = "txtTerms1".localized
+let txtTerms2 = "txtTerms2".localized
+let txtTerms3 = "txtTerms3".localized
+let txtTerms4 = "txtTerms4".localized
+let txtAcceptTerms = "txtAcceptTerms".localized

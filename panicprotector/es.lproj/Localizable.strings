@@ -7,7 +7,9 @@
 */
 
 "txtStart" = "Comenzar";
+"txtAccept" = "Aceptar";
 "txtTermsUsePrivacyPolicy" = "Condiciones de uso & Política de privacidad";
+"txtPrivacyPolicy" = "Política de privacidad";
 "txtHeartBeats" = "Pulsaciones";
 "txtBreathing" = "Respiración";
 "txtContinue" = "Seguir";
@@ -39,3 +41,8 @@
 "txtBreathInstruction33" = "Esperar a que la FIGURA descienda hasta el suelo.";
 "txtBreathInstruction34" = "FIN DE ACTIVIDAD 'RESPIRACIÓN'";
 "txtBreathInstruction35" = "Repetir hasta conseguir 5 puntos para pasar a la siguiente pantalla.";
+"txtTerms1" = "Te damos la bienvenida a panicPROTECTOR diseñado con funciones personalizadas que pueden servirte de ayuda ante un ataque de pánico.";
+"txtTerms2" = "VALORAMOS TU PROVACIDAD Y PROTEGEMOS TUS DATOS.";
+"txtTerms3" = "Con tu consentimiento, panicPROTECTOR utilizará la cámara y el micrófono para detectar tu nivel de estrés y tu exhalación respectivamente. No utilizaremos ni la cámara ni el micrófono para otros fines.";
+"txtTerms4" = "Utilizaremos estos datos para optimizar el rendimiento de la aplicación conforme a nuestra Política de Privacidad.";
+"txtAcceptTerms" = "Al hacer click en el botón ACEPTAR, acepto el procesamiento de mis datos con fines de medición.";

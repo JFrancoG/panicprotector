@@ -16,3 +16,4 @@ let toolbarHeight = CGFloat(64)
 let fontArialRegular = "ArialMT"
 let fontArialBold = "Arial-BoldMT"
 
+let urlPrivacyPolicy = "https://panicprotector.com/politica-privacidad"

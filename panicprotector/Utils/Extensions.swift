@@ -41,6 +41,16 @@ extension UILabel {
         self.textColor = color
         self.text = text
     }
+    
+    func addBottomBorderWithColor(color: UIColor, thickness: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0,
+                              y: frame.size.height - thickness,
+                              width: frame.size.width,
+                              height: thickness)
+        layer.addSublayer(border)
+    }
 }
 
 extension UIColor {
@@ -57,11 +67,12 @@ extension UIColor {
       return UIColor(red: 255/255, green: 138/255, blue: 101/255, alpha: 1.0)          // FF8A65
     }
     @nonobjc class var colorGreyTranslucid: UIColor {
-      return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+      return UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 0.5)
     }
     @nonobjc class var colorOrangeTranslucid: UIColor {
       return UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 0.5)
     }
+
 }
 
 extension UIButton {
@@ -72,6 +83,7 @@ extension UIButton {
         layer.masksToBounds = true
         setTitleColor(.colorPrimaryBackground, for: .normal)
         backgroundColor = .colorPrimaryDark
+        isUserInteractionEnabled = true
     }
     func styleDialog(txt: String){
         setTitle(txt, for: .normal)
@@ -79,6 +91,15 @@ extension UIButton {
         layer.masksToBounds = true
         setTitleColor(.colorPrimary, for: .normal)
         backgroundColor = .colorPrimaryDark
+    }
+    func disableStyle(txt: String, size: CGFloat = 20){
+        titleLabel!.font = UIFont(name: fontArialRegular, size: size)
+        setTitle(txt, for: .normal)
+        layer.cornerRadius = radius16
+        layer.masksToBounds = true
+        setTitleColor(.colorPrimaryBackground, for: .normal)
+        backgroundColor = .lightGray
+        isUserInteractionEnabled = false
     }
 }
 

@@ -76,3 +76,17 @@ func getPulsationLevel(pulse: Int) -> Int {
         return 6
     }
 }
+
+func openURL(strUrl: String) {
+    if let url = URL(string: strUrl),
+       UIApplication.shared.canOpenURL(url){
+        UIApplication.shared.open(url, options: [:]){
+            (opened) in
+            if opened {
+                print("URL opened")
+            }
+        }
+    } else {
+        print("Can't Open URL on simulator")
+    }
+}

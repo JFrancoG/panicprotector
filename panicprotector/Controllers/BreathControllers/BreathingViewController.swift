@@ -91,10 +91,13 @@ class BreathingViewController: UIViewController {
     
     var currentHelp = 1
     
+    var pulseLevel = 6
+    var success = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
+        pulseLevel = 6//readPulseLevelPreferences()
         customizeControls()
         checkHelp()
     }
@@ -281,7 +284,7 @@ class BreathingViewController: UIViewController {
         let originalTransform = view.transform
         var transY: CGFloat = 3.8
         if isBreathing {
-            transY = -4.5
+            transY = getTransY(level: pulseLevel, success: success)//-4.5
         } else if isBreathingOK {
             transY = 1.75
         } else {
@@ -308,6 +311,9 @@ class BreathingViewController: UIViewController {
                 isBreathingOK = true
                 lblBreathMessages.text = txtRest
             } else {
+                if viewGenius.frame.maxY >= limInfGeniusY {
+                    success = false
+                }
                 lblBreathMessages.text = txtBlow
                 let translatedTransform = originalTransform.translatedBy(x: 0.0, y: transY)
                 UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), animations: {
@@ -327,6 +333,36 @@ class BreathingViewController: UIViewController {
                         view.transform = translatedTransform
                     })
             }
+        }
+    }
+    
+    private func getTransY (level: Int, success: Bool) -> CGFloat {
+        pulseLevel = level
+        if !success {
+            pulseLevel = max(0, pulseLevel - 1)
+        }
+        
+        
+        print("pulseLevel: \(pulseLevel)")
+        
+        
+        switch pulseLevel {
+        case 0:
+            return -4.5
+        case 1:
+            return -4.1
+        case 2:
+            return -3.7
+        case 3:
+            return -3.3
+        case 4:
+            return -2.9
+        case 5:
+            return -2.5
+        case 6:
+            return -2.1
+        default:
+            return -4.5
         }
     }
     

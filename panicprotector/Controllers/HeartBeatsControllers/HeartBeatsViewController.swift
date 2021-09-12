@@ -72,7 +72,9 @@ class HeartBeatsViewController: UIViewController {
     var isPulse = false
     var isCanCheck = false
     
-    var pulsationLevel = 0
+    var pulseLevel = 0
+    
+    var partialPulseAverage = [Int]()
     
     private var validFrameCounter = 0
     private var heartRateManager: HeartRateManager!
@@ -88,6 +90,7 @@ class HeartBeatsViewController: UIViewController {
         super.viewDidLoad()
         initVideoCapture()
         customizeControls()
+        savePreferencesPulseLevel(level: pulseLevel)
         checkHelp()
     }
     
@@ -248,6 +251,9 @@ class HeartBeatsViewController: UIViewController {
                     delegate?.endProcessPulse()
                     resetValues()
                     // lblcontinue  = medición completa
+                    let trimAverage = trimPulseAverage()
+                    pulseLevel = getPulseLevel(value: trimAverage)
+                    savePreferencesPulseLevel(level: pulseLevel)
                     viewBackDialogContinue.isHidden = false
                 }
             }
@@ -287,6 +293,38 @@ class HeartBeatsViewController: UIViewController {
         btnHelp.isUserInteractionEnabled = false
     }
     
+    private func trimPulseAverage() -> Int {
+        var average = 80.0
+        let orderedPartialAverage = partialPulseAverage.sorted {
+            $0 < $1
+        }
+        let dropNumber = Int(orderedPartialAverage.count / 10)
+        var trimPartialAverage = orderedPartialAverage.dropFirst(dropNumber)
+        trimPartialAverage = trimPartialAverage.dropLast(dropNumber)
+
+        let sumArray = trimPartialAverage.reduce(0, +)
+        average = Double(sumArray) / Double(trimPartialAverage.count)
+
+        return Int(round(average))
+    }
+
+    private func getPulseLevel(value: Int) -> Int {
+        if value < 75 {
+            return 0
+        } else if value < 90 {
+            return 1
+        } else if value < 105 {
+            return 2
+        } else if value < 120 {
+            return 3
+        } else if value < 135 {
+            return 4
+        } else if value < 150 {
+            return 5
+        } else {
+            return 6
+        }
+    }
     
     @IBAction func actionCheckBox(_ sender: BEMCheckBox) {
         if sender.on {
@@ -405,6 +443,9 @@ class HeartBeatsViewController: UIViewController {
                     self.bpm = Double(pulse)
                     self.isPulse = true
                     print("pulse true \(lroundf(pulse))")
+                    self.partialPulseAverage.append(lroundf(pulse))
+                    print("num elem: \(self.partialPulseAverage.count)")
+                    
                     self.checkProcess()
                 }
             })

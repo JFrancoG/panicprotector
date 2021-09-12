@@ -10,16 +10,23 @@ import UIKit
 class StartViewController: UIViewController {
     
     
+    @IBOutlet weak var lblTerms: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     
-    @IBOutlet weak var btnTermsUsePrivacyPolicy: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         savePreferencesPulseLevel(level: 0)
-        
         customizeControls()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
+        if !readAcceptTermsPreferences(){
+            performSegue(withIdentifier: "segueTerms", sender: nil)
+        }
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -31,7 +38,11 @@ class StartViewController: UIViewController {
         
         view.backgroundColor = .colorPrimaryDark
         
-        btnTermsUsePrivacyPolicy.setTitle(txtTermsUsePrivacyPolicy, for: .normal)
+        lblTerms.style(text: txtTermsUsePrivacyPolicy,
+                       color: .colorGreyTranslucid,
+                       size: 14,
+                       fontName: fontArialRegular)
+
         btnStart.style(txt: txtStart.uppercased())
         
     }
@@ -39,11 +50,13 @@ class StartViewController: UIViewController {
     @IBAction func actionStart(_ sender: UIButton) {
         performSegue(withIdentifier: "segueTransition", sender: nil)
     }
-    
-    
-    @IBAction func actionTermsUsePrivacyPolicy(_ sender: UIButton) {
-        //performSegue(withIdentifier: "segueTermsUsePP", sender: nil)
+
+    @IBAction func actionTerms(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueTerms", sender: nil)
     }
     
+    @IBAction func unwindTerms(segue: UIStoryboardSegue) {
+        lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
+    }
     
 }

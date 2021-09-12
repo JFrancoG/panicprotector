@@ -7,6 +7,13 @@
 
 import Foundation
 
+func savePreferencesAcceptTerms(acceptTerms: Bool) {
+    UserDefaults.standard.set(acceptTerms, forKey: "acceptTerms")
+}
+func readAcceptTermsPreferences() -> Bool {
+    return UserDefaults.standard.bool(forKey: "acceptTerms")
+}
+
 func savePreferencesPulseLevel(level: Int) {
     UserDefaults.standard.set(level, forKey: "pulselevel")
 }
