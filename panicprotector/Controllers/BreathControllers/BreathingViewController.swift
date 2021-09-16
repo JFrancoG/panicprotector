@@ -63,7 +63,7 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewCloud1: UIView!
     @IBOutlet weak var viewCloud2: UIView!
     @IBOutlet weak var viewCountdown: UIView!
-    
+    @IBOutlet weak var imgCountdown: UIImageView!
     @IBOutlet weak var lblCount: UILabel!
     
     @IBOutlet weak var viewBackDialogEndProcess: UIView!
@@ -97,7 +97,7 @@ class BreathingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pulseLevel = 6//readPulseLevelPreferences()
+        pulseLevel = readPulseLevelPreferences() //6//readPulseLevelPreferences()
         customizeControls()
         checkHelp()
     }
@@ -227,10 +227,15 @@ class BreathingViewController: UIViewController {
     }
     
     private func animationCountdown() {
-        let arrCount = ["3","2","1","GO!"]
+        let arrImgCount = [UIImage(named: "countdown_3"),
+                           UIImage(named: "countdown_2"),
+                           UIImage(named: "countdown_1"),
+                           UIImage(named: "countdown_go")]
+        //let arrCount = ["3","2","1","GO!"]
         for i in 0...3 {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 1.0) {
-                self.lblCount.text = arrCount[i]
+                //self.lblCount.text = arrCount[i]
+                self.imgCountdown.image = arrImgCount[i]
                 self.animationCountdownUp(view: self.viewCountdown)
             }
         }

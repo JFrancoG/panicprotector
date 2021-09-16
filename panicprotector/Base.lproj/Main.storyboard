@@ -471,6 +471,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwW-La-3vj">
                                         <rect key="frame" x="191" y="100" width="32" height="20"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="countdown_3" translatesAutoresizingMaskIntoConstraints="NO" id="dMa-JQ-bFO">
+                                                <rect key="frame" x="-104" y="-54" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuy-6S-JKu">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="20"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -1001,6 +1005,7 @@
                         <outlet property="btnHelp" destination="F6c-54-JZV" id="NxG-sr-l7Z"/>
                         <outlet property="btnNextProcess" destination="u62-dZ-I0G" id="FrW-Ji-ut3"/>
                         <outlet property="checkBoxHelp" destination="EkS-3D-teh" id="s4Y-ko-g3Z"/>
+                        <outlet property="imgCountdown" destination="dMa-JQ-bFO" id="nWv-NK-MF6"/>
                         <outlet property="imgFloor" destination="8MN-2c-pFk" id="HmH-SX-NpV"/>
                         <outlet property="keypad" destination="fpe-ib-FNi" id="2kV-Ve-elZ"/>
                         <outlet property="lblBreathMessages" destination="4m3-Z9-7Vh" id="fOV-Ab-vZa"/>
@@ -1835,6 +1840,7 @@
         <image name="arrow_right_blue" width="400" height="400"/>
         <image name="cloud1" width="161.39999389648438" height="59.200000762939453"/>
         <image name="cloud2" width="158.39999389648438" height="56"/>
+        <image name="countdown_3" width="48.700000762939453" height="74.5"/>
         <image name="floor" width="407.5" height="158.19999694824219"/>
         <image name="genius" width="211" height="251.30000305175781"/>
         <image name="hand" width="325.20001220703125" height="416.70001220703125"/>
