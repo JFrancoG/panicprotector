@@ -41,8 +41,8 @@
 "txtBreathInstruction33" = "Wait for the FIGURE to descent to the bottom of the screen.";
 "txtBreathInstruction34" = "END OF BREATHING ACTIVITY";
 "txtBreathInstruction35" = "Repeat until you get 5 points to go to the next screen.";
-"txtTerms1" = "Welcome to panicPROTECTOR designed with customised functions that can help you in the event of a panic attack.";
-"txtTerms2" = "WE VALUE YOUR PRIVACY AND PROTECT YOUR DATA.";
-"txtTerms3" = "With your consent, panicPROTECTOR will use the camera and microphone to detect your stress level and your exhalation respectively. We will use neither the camera nor the microphone for other purposes.";
-"txtTerms4" = "We will use this data to optimise the performance of the application in accordance with our Privacy Policy.";
-"txtAcceptTerms" = "By clicking the ACCEPT button, I agree to the processing of my data for measurement purposes.";
+"txtTerms1" = "We welcome you to the panicPROTECTOR App which has been designed to provide you with customized features that may assist you during a panic attack.";
+"txtTerms2" = "WE VALUE YOUR PRIVACY AND HOW TO PROTECT YOUR DATA.";
+"txtTerms3" = "With your consent, panicPROTECTOR will use the camera and the microphone on your phone to process your stress level and your exhalation respectively. We will use neither the camera nor the microphone for any other purposes.";
+"txtTerms4" = "We will use such data to optimize the performance of the app, following our Privacy Policy.";
+"txtAcceptTerms" = "By clicking on the ACCEPT button, I agree to panicPROTECTOR processing my data for measurement purposes.";
