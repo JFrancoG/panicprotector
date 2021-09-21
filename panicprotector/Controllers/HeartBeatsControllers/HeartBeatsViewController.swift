@@ -214,7 +214,6 @@ class HeartBeatsViewController: UIViewController {
     }
     
     private func checkHelp() {
-        print("readNotShowPulseHelpPreferences(): \(readNotShowPulseHelpPreferences())")
         if readNotShowPulseHelpPreferences() {
             viewBackHelp.isHidden = true
             viewBackDialogStart.isHidden = false
@@ -225,7 +224,6 @@ class HeartBeatsViewController: UIViewController {
     }
     
     func initializeValues() {
-        //lblBPM.text = ""
         progress.stopAnimation()
     }
     

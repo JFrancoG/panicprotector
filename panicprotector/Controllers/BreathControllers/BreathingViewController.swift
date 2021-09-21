@@ -118,10 +118,11 @@ class BreathingViewController: UIViewController {
     }
     
     private func startProcessBreath(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.animationCountdown()
+        }
         animateCloud(view: viewCloud1)
         animateCloud(view: viewCloud2)
-        animationCountdown()
-        //limInfGeniusY = viewGenius.frame.maxY
     }
     
     private func customizeControls(){

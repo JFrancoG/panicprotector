@@ -1255,7 +1255,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="G6n-Rr-NFj" secondAttribute="trailing" id="7CD-l4-wS9"/>
-                                            <constraint firstAttribute="width" constant="72" id="CgU-aK-8Mu"/>
+                                            <constraint firstAttribute="width" constant="86" id="CgU-aK-8Mu"/>
                                             <constraint firstAttribute="bottom" secondItem="G6n-Rr-NFj" secondAttribute="bottom" id="GXC-ZK-mR1"/>
                                             <constraint firstItem="54a-js-KjM" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="Mve-ca-DFz"/>
                                             <constraint firstAttribute="bottom" secondItem="54a-js-KjM" secondAttribute="bottom" id="Nb6-WE-oQj"/>
@@ -1263,7 +1263,7 @@
                                             <constraint firstItem="G6n-Rr-NFj" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="cru-rY-Tbh"/>
                                             <constraint firstItem="54a-js-KjM" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="fjP-HF-NMv"/>
                                             <constraint firstAttribute="trailing" secondItem="54a-js-KjM" secondAttribute="trailing" id="p75-Fv-Ask"/>
-                                            <constraint firstAttribute="height" constant="72" id="whc-UL-eoZ"/>
+                                            <constraint firstAttribute="height" constant="86" id="whc-UL-eoZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
