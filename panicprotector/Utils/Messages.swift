@@ -20,6 +20,7 @@ let txtBlow = "txtBlow".localized
 let txtBreathAndBlow = "txtBreathAndBlow".localized
 let txtRest = "txtRest".localized
 let txtDontShowAgain = "txtDontShowAgain".localized
+let txtCompleteMeasure = "txtCompleteMeasure".localized
 let txtDialogStartHeartBeats = "txtDialogStartHeartBeats".localized
 let txtRemoveFinger = "txtRemoveFinger".localized
 let txtFindQuietPlace = "txtFindQuietPlace".localized

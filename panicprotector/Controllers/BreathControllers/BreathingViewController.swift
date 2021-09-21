@@ -64,10 +64,8 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewCloud2: UIView!
     @IBOutlet weak var viewCountdown: UIView!
     @IBOutlet weak var imgCountdown: UIImageView!
-    @IBOutlet weak var lblCount: UILabel!
     
     @IBOutlet weak var viewBackDialogEndProcess: UIView!
-    
     @IBOutlet weak var viewDialogEndProcess: UIView!
     @IBOutlet weak var lblContinue: UILabel!
     
@@ -94,6 +92,8 @@ class BreathingViewController: UIViewController {
     var pulseLevel = 6
     var success = true
     
+    var countdownIdx = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,6 +107,10 @@ class BreathingViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         if recorder != nil {
             recorder.stop()
@@ -117,7 +121,7 @@ class BreathingViewController: UIViewController {
         animateCloud(view: viewCloud1)
         animateCloud(view: viewCloud2)
         animationCountdown()
-        limInfGeniusY = viewGenius.frame.maxY
+        //limInfGeniusY = viewGenius.frame.maxY
     }
     
     private func customizeControls(){
@@ -227,14 +231,14 @@ class BreathingViewController: UIViewController {
     }
     
     private func animationCountdown() {
+        viewCountdown.isHidden = false
         let arrImgCount = [UIImage(named: "countdown_3"),
                            UIImage(named: "countdown_2"),
                            UIImage(named: "countdown_1"),
                            UIImage(named: "countdown_go")]
-        //let arrCount = ["3","2","1","GO!"]
         for i in 0...3 {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 1.0) {
-                //self.lblCount.text = arrCount[i]
+                self.countdownIdx = i
                 self.imgCountdown.image = arrImgCount[i]
                 self.animationCountdownUp(view: self.viewCountdown)
             }
@@ -242,11 +246,10 @@ class BreathingViewController: UIViewController {
     }
     
     private func animationCountdownUp(view: UIView){
-        viewCountdown.isHidden = false
         let originalTransform = view.transform
-        let scaledTransform = originalTransform.scaledBy(x: 8.0, y: 8.0)
+        let scaledTransform = originalTransform.scaledBy(x: 10.0, y: 10.0)
 
-        UIView.animate(withDuration: 0.8, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             view.transform = scaledTransform
         }, completion: {_ in
             self.animationCountdownDown(view: self.viewCountdown)
@@ -254,13 +257,18 @@ class BreathingViewController: UIViewController {
     }
     
     private func animationCountdownDown(view: UIView){
+        var transform: CGFloat = 0.1
+        if self.countdownIdx == 3 {
+            transform = 0.01
+        }
         let originalTransform = view.transform
-        let scaledTransform = originalTransform.scaledBy(x: 0.1, y: 0.1)
-        UIView.animate(withDuration: TimeInterval(CGFloat(0.1)), delay: 0.1, animations: {
+        let scaledTransform = originalTransform.scaledBy(x: transform, y: transform)
+
+        UIView.animate(withDuration: 0.06, delay: 0.2, animations: {
                 view.transform = scaledTransform
         }, completion: { _ in
-            self.viewCountdown.isHidden = true
-            if self.lblCount.text == "GO!" {
+            
+            if self.countdownIdx == 3 {
                 self.lblBreathMessages.isHidden = false
                 self.setupAudio()
             }

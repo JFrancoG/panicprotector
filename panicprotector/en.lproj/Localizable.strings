@@ -19,6 +19,7 @@
 "txtBreathAndBlow" = "Take deep breath and blow";
 "txtRest" = "Rest";
 "txtDontShowAgain" = "do not show again";
+"txtCompleteMeasure" = "Measurement completed!";
 "txtDialogStartHeartBeats" = "Is your finger covering the lens and flash?\nIf so,\nPRESS START.";
 "txtRemoveFinger" = "Remove your finger from the camera and switch to the breathing screen.";
 "txtFindQuietPlace" = "If possible, find a quiet place to avoid interference with your breathing signal.";

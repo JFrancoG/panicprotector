@@ -14,10 +14,7 @@ enum StateProcess {
 }
 
 class TransitionViewController: UIViewController {
-    
-    
-    
-    
+
     var state = StateProcess.heartbeats
 
     override func viewDidLoad() {
@@ -30,8 +27,13 @@ class TransitionViewController: UIViewController {
         checkState()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private func checkState() {
         if state == .heartbeats {
+            //performSegue(withIdentifier: "segueBreath", sender: nil)
             performSegue(withIdentifier: "segueHeartBeats", sender: nil)
         } else {
             //dismiss(animated: true, completion: nil)

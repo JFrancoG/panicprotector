@@ -98,6 +98,10 @@ class HeartBeatsViewController: UIViewController {
         //startProcessHeartBeats()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         resetValues()
@@ -250,7 +254,7 @@ class HeartBeatsViewController: UIViewController {
                 } else {
                     delegate?.endProcessPulse()
                     resetValues()
-                    // lblcontinue  = medición completa
+                    lblContinue.text = txtCompleteMeasure
                     let trimAverage = trimPulseAverage()
                     pulseLevel = getPulseLevel(value: trimAverage)
                     savePreferencesPulseLevel(level: pulseLevel)
