@@ -1242,28 +1242,28 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-5Q-BXd">
-                                        <rect key="frame" x="197" y="307" width="72" height="72"/>
+                                        <rect key="frame" x="189" y="301" width="88" height="88"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54a-js-KjM">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visor_heart" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-Rr-NFj">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="G6n-Rr-NFj" secondAttribute="trailing" id="7CD-l4-wS9"/>
+                                            <constraint firstItem="54a-js-KjM" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="Bol-25-3L5"/>
                                             <constraint firstAttribute="width" constant="88" id="CgU-aK-8Mu"/>
                                             <constraint firstAttribute="bottom" secondItem="G6n-Rr-NFj" secondAttribute="bottom" id="GXC-ZK-mR1"/>
-                                            <constraint firstItem="54a-js-KjM" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="Mve-ca-DFz"/>
-                                            <constraint firstAttribute="bottom" secondItem="54a-js-KjM" secondAttribute="bottom" id="Nb6-WE-oQj"/>
                                             <constraint firstItem="G6n-Rr-NFj" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="VH0-u9-ZWT"/>
                                             <constraint firstItem="G6n-Rr-NFj" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="cru-rY-Tbh"/>
-                                            <constraint firstItem="54a-js-KjM" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="fjP-HF-NMv"/>
-                                            <constraint firstAttribute="trailing" secondItem="54a-js-KjM" secondAttribute="trailing" id="p75-Fv-Ask"/>
+                                            <constraint firstItem="54a-js-KjM" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="fMm-dF-wEu"/>
+                                            <constraint firstAttribute="trailing" secondItem="54a-js-KjM" secondAttribute="trailing" id="mQ1-oG-rRj"/>
                                             <constraint firstAttribute="height" constant="88" id="whc-UL-eoZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="54a-js-KjM" secondAttribute="bottom" id="xa9-EH-Y78"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1281,7 +1281,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-3N-n2G">
-                                        <rect key="frame" x="47" y="228" width="320" height="440"/>
+                                        <rect key="frame" x="47" y="218" width="320" height="460"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="continuar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-8F-4D0">
                                                 <rect key="frame" x="60" y="32" width="200" height="31.5"/>
@@ -1311,7 +1311,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-YE-hEs">
-                                                <rect key="frame" x="20" y="360" width="280" height="48"/>
+                                                <rect key="frame" x="20" y="380" width="280" height="48"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="280" id="QgA-MT-Sao"/>
