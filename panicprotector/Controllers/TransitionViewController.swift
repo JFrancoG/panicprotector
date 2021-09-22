@@ -33,8 +33,8 @@ class TransitionViewController: UIViewController {
     
     private func checkState() {
         if state == .heartbeats {
-            //performSegue(withIdentifier: "segueBreath", sender: nil)
-            performSegue(withIdentifier: "segueHeartBeats", sender: nil)
+            performSegue(withIdentifier: "segueBreath", sender: nil)
+            //performSegue(withIdentifier: "segueHeartBeats", sender: nil)
         } else {
             //dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "segueBreath", sender: nil)
