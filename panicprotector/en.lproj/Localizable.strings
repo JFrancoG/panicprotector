@@ -20,9 +20,16 @@
 "txtRest" = "Rest";
 "txtDontShowAgain" = "do not show again";
 "txtCompleteMeasure" = "Measurement completed!";
+"txtRestartCycle" = "Restart cycle";
 "txtDialogStartHeartBeats" = "Is your finger covering the lens and flash?\nIf so,\nPRESS START.";
 "txtRemoveFinger" = "Remove your finger from the camera and switch to the breathing screen.";
 "txtFindQuietPlace" = "If possible, find a quiet place to avoid interference with your breathing signal.";
+"txtIncorrectMeasurement" = "YOUR CALMNESS LEVEL WILL IMPROVE BY EXERCISING YOUR BREATHING.";
+"txtCalmLevels" = "CALMNESS LEVEL:\n1 LOW\n2 MEDIUM\n3 HIGH\n4 EXCELLENT";
+"txtCalmLevel1" = "YOUR CALMNESS LEVEL = 1\nYOU CAN DO IT! TRY AGAIN!";
+"txtCalmLevel2" = "YOUR CALMNESS LEVEL = 2\nHEART RATE HAS DECREASED!";
+"txtCalmLevel3" = "YOUR CALMNESS LEVEL = 3\nALMOST THERE!\nKEEP BREATHING!";
+"txtCalmLevel4" = "YOUR CALMNESS LEVEL = 4\nGOAL ACHIEVED!";
 "txtHeartBeatsInstruction1" = "COVER BOTH - the LENS and the FLASH of your smartphone - using only ONE FINGER";
 "txtHeartBeatsInstruction2" = "Verify that the part of the finger touching the FLASH turns RED";
 "txtHeartBeatsInstruction3" = "Wait for the HEART to turn RED and beat";

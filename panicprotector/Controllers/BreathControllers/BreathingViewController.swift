@@ -90,6 +90,7 @@ class BreathingViewController: UIViewController {
     var currentHelp = 1
     
     var pulseLevel = 6
+    var state = StateProcess.breath
     var success = true
     
     var countdownIdx = 0
@@ -118,6 +119,7 @@ class BreathingViewController: UIViewController {
     }
     
     private func startProcessBreath(){
+        //limInfGeniusY = viewGenius.frame.maxX
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.animationCountdown()
         }
@@ -300,7 +302,7 @@ class BreathingViewController: UIViewController {
         if isBreathing {
             transY = getTransY(level: pulseLevel, success: success)//-4.5
         } else if isBreathingOK {
-            transY = 1.75
+            transY = 2.0
         } else {
             transY = 3.8
         }
@@ -527,6 +529,15 @@ class BreathingViewController: UIViewController {
     }
     
     @IBAction func actionFinaliseProcess(_ sender: UIButton) {
+        state = .heartbeats2
         performSegue(withIdentifier: "unwindBreath", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindBreath"{
+            let destinationVC = segue.destination as! TransitionViewController
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.state = state
+        }
     }
 }

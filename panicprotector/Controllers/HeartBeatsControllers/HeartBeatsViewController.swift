@@ -35,6 +35,19 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var lblFindQuietPlace: UILabel!
     @IBOutlet weak var btnContinue: UIButton!
     
+    @IBOutlet weak var viewBackMeasurement: UIView!
+    @IBOutlet weak var viewCorrectMeasure: UIView!
+    @IBOutlet weak var lblCompleteMeasure: UILabel!
+    @IBOutlet weak var lblCalmLevels: UILabel!
+    @IBOutlet weak var viewResult: UIView!
+    @IBOutlet weak var lblCalmLevel: UILabel!
+    @IBOutlet weak var btnRestartCycleCorrect: UIButton!
+    
+    @IBOutlet weak var viewIncorrectMeasure: UIView!
+    @IBOutlet weak var lblIncorrectMeasureTitle: UILabel!
+    @IBOutlet weak var lblIncorrectMeasureContent: UILabel!
+    @IBOutlet weak var btnRestartCycleIncorrect: UIButton!
+    
     @IBOutlet weak var viewBackDialogStart: UIView!
     @IBOutlet weak var viewDialogStart: UIView!
     @IBOutlet weak var lblDialogStart: UILabel!
@@ -72,7 +85,8 @@ class HeartBeatsViewController: UIViewController {
     var isPulse = false
     var isCanCheck = false
     
-    var pulseLevel = 0
+    var pulseLevel = -1
+    var state = StateProcess.heartbeats
     
     var partialPulseAverage = [Int]()
     
@@ -90,7 +104,7 @@ class HeartBeatsViewController: UIViewController {
         super.viewDidLoad()
         initVideoCapture()
         customizeControls()
-        savePreferencesPulseLevel(level: pulseLevel)
+        //savePreferencesPulseLevel(level: pulseLevel)
         checkHelp()
     }
     
@@ -129,6 +143,7 @@ class HeartBeatsViewController: UIViewController {
         viewBackground.backgroundColor = .colorPrimaryBackground
         viewBackDialogContinue.backgroundColor = .colorGreyTranslucid
         viewBackDialogContinue.isHidden = true
+        viewDialogContinue.backgroundColor = .colorPrimary
         viewBackHelp.backgroundColor = .colorGreyTranslucid
         viewHelp2.isHidden = true
         viewHelp3.isHidden = true
@@ -136,6 +151,14 @@ class HeartBeatsViewController: UIViewController {
         viewBackCheckBox.isHidden = true
         viewBackDialogStart.backgroundColor = .colorGreyTranslucid
         viewBackDialogStart.isHidden = true
+        viewDialogStart.backgroundColor = .colorPrimary
+        viewBackMeasurement.backgroundColor = .colorGreyTranslucid
+        viewBackMeasurement.isHidden = true
+        viewCorrectMeasure.isHidden = true
+        viewCorrectMeasure.backgroundColor = .colorPrimary
+        viewIncorrectMeasure.isHidden = true
+        viewIncorrectMeasure.backgroundColor = .colorPrimary
+        viewResult.backgroundColor = .colorGreenCalm
 
         // labels
         lblTitle.style(text: txtHeartBeats.uppercased(),
@@ -165,7 +188,26 @@ class HeartBeatsViewController: UIViewController {
                                 color: .white,
                                 size: 20,
                                 fontName: fontArialRegular)
-        
+        lblCompleteMeasure.style(text: txtCompleteMeasure,
+                                 color: .white,
+                                 size: 26,
+                                 fontName: fontArialBold)
+        lblCalmLevels.style(text: txtCalmLevels,
+                            color: .white,
+                            size: 20,
+                            fontName: fontArialRegular)
+        lblCalmLevel.style(text: txtCalmLevel4,
+                           color: .white,
+                           size: 20,
+                           fontName: fontArialRegular)
+        lblIncorrectMeasureTitle.style(text: txtToContinue.lowercased(),
+                                       color: .white,
+                                       size: 26,
+                                       fontName: fontArialBold)
+        lblIncorrectMeasureContent.style(text: txtIncorrectMeasurement,
+                                         color: .white,
+                                         size: 20,
+                                         fontName: fontArialRegular)
         lblInstruction1.style(text: txtHeartBeatsInstruction1,
                               color: .white,
                               size: 14,
@@ -200,6 +242,8 @@ class HeartBeatsViewController: UIViewController {
         btnEndHelp.style(txt: txtContinue.uppercased(), size: 16)
         btnEndHelp.isHidden = true
         btnStart.styleDialog(txt: txtStart.uppercased())
+        btnRestartCycleCorrect.styleDialog(txt: txtRestartCycle.uppercased())
+        btnRestartCycleIncorrect.styleDialog(txt: txtRestartCycle.uppercased())
         
         // progress
         progress.clockwise = false
@@ -252,11 +296,27 @@ class HeartBeatsViewController: UIViewController {
                 } else {
                     delegate?.endProcessPulse()
                     resetValues()
-                    lblContinue.text = txtCompleteMeasure
-                    let trimAverage = trimPulseAverage()
-                    pulseLevel = getPulseLevel(value: trimAverage)
-                    savePreferencesPulseLevel(level: pulseLevel)
-                    viewBackDialogContinue.isHidden = false
+                    if state == .heartbeats {
+                        lblContinue.text = txtCompleteMeasure
+                        let trimAverage = trimPulseAverage()
+                        pulseLevel = getPulseLevel(value: trimAverage)
+                        savePreferencesPulseLevel(level: pulseLevel)
+                        viewBackDialogContinue.isHidden = false
+                    } else {
+                        let trimAverage = trimPulseAverage()
+                        pulseLevel = getPulseLevel(value: trimAverage)
+                        let previousLevel = readPulseLevelPreferences()
+                        viewBackMeasurement.isHidden = false
+                        if previousLevel == -1 {
+                            viewIncorrectMeasure.isHidden = false
+                            
+                            
+                        } else {
+                            viewCorrectMeasure.isHidden = false
+                            
+                            
+                        }
+                    }
                 }
             }
             if isPulse {
@@ -328,6 +388,14 @@ class HeartBeatsViewController: UIViewController {
         }
     }
     
+    private func checkState() {
+        if state == .heartbeats {
+            state = .breath
+        } else {
+            state = .end
+        }
+    }
+    
     @IBAction func actionCheckBox(_ sender: BEMCheckBox) {
         if sender.on {
             savePreferencesNotShowPulseHelp(notshow: true)
@@ -343,12 +411,17 @@ class HeartBeatsViewController: UIViewController {
     }
     
     @IBAction func actionContinue(_ sender: UIButton) {
+        checkState()
         performSegue(withIdentifier: "unwindPulse", sender: nil)
     }
     
     @IBAction func actionNextProcess(_ sender: UIButton) {
-        // lblContinue = continuar
-        viewBackDialogContinue.isHidden = false
+        if state == .heartbeats {
+            viewBackDialogContinue.isHidden = false
+        } else {
+            viewBackMeasurement.isHidden = false
+            viewIncorrectMeasure.isHidden = false
+        }
     }
     
     @IBAction func actionPreviousHelp(_ sender: UIButton) {
@@ -403,6 +476,28 @@ class HeartBeatsViewController: UIViewController {
     @IBAction func actionStart(_ sender: UIButton) {
         viewBackDialogStart.isHidden = true
         startProcessHeartBeats()
+    }
+    
+    @IBAction func actionRestartCycleCorrect(_ sender: UIButton) {
+        viewBackMeasurement.isHidden = true
+        viewCorrectMeasure.isHidden = true
+        state = .end
+        performSegue(withIdentifier: "unwindPulse", sender: nil)
+    }
+    
+    @IBAction func actionRestartCycleIncorrect(_ sender: UIButton) {
+        viewBackMeasurement.isHidden = true
+        viewIncorrectMeasure.isHidden = true
+        state = .end
+        performSegue(withIdentifier: "unwindPulse", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindPulse"{
+            let destinationVC = segue.destination as! TransitionViewController
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.state = state
+        }
     }
     
     

@@ -20,9 +20,16 @@
 "txtRest" = "Erhole dich";
 "txtDontShowAgain" = "nicht mehr zeigen";
 "txtCompleteMeasure" = "Messung komplett!";
+"txtRestartCycle" = "Zyklus neu starten";
 "txtDialogStartHeartBeats" = "Ist dein Finger auf dem Objektiv und dem Blitzlicht?\nWenn ja,\nDRÜCKE START";
 "txtRemoveFinger" = "Entferne den Finger von der Kamera und Schalte auf Atmungsbildschirm um.";
 "txtFindQuietPlace" = "Wenn Möglich, Suche dir einen ruhigen Ort, um Störungen des Atemsignals zu vermeiden.";
+"txtIncorrectMeasurement" = "DURCH ATEMÜBUNGEN WIRD SICH DEIN RUHE LEVEL VERBESSERN.";
+"txtCalmLevels" = "RUHE LEVEL:\n1 NIEDRIG\n2 MEDIUM\n3 HOCH\n4 HERVORRAGEND";
+"txtCalmLevel1" = "DEIN RUHE LEVEL = 1\nNICHT AUFGEBEN!\nVERSUCHE ES NOCH MAL!";
+"txtCalmLevel2" = "DEIN RUHE LEVEL = 2\nFAST GESCHAFFT!\nDIE HERZFREQUENZ IST LANGSAMER GEWORDEN!";
+"txtCalmLevel3" = "DEIN RUHE LEVEL = 3\nZIEL IN REICHWEITE!";
+"txtCalmLevel4" = "DEIN RUHE LEVEL = 4\nZIEL ERREICHT!";
 "txtHeartBeatsInstruction1" = "DECKE das OBJEKTIV und das BLITZLICHT deines Smartphones mit EINEM FINGER gleichzeitig ab";
 "txtHeartBeatsInstruction2" = "Überprüfe, ob der Teil des Fingers, der auf dem Blitz aufliegt, rot wird";
 "txtHeartBeatsInstruction3" = "Warte bis das HERZ ROT wird und anfängt zu schlagen";

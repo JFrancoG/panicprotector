@@ -11,6 +11,8 @@ import UIKit
 enum StateProcess {
     case heartbeats
     case breath
+    case heartbeats2
+    case end
 }
 
 class TransitionViewController: UIViewController {
@@ -33,19 +35,33 @@ class TransitionViewController: UIViewController {
     
     private func checkState() {
         if state == .heartbeats {
+            performSegue(withIdentifier: "segueHeartBeats", sender: nil)
+        } else if state == .breath {
             performSegue(withIdentifier: "segueBreath", sender: nil)
-            //performSegue(withIdentifier: "segueHeartBeats", sender: nil)
-        } else {
-            //dismiss(animated: true, completion: nil)
-            performSegue(withIdentifier: "segueBreath", sender: nil)
+        } else if state == .heartbeats2 {
+            performSegue(withIdentifier: "segueHeartBeats", sender: nil)
+        } else if state == .end {
+            dismiss(animated: true, completion: nil)
         }
     }
 
     @IBAction func unwindFromHeartBeats(segue: UIStoryboardSegue) {
-        state = StateProcess.breath
+        
     }
     
     @IBAction func unwindFromBreath(segue: UIStoryboardSegue) {
-        state = StateProcess.heartbeats
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueHeartBeats"{
+            let destinationVC = segue.destination as! HeartBeatsViewController
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.state = state
+        } else if segue.identifier == "segueBreath"{
+            let destinationVC = segue.destination as! BreathingViewController
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.state = state
+        }
     }
 }

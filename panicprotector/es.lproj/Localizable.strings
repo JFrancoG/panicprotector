@@ -20,9 +20,16 @@
 "txtRest" = "Tiempo de espera";
 "txtDontShowAgain" = "no volver a mostrar";
 "txtCompleteMeasure" = "¡Medición completa!";
+"txtRestartCycle" = "Reiniciar ciclo";
 "txtDialogStartHeartBeats" = "¿Está el dedo tapando el objetivo y el flash?\nSi es así,\nPULSA COMENZAR.";
 "txtRemoveFinger" = "Retira el dedo de la cámara y pasa a la pantalla de respiración.";
 "txtFindQuietPlace" = "A ser posible, busca un sitio tranquilo para evitar interferencias con la señal de respiración.";
+"txtIncorrectMeasurement" = "TU NIVEL DE CALMA MEJORARÁ EJERCITANDO LA RESPIRACIÓN.";
+"txtCalmLevels" = "NIVEL DE CALMA:\n1 BAJO\n2 MEDIO\n3 ALTO\n4 EXCELENTE";
+"txtCalmLevel1" = "TU NIVEL DE CALMA = 1\n¡TÚ PUEDES LOGRARLO!\n¡INTÉNTALO DE NUEVO!";
+"txtCalmLevel2" = "TU NIVEL DE CALMA = 2\n¡CASI LO HAS CONSEGUIDO!\n¡LA FRECUENCIA CARDIACA SE HA REDUCIDO!";
+"txtCalmLevel3" = "TU NIVEL DE CALMA = 3\n¡ESTÁS MUY CERCA DEL OBJETIVO!";
+"txtCalmLevel4" = "TU NIVEL DE CALMA = 4\n¡OBJETIVO ALCANZADO!";
 "txtHeartBeatsInstruction1" = "TAPAR con UN SOLO DEDO el OBJETIVO y el FLASH de tu smartphone al mismo tiempo";
 "txtHeartBeatsInstruction2" = "Comprobar que la parte del dedo apoyada en el FLASH se vuelve ROJA";
 "txtHeartBeatsInstruction3" = "Esperar a que el CORAZÓN se vuelva ROJO y palpite";
