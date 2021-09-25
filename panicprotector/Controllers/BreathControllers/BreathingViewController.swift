@@ -45,6 +45,8 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var lblInstruction35: UILabel!
     
     @IBOutlet weak var viewGenius: UIView!
+    @IBOutlet weak var constrainWidthGenius: NSLayoutConstraint!
+    @IBOutlet weak var constrainHeightGenius: NSLayoutConstraint!
     
     @IBOutlet weak var lblBreathMessages: UILabel!
     @IBOutlet weak var viewBreath1: UIView!
@@ -64,6 +66,8 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewCloud2: UIView!
     @IBOutlet weak var viewCountdown: UIView!
     @IBOutlet weak var imgCountdown: UIImageView!
+    @IBOutlet weak var constrainWidthCountdown: NSLayoutConstraint!
+    @IBOutlet weak var constrainHeightCountdown: NSLayoutConstraint!
     
     @IBOutlet weak var viewBackDialogEndProcess: UIView!
     @IBOutlet weak var viewDialogEndProcess: UIView!
@@ -81,6 +85,11 @@ class BreathingViewController: UIViewController {
     
     var limInfGeniusY: CGFloat = 500.0
     var limSupGeniusY: CGFloat = 205.0
+    var weight = 1.0
+    var widthGenius = 177.0
+    var heightGenius = 200.0
+    var widthCountdown = 22.0
+    var heightCountdown = 8.0
     
     var orangePoints = 0
     
@@ -97,7 +106,6 @@ class BreathingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pulseLevel = readPulseLevelPreferences() //6//readPulseLevelPreferences()
         customizeControls()
         checkHelp()
@@ -105,7 +113,11 @@ class BreathingViewController: UIViewController {
     
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        setMeasures()
+        print("getLimInfGenius(): \(getLimInfGenius())")
+        print("viewGenius.frame.minY: \(viewGenius.frame.minY)")
+        print("viewGenius.frame.maxY: \(viewGenius.frame.maxY)")
+        print("")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -118,8 +130,31 @@ class BreathingViewController: UIViewController {
         }
     }
     
+    private func setMeasures(){
+        limInfGeniusY = viewGenius.frame.maxY
+        weight = limInfGeniusY / 500.0
+        print("weight: \(weight)")
+        print("")
+        if weight != 1 {
+            applyWeight()
+        }
+    }
+    
+    private func applyWeight() {
+        let newWidthGenius = widthGenius * weight
+        let newHeightGenius = heightGenius * weight
+        constrainWidthGenius.constant = newWidthGenius
+        constrainHeightGenius.constant = newHeightGenius
+        limSupGeniusY = newHeightGenius + 5
+        
+        constrainWidthCountdown.constant = widthCountdown * weight
+        constrainHeightCountdown.constant = heightCountdown * weight
+        
+        
+        
+    }
+    
     private func startProcessBreath(){
-        //limInfGeniusY = viewGenius.frame.maxX
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.animationCountdown()
         }
@@ -298,13 +333,13 @@ class BreathingViewController: UIViewController {
     private func animateGenius(view: UIView, isBreathing: Bool){
 
         let originalTransform = view.transform
-        var transY: CGFloat = 3.8
+        var transY: CGFloat = 3.8 * weight
         if isBreathing {
             transY = getTransY(level: pulseLevel, success: success)//-4.5
         } else if isBreathingOK {
-            transY = 2.0
+            transY = 2.0 * weight
         } else {
-            transY = 3.8
+            transY = 3.8 * weight
         }
         
         print("limSupGeniusY: \(limSupGeniusY)")
@@ -357,28 +392,26 @@ class BreathingViewController: UIViewController {
         if !success {
             pulseLevel = max(0, pulseLevel - 1)
         }
-        
-        
+    
         print("pulseLevel: \(pulseLevel)")
-        
         
         switch pulseLevel {
         case 0:
-            return -4.5
+            return -4.5 * weight
         case 1:
-            return -4.1
+            return -4.1 * weight
         case 2:
-            return -3.7
+            return -3.7 * weight
         case 3:
-            return -3.3
+            return -3.3 * weight
         case 4:
-            return -2.9
+            return -2.9 * weight
         case 5:
-            return -2.5
+            return -2.5 * weight
         case 6:
-            return -2.1
+            return -2.1 * weight
         default:
-            return -4.5
+            return -4.5 * weight
         }
     }
     

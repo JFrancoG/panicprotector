@@ -59,6 +59,42 @@ func getFloatStatusBarHeight() -> CGFloat {
     }
 }
 
+func getLimInfGenius() -> Int {
+    switch UIScreen.main.nativeBounds.height {
+    case 1136:
+        //print("iPhone 5 or 5S or 5C")
+        return 314
+    case 1334:
+        //print("iPhone 6/6S/7/8/SE(2ndEd.)")
+        return 413
+    case 1920, 2208:
+        //print("iPhone 6+/6S+/7+/8+")
+        return 482
+    case 2436:
+        print("X, Xs, 11 Pro")
+        return 500
+    case 2688:
+        print("Xs Max, 11 Pro Max")
+        return 584
+    case 1792:
+        print("Xr, 11") // problema
+        return 500
+    case 2340:
+        print("12 mini, 13 mini")
+        return 494
+    case 2532:
+        print("12, 12 Pro, 13, 13 Pro")
+        return 529
+    case 2778:
+        print("12 Pro Max, 13 Pro Max")
+        return 584
+    default:
+        print("unknown")
+        print("height Device: \(UIScreen.main.nativeBounds.height)")
+        return 500
+    }
+}
+
 func getPulsationLevel(pulse: Int) -> Int {
     if pulse < 75 {
         return 0
