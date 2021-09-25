@@ -1021,8 +1021,12 @@
                         <outlet property="btnHelp" destination="F6c-54-JZV" id="NxG-sr-l7Z"/>
                         <outlet property="btnNextProcess" destination="u62-dZ-I0G" id="FrW-Ji-ut3"/>
                         <outlet property="checkBoxHelp" destination="EkS-3D-teh" id="s4Y-ko-g3Z"/>
+                        <outlet property="constrainHeightCloud1" destination="saJ-9E-wCa" id="7Eq-TQ-Vqs"/>
+                        <outlet property="constrainHeightCloud2" destination="NKd-2e-mWV" id="jZI-aw-Ppk"/>
                         <outlet property="constrainHeightCountdown" destination="wgP-7j-Vvv" id="5cv-I1-1av"/>
                         <outlet property="constrainHeightGenius" destination="Nem-yv-Pvm" id="IoF-gz-CJe"/>
+                        <outlet property="constrainWidthCloud1" destination="66G-3Z-9DY" id="Q8T-3N-CO4"/>
+                        <outlet property="constrainWidthCloud2" destination="RBK-xy-KCO" id="hIZ-c2-tW0"/>
                         <outlet property="constrainWidthCountdown" destination="lZo-9X-bSP" id="A4j-D5-wI3"/>
                         <outlet property="constrainWidthGenius" destination="9sf-Y5-hMZ" id="SNl-ra-rB0"/>
                         <outlet property="imgCountdown" destination="dMa-JQ-bFO" id="nWv-NK-MF6"/>

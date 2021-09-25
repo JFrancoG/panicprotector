@@ -64,6 +64,11 @@ class BreathingViewController: UIViewController {
     
     @IBOutlet weak var viewCloud1: UIView!
     @IBOutlet weak var viewCloud2: UIView!
+    @IBOutlet weak var constrainWidthCloud1: NSLayoutConstraint!
+    @IBOutlet weak var constrainHeightCloud1: NSLayoutConstraint!
+    @IBOutlet weak var constrainWidthCloud2: NSLayoutConstraint!
+    @IBOutlet weak var constrainHeightCloud2: NSLayoutConstraint!
+    
     @IBOutlet weak var viewCountdown: UIView!
     @IBOutlet weak var imgCountdown: UIImageView!
     @IBOutlet weak var constrainWidthCountdown: NSLayoutConstraint!
@@ -88,6 +93,8 @@ class BreathingViewController: UIViewController {
     var heightGenius = 180.0
     var widthCountdown = 22.0
     var heightCountdown = 8.0
+    var widthCloud = 170.0
+    var heightCloud = 80.0
     
     var orangePoints = 0
     
@@ -147,14 +154,19 @@ class BreathingViewController: UIViewController {
         constrainWidthCountdown.constant = widthCountdown * weight
         constrainHeightCountdown.constant = heightCountdown * weight
 
+        constrainWidthCloud1.constant = widthCloud * weight
+        constrainHeightCloud1.constant = heightCloud * weight
+        constrainWidthCloud2.constant = widthCloud * weight
+        constrainHeightCloud2.constant = heightCloud * weight
     }
     
     private func startProcessBreath(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.animationCountdown()
+            self.animateCloud(view: self.viewCloud1)
+            self.animateCloud(view: self.viewCloud2)
         }
-        animateCloud(view: viewCloud1)
-        animateCloud(view: viewCloud2)
+        
     }
     
     private func customizeControls(){
