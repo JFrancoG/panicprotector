@@ -9,6 +9,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    @IBOutlet weak var viewBackground: UIView!
     
     @IBOutlet weak var lblTerms: UILabel!
     @IBOutlet weak var btnStart: UIButton!
@@ -37,6 +38,7 @@ class StartViewController: UIViewController {
     private func customizeControls() {
         
         view.backgroundColor = .colorPrimaryDark
+        viewBackground.backgroundColor = .colorPrimaryBackground
         
         lblTerms.style(text: txtTermsUsePrivacyPolicy,
                        color: .colorGreyTranslucid,

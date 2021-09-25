@@ -89,6 +89,7 @@ extension UIButton {
         isUserInteractionEnabled = true
     }
     func styleDialog(txt: String){
+        titleLabel!.font = UIFont(name: fontArialBold, size: 20)
         setTitle(txt, for: .normal)
         layer.cornerRadius = radius24
         layer.masksToBounds = true

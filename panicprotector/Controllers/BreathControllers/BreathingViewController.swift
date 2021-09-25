@@ -72,9 +72,7 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var viewBackDialogEndProcess: UIView!
     @IBOutlet weak var viewDialogEndProcess: UIView!
     @IBOutlet weak var lblContinue: UILabel!
-    
     @IBOutlet weak var lblHeartBeatsScreen: UILabel!
-    
     @IBOutlet weak var btnEndProcess: UIButton!
     
     
@@ -84,10 +82,10 @@ class BreathingViewController: UIViewController {
     let THRESHOLD: Float = -18.0
     
     var limInfGeniusY: CGFloat = 500.0
-    var limSupGeniusY: CGFloat = 205.0
+    var limSupGeniusY: CGFloat = 185.0
     var weight = 1.0
-    var widthGenius = 177.0
-    var heightGenius = 200.0
+    var widthGenius = 159.0
+    var heightGenius = 180.0
     var widthCountdown = 22.0
     var heightCountdown = 8.0
     
@@ -135,9 +133,8 @@ class BreathingViewController: UIViewController {
         weight = limInfGeniusY / 500.0
         print("weight: \(weight)")
         print("")
-        if weight != 1 {
-            applyWeight()
-        }
+        applyWeight()
+        viewGenius.isHidden = false
     }
     
     private func applyWeight() {
@@ -149,9 +146,7 @@ class BreathingViewController: UIViewController {
         
         constrainWidthCountdown.constant = widthCountdown * weight
         constrainHeightCountdown.constant = heightCountdown * weight
-        
-        
-        
+
     }
     
     private func startProcessBreath(){
@@ -185,6 +180,7 @@ class BreathingViewController: UIViewController {
         viewHelp3.isHidden = true
         viewBackCheckBox.isHidden = true
         viewBackPreviousHelp.isHidden = true
+        viewGenius.isHidden = true
 
         lblTitle.style(text: txtBreathing.uppercased(),
                        color: .colorPrimary,
@@ -195,6 +191,14 @@ class BreathingViewController: UIViewController {
                                 size: 20,
                                 fontName: fontArialBold)
         lblBreathMessages.isHidden = true
+        lblContinue.style(text: txtToContinue,
+                          color: .white,
+                          size: 26,
+                          fontName: fontArialBold)
+        lblHeartBeatsScreen.style(text: txtGoToHeartBeatsScreen,
+                                  color: .white,
+                                  size: 20,
+                                  fontName: fontArialRegular)
         
         lblCheckBox.style(text: txtDontShowAgain,
                           color: .colorPrimaryDark,
@@ -333,13 +337,13 @@ class BreathingViewController: UIViewController {
     private func animateGenius(view: UIView, isBreathing: Bool){
 
         let originalTransform = view.transform
-        var transY: CGFloat = 3.8 * weight
+        var transY: CGFloat = 3.5 * weight
         if isBreathing {
             transY = getTransY(level: pulseLevel, success: success)//-4.5
         } else if isBreathingOK {
             transY = 2.0 * weight
         } else {
-            transY = 3.8 * weight
+            transY = 3.5 * weight
         }
         
         print("limSupGeniusY: \(limSupGeniusY)")
@@ -355,7 +359,7 @@ class BreathingViewController: UIViewController {
                 recorder.stop()
                 lblBreathMessages.text = txtRest
                 viewBackground.backgroundColor = .colorOrangeBreath
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     self.viewBackground.backgroundColor = .colorPrimaryBackground
                 }
                 checkOrangePoint()
@@ -397,21 +401,21 @@ class BreathingViewController: UIViewController {
         
         switch pulseLevel {
         case 0:
-            return -4.5 * weight
+            return -4.7 * weight
         case 1:
-            return -4.1 * weight
+            return -4.3 * weight
         case 2:
-            return -3.7 * weight
+            return -3.9 * weight
         case 3:
-            return -3.3 * weight
+            return -3.5 * weight
         case 4:
-            return -2.9 * weight
+            return -3.1 * weight
         case 5:
-            return -2.5 * weight
+            return -2.7 * weight
         case 6:
-            return -2.1 * weight
+            return -2.3 * weight
         default:
-            return -4.5 * weight
+            return -4.7 * weight
         }
     }
     

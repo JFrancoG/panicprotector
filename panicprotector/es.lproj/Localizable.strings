@@ -21,6 +21,7 @@
 "txtDontShowAgain" = "no volver a mostrar";
 "txtCompleteMeasure" = "¡Medición completa!";
 "txtRestartCycle" = "Reiniciar ciclo";
+"txtGoToHeartBeatsScreen" = "PASA A LA PANTALLA PULSACIONES.";
 "txtDialogStartHeartBeats" = "¿Está el dedo tapando el objetivo y el flash?\nSi es así,\nPULSA COMENZAR.";
 "txtRemoveFinger" = "Retira el dedo de la cámara y pasa a la pantalla de respiración.";
 "txtFindQuietPlace" = "A ser posible, busca un sitio tranquilo para evitar interferencias con la señal de respiración.";

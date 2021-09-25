@@ -22,6 +22,7 @@ let txtRest = "txtRest".localized
 let txtDontShowAgain = "txtDontShowAgain".localized
 let txtCompleteMeasure = "txtCompleteMeasure".localized
 let txtRestartCycle = "txtRestartCycle".localized
+let txtGoToHeartBeatsScreen = "txtGoToHeartBeatsScreen".localized
 let txtDialogStartHeartBeats = "txtDialogStartHeartBeats".localized
 let txtRemoveFinger = "txtRemoveFinger".localized
 let txtFindQuietPlace = "txtFindQuietPlace".localized

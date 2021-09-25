@@ -21,6 +21,7 @@
 "txtDontShowAgain" = "nicht mehr zeigen";
 "txtCompleteMeasure" = "Messung komplett!";
 "txtRestartCycle" = "Zyklus neu starten";
+"txtGoToHeartBeatsScreen" = "SCHALTE AUF DEN HERZFREQUENZ-BILDSCHIRM UM.";
 "txtDialogStartHeartBeats" = "Ist dein Finger auf dem Objektiv und dem Blitzlicht?\nWenn ja,\nDRÜCKE START";
 "txtRemoveFinger" = "Entferne den Finger von der Kamera und Schalte auf Atmungsbildschirm um.";
 "txtFindQuietPlace" = "Wenn Möglich, Suche dir einen ruhigen Ort, um Störungen des Atemsignals zu vermeiden.";
