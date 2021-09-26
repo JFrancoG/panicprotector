@@ -305,21 +305,27 @@ class HeartBeatsViewController: UIViewController {
                         lblContinue.text = txtCompleteMeasure
                         let trimAverage = trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
+                        savePreferencesPulse(bpm: trimAverage)
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
                         let trimAverage = trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
-                        let previousLevel = readPulseLevelPreferences()
+                        let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false
-                        if previousLevel == -1 {
+                        if previousBPM < 50 || trimAverage < 50 || previousBPM > 200 || trimAverage > 200 {
                             viewIncorrectMeasure.isHidden = false
-                            
-                            
                         } else {
-                            viewCorrectMeasure.isHidden = false
-                            
-                            
+                            let diff = previousBPM - trimAverage
+                            let absDiff = abs(diff)
+                            if absDiff > 40 {
+                                viewIncorrectMeasure.isHidden = false
+                            } else {
+                                let calmMessages = getCalmMessages(previous: previousBPM, current: trimAverage)
+                                lblCalmLevel.text = calmMessages.0
+                                lblCalmLevelDescription.text = calmMessages.1
+                                viewCorrectMeasure.isHidden = false
+                            }
                         }
                     }
                 }
@@ -330,6 +336,34 @@ class HeartBeatsViewController: UIViewController {
                 counter = 0
             }
         }
+    }
+    
+    private func getCalmMessages(previous: Int, current: Int) -> (String, String) {
+        let diff = previous - current
+        var calmMessage = ""
+        var calmDescMessage = ""
+        if diff > 3 {
+            calmMessage = txtCalmLevel1
+            calmDescMessage = txtCalmLevel1Desc
+        } else {
+            if current > 50 {
+                calmMessage = txtCalmLevel4
+                calmDescMessage = txtCalmLevel4Desc
+            } else if current > 90 {
+                calmMessage = txtCalmLevel3
+                calmDescMessage = txtCalmLevel3Desc
+            } else if current > 110 {
+                calmMessage = txtCalmLevel2
+                calmDescMessage = txtCalmLevel2Desc
+            } else if current > 130 {
+                calmMessage = txtCalmLevel1
+                calmDescMessage = txtCalmLevel1Desc
+            } else {
+                calmMessage = txtCalmLevel1
+                calmDescMessage = txtCalmLevel1Desc
+            }
+        }
+        return (calmMessage, calmDescMessage)
     }
 
     private func animationPulse(img: UIImageView){

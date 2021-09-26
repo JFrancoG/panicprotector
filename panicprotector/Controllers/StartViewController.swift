@@ -19,6 +19,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
 
         savePreferencesPulseLevel(level: -1)
+        savePreferencesPulse(bpm: -1)
         customizeControls()
 
     }

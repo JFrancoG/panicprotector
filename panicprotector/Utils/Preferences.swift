@@ -21,6 +21,13 @@ func readPulseLevelPreferences() -> Int {
     return UserDefaults.standard.integer(forKey: "pulselevel")
 }
 
+func savePreferencesPulse(bpm: Int) {
+    UserDefaults.standard.set(bpm, forKey: "pulsebpm")
+}
+func readPulsePreferences() -> Int {
+    return UserDefaults.standard.integer(forKey: "pulsebpm")
+}
+
 func savePreferencesNotShowPulseHelp(notshow: Bool) {
     UserDefaults.standard.set(notshow, forKey: "notshowpulsehelp")
 }
