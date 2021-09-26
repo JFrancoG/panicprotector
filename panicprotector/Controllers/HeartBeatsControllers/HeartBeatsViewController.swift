@@ -41,6 +41,7 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var lblCalmLevels: UILabel!
     @IBOutlet weak var viewResult: UIView!
     @IBOutlet weak var lblCalmLevel: UILabel!
+    @IBOutlet weak var lblCalmLevelDescription: UILabel!
     @IBOutlet weak var btnRestartCycleCorrect: UIButton!
     
     @IBOutlet weak var viewIncorrectMeasure: UIView!
@@ -198,8 +199,12 @@ class HeartBeatsViewController: UIViewController {
                             fontName: fontArialRegular)
         lblCalmLevel.style(text: txtCalmLevel4,
                            color: .white,
-                           size: 20,
+                           size: 18,
                            fontName: fontArialRegular)
+        lblCalmLevelDescription.style(text: txtCalmLevel4Desc,
+                                      color: .white,
+                                      size: 18,
+                                      fontName: fontArialRegular)
         lblIncorrectMeasureTitle.style(text: txtToContinue.lowercased(),
                                        color: .white,
                                        size: 26,

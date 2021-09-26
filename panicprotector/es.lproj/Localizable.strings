@@ -27,10 +27,14 @@
 "txtFindQuietPlace" = "A ser posible, busca un sitio tranquilo para evitar interferencias con la señal de respiración.";
 "txtIncorrectMeasurement" = "TU NIVEL DE CALMA MEJORARÁ EJERCITANDO LA RESPIRACIÓN.";
 "txtCalmLevels" = "NIVEL DE CALMA:\n1 BAJO\n2 MEDIO\n3 ALTO\n4 EXCELENTE";
-"txtCalmLevel1" = "TU NIVEL DE CALMA = 1\n¡TÚ PUEDES LOGRARLO!\n¡INTÉNTALO DE NUEVO!";
-"txtCalmLevel2" = "TU NIVEL DE CALMA = 2\n¡CASI LO HAS CONSEGUIDO!\n¡LA FRECUENCIA CARDIACA SE HA REDUCIDO!";
-"txtCalmLevel3" = "TU NIVEL DE CALMA = 3\n¡ESTÁS MUY CERCA DEL OBJETIVO!";
-"txtCalmLevel4" = "TU NIVEL DE CALMA = 4\n¡OBJETIVO ALCANZADO!";
+"txtCalmLevel1" = "TU NIVEL DE CALMA = 1";
+"txtCalmLevel2" = "TU NIVEL DE CALMA = 2";
+"txtCalmLevel3" = "TU NIVEL DE CALMA = 3";
+"txtCalmLevel4" = "TU NIVEL DE CALMA = 4";
+"txtCalmLevel1Desc" = "¡TÚ PUEDES LOGRARLO!\n¡INTÉNTALO DE NUEVO!";
+"txtCalmLevel2Desc" = "¡CASI LO HAS CONSEGUIDO! ¡LA FRECUENCIA CARDIACA SE HA REDUCIDO!";
+"txtCalmLevel3Desc" = "¡ESTÁS MUY CERCA DEL OBJETIVO!";
+"txtCalmLevel4Desc" = "¡OBJETIVO ALCANZADO!";
 "txtHeartBeatsInstruction1" = "TAPAR con UN SOLO DEDO el OBJETIVO y el FLASH de tu smartphone al mismo tiempo";
 "txtHeartBeatsInstruction2" = "Comprobar que la parte del dedo apoyada en el FLASH se vuelve ROJA";
 "txtHeartBeatsInstruction3" = "Esperar a que el CORAZÓN se vuelva ROJO y palpite";

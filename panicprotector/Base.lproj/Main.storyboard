@@ -1273,27 +1273,27 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-5Q-BXd">
-                                        <rect key="frame" x="173.66666666666666" y="259" width="87.999999999999972" height="88"/>
+                                        <rect key="frame" x="174.66666666666666" y="260" width="85.999999999999972" height="86"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54a-js-KjM">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visor_heart" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-Rr-NFj">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="G6n-Rr-NFj" secondAttribute="trailing" id="7CD-l4-wS9"/>
                                             <constraint firstItem="54a-js-KjM" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="Bol-25-3L5"/>
-                                            <constraint firstAttribute="width" constant="88" id="CgU-aK-8Mu"/>
+                                            <constraint firstAttribute="width" constant="86" id="CgU-aK-8Mu"/>
                                             <constraint firstAttribute="bottom" secondItem="G6n-Rr-NFj" secondAttribute="bottom" id="GXC-ZK-mR1"/>
                                             <constraint firstItem="G6n-Rr-NFj" firstAttribute="top" secondItem="LHP-5Q-BXd" secondAttribute="top" id="VH0-u9-ZWT"/>
                                             <constraint firstItem="G6n-Rr-NFj" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="cru-rY-Tbh"/>
                                             <constraint firstItem="54a-js-KjM" firstAttribute="leading" secondItem="LHP-5Q-BXd" secondAttribute="leading" id="fMm-dF-wEu"/>
                                             <constraint firstAttribute="trailing" secondItem="54a-js-KjM" secondAttribute="trailing" id="mQ1-oG-rRj"/>
-                                            <constraint firstAttribute="height" constant="88" id="whc-UL-eoZ"/>
+                                            <constraint firstAttribute="height" constant="86" id="whc-UL-eoZ"/>
                                             <constraint firstAttribute="bottom" secondItem="54a-js-KjM" secondAttribute="bottom" id="xa9-EH-Y78"/>
                                         </constraints>
                                     </view>
@@ -1382,9 +1382,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6Q-ia-Ff3">
-                                        <rect key="frame" x="37.666666666666657" y="196" width="300" height="420"/>
+                                        <rect key="frame" x="37.666666666666657" y="256" width="300" height="300"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIVEL DE CALMA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woQ-8y-OsL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NIVEL DE CALMA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woQ-8y-OsL">
                                                 <rect key="frame" x="20" y="77.333333333333314" width="260" height="20.333333333333329"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="J6q-gL-jeO"/>
@@ -1393,7 +1393,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Medición completa!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="War-PB-WqE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="¡Medición completa!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="War-PB-WqE">
                                                 <rect key="frame" x="20" y="32" width="260" height="29.333333333333329"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="gQV-bI-TEM"/>
@@ -1402,26 +1402,36 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWS-2J-AW2">
-                                                <rect key="frame" x="20" y="113.66666666666669" width="260" height="76"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWS-2J-AW2">
+                                                <rect key="frame" x="20" y="113.66666666666669" width="260" height="52.666666666666686"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TU NIVEL DE CALMA = 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-MC-JXs">
-                                                        <rect key="frame" x="24.000000000000014" y="28" width="211.66666666666669" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TU NIVEL DE CALMA = 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-MC-JXs">
+                                                        <rect key="frame" x="24.000000000000014" y="4" width="211.66666666666669" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oy2-fR-KSG">
+                                                        <rect key="frame" x="4" y="28.333333333333314" width="252" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
                                                     <constraint firstItem="4Ct-MC-JXs" firstAttribute="centerX" secondItem="iWS-2J-AW2" secondAttribute="centerX" id="5Fk-6T-o2a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Oy2-fR-KSG" secondAttribute="trailing" constant="4" id="7g8-rN-z9g"/>
                                                     <constraint firstAttribute="width" constant="260" id="EaJ-oR-7rc"/>
-                                                    <constraint firstAttribute="height" constant="76" id="T6n-bt-fL7"/>
-                                                    <constraint firstItem="4Ct-MC-JXs" firstAttribute="centerY" secondItem="iWS-2J-AW2" secondAttribute="centerY" id="eNg-Qd-qkV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Oy2-fR-KSG" secondAttribute="bottom" constant="4" id="OP0-ol-znI"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="T6n-bt-fL7"/>
+                                                    <constraint firstItem="Oy2-fR-KSG" firstAttribute="leading" secondItem="iWS-2J-AW2" secondAttribute="leading" constant="4" id="Vfl-Op-r7R"/>
+                                                    <constraint firstItem="Oy2-fR-KSG" firstAttribute="top" secondItem="4Ct-MC-JXs" secondAttribute="bottom" constant="4" id="afM-nb-1eB"/>
+                                                    <constraint firstItem="4Ct-MC-JXs" firstAttribute="top" secondItem="iWS-2J-AW2" secondAttribute="top" constant="4" id="o2I-61-ecc"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-al-OFS">
-                                                <rect key="frame" x="20" y="340" width="260" height="48"/>
+                                                <rect key="frame" x="20" y="220" width="260" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="47k-Xd-D2o"/>
                                                     <constraint firstAttribute="height" constant="48" id="oo2-hj-m92"/>
@@ -1441,8 +1451,9 @@
                                             <constraint firstAttribute="width" constant="300" id="WfZ-Va-9kY"/>
                                             <constraint firstItem="T8O-al-OFS" firstAttribute="centerX" secondItem="T6Q-ia-Ff3" secondAttribute="centerX" id="Zeg-7K-vZg"/>
                                             <constraint firstItem="War-PB-WqE" firstAttribute="centerX" secondItem="T6Q-ia-Ff3" secondAttribute="centerX" id="asB-d7-nmw"/>
+                                            <constraint firstItem="T8O-al-OFS" firstAttribute="top" secondItem="iWS-2J-AW2" secondAttribute="bottom" constant="24" id="b1q-Fk-a8Z"/>
                                             <constraint firstAttribute="bottom" secondItem="T8O-al-OFS" secondAttribute="bottom" constant="32" id="iWn-wd-tEw"/>
-                                            <constraint firstAttribute="height" constant="420" id="lkU-OL-6GQ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="lkU-OL-6GQ"/>
                                             <constraint firstItem="iWS-2J-AW2" firstAttribute="centerX" secondItem="T6Q-ia-Ff3" secondAttribute="centerX" id="p30-hd-fAo"/>
                                             <constraint firstItem="woQ-8y-OsL" firstAttribute="top" secondItem="War-PB-WqE" secondAttribute="bottom" constant="16" id="vKy-HM-kB1"/>
                                         </constraints>
@@ -1949,6 +1960,7 @@
                         <outlet property="imgShapeHeart" destination="G6n-Rr-NFj" id="6lh-Ig-dIX"/>
                         <outlet property="keypad" destination="tex-kH-IJq" id="gsh-EO-BZQ"/>
                         <outlet property="lblCalmLevel" destination="4Ct-MC-JXs" id="pkL-5i-7uU"/>
+                        <outlet property="lblCalmLevelDescription" destination="Oy2-fR-KSG" id="7w2-kc-alf"/>
                         <outlet property="lblCalmLevels" destination="woQ-8y-OsL" id="rjf-7j-FAl"/>
                         <outlet property="lblCheckBox" destination="zhn-Ke-4FB" id="VGb-Xc-gZn"/>
                         <outlet property="lblCompleteMeasure" destination="War-PB-WqE" id="E3G-Jo-Fut"/>
