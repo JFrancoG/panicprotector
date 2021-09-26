@@ -277,7 +277,6 @@ class HeartBeatsViewController: UIViewController {
     }
     
     func startProcessHeartBeats(){
-        //initVideoCapture()
         initCaptureSession()
         initializeValues()
         isCanCheck = true
@@ -290,11 +289,10 @@ class HeartBeatsViewController: UIViewController {
     private func checkProcess(){
         if isCanCheck {
             if counter > 0 {
-                // bloquear botón siguiente proceso
+                // bloquear botón siguiente proceso?
                 progress.animate(fromAngle: Double(counter * 10), toAngle: min(Double((counter+1) * 10), 110.0), duration: getPulseSec()) { (success) in
                     print("finish")
                 }
-                print("counter:\(counter)")
                 if counter <= 10 {
                     isCanCheck = false
                     animationPulse(img: imgShapeHeart)
@@ -318,16 +316,19 @@ class HeartBeatsViewController: UIViewController {
                         } else {
                             let diff = previousBPM - trimAverage
                             let absDiff = abs(diff)
+                            print("previousBPM: \(previousBPM)")
+                            print("trimAverage: \(trimAverage)")
                             if absDiff > 40 {
                                 viewIncorrectMeasure.isHidden = false
                             } else {
-                                let calmMessages = getCalmMessages(previous: previousBPM, current: trimAverage)
-                                lblCalmLevel.text = calmMessages.0
-                                lblCalmLevelDescription.text = calmMessages.1
+                                let calmMessages = getCalmMessages(currentBPM: trimAverage)
+                                lblCalmLevel.text = calmMessages.calmLevel
+                                lblCalmLevelDescription.text = calmMessages.calmDesc
                                 viewCorrectMeasure.isHidden = false
                             }
                         }
                     }
+                    isCanCheck = false
                 }
             }
             if isPulse {
@@ -338,30 +339,21 @@ class HeartBeatsViewController: UIViewController {
         }
     }
     
-    private func getCalmMessages(previous: Int, current: Int) -> (String, String) {
-        let diff = previous - current
+    private func getCalmMessages(currentBPM: Int) -> (calmLevel: String, calmDesc: String) {
         var calmMessage = ""
         var calmDescMessage = ""
-        if diff > 3 {
+        if currentBPM > 90 {
+            calmMessage = txtCalmLevel3
+            calmDescMessage = txtCalmLevel3Desc
+        } else if currentBPM > 110 {
+            calmMessage = txtCalmLevel2
+            calmDescMessage = txtCalmLevel2Desc
+        } else if currentBPM > 130 {
             calmMessage = txtCalmLevel1
             calmDescMessage = txtCalmLevel1Desc
         } else {
-            if current > 50 {
-                calmMessage = txtCalmLevel4
-                calmDescMessage = txtCalmLevel4Desc
-            } else if current > 90 {
-                calmMessage = txtCalmLevel3
-                calmDescMessage = txtCalmLevel3Desc
-            } else if current > 110 {
-                calmMessage = txtCalmLevel2
-                calmDescMessage = txtCalmLevel2Desc
-            } else if current > 130 {
-                calmMessage = txtCalmLevel1
-                calmDescMessage = txtCalmLevel1Desc
-            } else {
-                calmMessage = txtCalmLevel1
-                calmDescMessage = txtCalmLevel1Desc
-            }
+            calmMessage = txtCalmLevel4
+            calmDescMessage = txtCalmLevel4Desc
         }
         return (calmMessage, calmDescMessage)
     }
