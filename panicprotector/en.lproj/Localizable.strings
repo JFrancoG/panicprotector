@@ -15,6 +15,7 @@
 "txtContinue" = "Continue";
 "txtToContinue" = "Continue";
 "txtEnd" = "End";
+"txtInProcess" = "In process ...";
 "txtBlow" = "Blow";
 "txtBreathAndBlow" = "Take deep breath and blow";
 "txtRest" = "Rest";

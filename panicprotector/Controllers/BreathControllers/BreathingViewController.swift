@@ -97,13 +97,14 @@ class BreathingViewController: UIViewController {
     var heightCloud = 80.0
     
     var orangePoints = 0
+    var prevOrangePoints = 0
     
     var isBreathingOK = false
     var isCanCheck = false
     
     var currentHelp = 1
     
-    var pulseLevel = 6
+    var pulseLevel = 0
     var state = StateProcess.breath
     var success = true
     
@@ -111,7 +112,7 @@ class BreathingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pulseLevel = readPulseLevelPreferences() //6//readPulseLevelPreferences()
+        pulseLevel = readPulseLevelPreferences()
         customizeControls()
         checkHelp()
     }
@@ -166,7 +167,22 @@ class BreathingViewController: UIViewController {
             self.animateCloud(view: self.viewCloud1)
             self.animateCloud(view: self.viewCloud2)
         }
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.checkLevel()
+        }
+    }
+    
+    private func checkLevel(){
+        lblTitle.text! = "\(pulseLevel)"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
+            if self.pulseLevel > 0 {
+                if self.orangePoints == self.prevOrangePoints {
+                    self.pulseLevel -= 1
+                }
+                self.lblTitle.text! = " \(self.pulseLevel)"
+                self.checkLevel()
+            }
+        }
     }
     
     private func customizeControls(){
@@ -404,11 +420,11 @@ class BreathingViewController: UIViewController {
     }
     
     private func getTransY (level: Int, success: Bool) -> CGFloat {
-        pulseLevel = level
-        if !success {
-            pulseLevel = max(0, pulseLevel - 1)
-        }
-    
+//        pulseLevel = level
+//        if !success {
+//            pulseLevel = max(0, pulseLevel - 1)
+//        }
+//
         print("pulseLevel: \(pulseLevel)")
         
         switch pulseLevel {

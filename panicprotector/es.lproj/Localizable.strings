@@ -15,6 +15,7 @@
 "txtContinue" = "Seguir";
 "txtToContinue" = "Continuar";
 "txtEnd" = "Finalizar";
+"txtInProcess" = "En proceso ...";
 "txtBlow" = "Sopla";
 "txtBreathAndBlow" = "Toma aire y sopla";
 "txtRest" = "Tiempo de espera";

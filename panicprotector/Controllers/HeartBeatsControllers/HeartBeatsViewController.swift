@@ -18,6 +18,7 @@ class HeartBeatsViewController: UIViewController {
     @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var viewBackHand: UIView!
     @IBOutlet weak var viewBackHeart: UIView!
+    @IBOutlet weak var lblInProcess: UILabel!
     @IBOutlet weak var imgShapeHeart: UIImageView!
     @IBOutlet weak var viewVisor: UIView!
     @IBOutlet weak var progress: KDCircularProgress!
@@ -162,6 +163,11 @@ class HeartBeatsViewController: UIViewController {
         viewResult.backgroundColor = .colorGreenCalm
 
         // labels
+        lblInProcess.style(text: txtInProcess,
+                           color: .colorPrimaryDark,
+                           size: 18,
+                           fontName: fontArialBold)
+        lblInProcess.isHidden = true
         lblTitle.style(text: txtHeartBeats.uppercased(),
                        color: .colorPrimary,
                        size: 16,
@@ -288,12 +294,14 @@ class HeartBeatsViewController: UIViewController {
     
     private func checkProcess(){
         if isCanCheck {
+            lblInProcess.isHidden = false
             if counter > 0 {
                 // bloquear botón siguiente proceso?
                 progress.animate(fromAngle: Double(counter * 10), toAngle: min(Double((counter+1) * 10), 110.0), duration: getPulseSec()) { (success) in
                     print("finish")
                 }
                 if counter <= 10 {
+                    lblInProcess.isHidden = true
                     isCanCheck = false
                     animationPulse(img: imgShapeHeart)
                 } else {
@@ -301,13 +309,13 @@ class HeartBeatsViewController: UIViewController {
                     resetValues()
                     if state == .heartbeats {
                         lblContinue.text = txtCompleteMeasure
-                        let trimAverage = trimPulseAverage()
+                        let trimAverage = 151//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         savePreferencesPulse(bpm: trimAverage)
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
-                        let trimAverage = trimPulseAverage()
+                        let trimAverage = 135//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false
@@ -342,10 +350,10 @@ class HeartBeatsViewController: UIViewController {
     private func getCalmMessages(currentBPM: Int) -> (calmLevel: String, calmDesc: String) {
         var calmMessage = ""
         var calmDescMessage = ""
-        if currentBPM > 90 {
+        if currentBPM > 90  && currentBPM <= 110 {
             calmMessage = txtCalmLevel3
             calmDescMessage = txtCalmLevel3Desc
-        } else if currentBPM > 110 {
+        } else if currentBPM > 110 && currentBPM <= 130 {
             calmMessage = txtCalmLevel2
             calmDescMessage = txtCalmLevel2Desc
         } else if currentBPM > 130 {

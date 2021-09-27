@@ -1272,6 +1272,12 @@
                                             <constraint firstAttribute="width" constant="320" id="hJc-xc-PbQ"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En proceeso ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-Pn-DYq">
+                                        <rect key="frame" x="153.33333333333331" y="405.66666666666663" width="128.33333333333331" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-5Q-BXd">
                                         <rect key="frame" x="175.66666666666666" y="261" width="83.999999999999972" height="84"/>
                                         <subviews>
@@ -1301,11 +1307,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="G1a-30-gpa" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" id="Aqn-NH-bXC"/>
+                                    <constraint firstAttribute="bottom" secondItem="cTv-Pn-DYq" secondAttribute="bottom" constant="84" id="JY6-zD-3jI"/>
                                     <constraint firstItem="fyV-06-zZx" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" constant="40" id="KS7-Ie-udH"/>
                                     <constraint firstItem="fyV-06-zZx" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" constant="26" id="bde-Dp-fFe"/>
                                     <constraint firstItem="G1a-30-gpa" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" id="gVP-cW-Irj"/>
                                     <constraint firstItem="LHP-5Q-BXd" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" constant="46" id="nMI-so-IPw"/>
                                     <constraint firstItem="LHP-5Q-BXd" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" constant="48" id="qVk-Yb-APx"/>
+                                    <constraint firstItem="cTv-Pn-DYq" firstAttribute="centerX" secondItem="LHP-5Q-BXd" secondAttribute="centerX" id="r87-9f-N2Y"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKo-mH-mCi">
@@ -1967,6 +1975,7 @@
                         <outlet property="lblContinue" destination="qwd-8F-4D0" id="ZoI-wx-dz2"/>
                         <outlet property="lblDialogStart" destination="Jpb-zl-jQS" id="Whe-V1-NEi"/>
                         <outlet property="lblFindQuietPlace" destination="COO-UM-GZX" id="4Dh-P9-pao"/>
+                        <outlet property="lblInProcess" destination="cTv-Pn-DYq" id="1BG-SY-3ad"/>
                         <outlet property="lblIncorrectMeasureContent" destination="xPa-Nr-WOa" id="zt1-aP-riv"/>
                         <outlet property="lblIncorrectMeasureTitle" destination="MOm-on-F85" id="1yf-TM-JVJ"/>
                         <outlet property="lblInstruction1" destination="XRg-LH-MrJ" id="fZr-d4-IPM"/>

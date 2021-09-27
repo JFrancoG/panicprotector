@@ -16,6 +16,7 @@ let txtBreathing = "txtBreathing".localized
 let txtContinue = "txtContinue".localized
 let txtToContinue = "txtToContinue".localized
 let txtEnd = "txtEnd".localized
+let txtInProcess = "txtInProcess".localized
 let txtBlow = "txtBlow".localized
 let txtBreathAndBlow = "txtBreathAndBlow".localized
 let txtRest = "txtRest".localized
