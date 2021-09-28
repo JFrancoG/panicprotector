@@ -173,12 +173,19 @@ class BreathingViewController: UIViewController {
     }
     
     private func checkLevel(){
+        print("prevOrangePoints:\(prevOrangePoints)")
+        print("orangePoints:\(orangePoints)")
         lblTitle.text! = "\(pulseLevel)"
         DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
+            
             if self.pulseLevel > 0 {
                 if self.orangePoints == self.prevOrangePoints {
                     self.pulseLevel -= 1
+                } else {
+                    self.prevOrangePoints += 1
                 }
+                print("self.prevOrangePoints:\(self.prevOrangePoints)")
+                print("self.orangePoints:\(self.orangePoints)")
                 self.lblTitle.text! = " \(self.pulseLevel)"
                 self.checkLevel()
             }
@@ -429,21 +436,21 @@ class BreathingViewController: UIViewController {
         
         switch pulseLevel {
         case 0:
-            return -4.7 * weight
-        case 1:
             return -4.3 * weight
-        case 2:
+        case 1:
             return -3.9 * weight
-        case 3:
+        case 2:
             return -3.5 * weight
-        case 4:
+        case 3:
             return -3.1 * weight
-        case 5:
+        case 4:
             return -2.7 * weight
-        case 6:
+        case 5:
             return -2.3 * weight
+        case 6:
+            return -1.9 * weight
         default:
-            return -4.7 * weight
+            return -4.0 * weight
         }
     }
     

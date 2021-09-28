@@ -315,7 +315,7 @@ class HeartBeatsViewController: UIViewController {
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
-                        let trimAverage = 135//trimPulseAverage()
+                        let trimAverage = 125//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false
