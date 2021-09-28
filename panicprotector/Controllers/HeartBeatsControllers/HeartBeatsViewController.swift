@@ -164,8 +164,8 @@ class HeartBeatsViewController: UIViewController {
 
         // labels
         lblInProcess.style(text: txtInProcess,
-                           color: .colorPrimaryDark,
-                           size: 18,
+                           color: .white,
+                           size: 24,
                            fontName: fontArialBold)
         lblInProcess.isHidden = true
         lblTitle.style(text: txtHeartBeats.uppercased(),
@@ -309,13 +309,13 @@ class HeartBeatsViewController: UIViewController {
                     resetValues()
                     if state == .heartbeats {
                         lblContinue.text = txtCompleteMeasure
-                        let trimAverage = 151//trimPulseAverage()
+                        let trimAverage = 134//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         savePreferencesPulse(bpm: trimAverage)
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
-                        let trimAverage = 125//trimPulseAverage()
+                        let trimAverage = 108//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false

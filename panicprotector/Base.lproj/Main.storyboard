@@ -1272,12 +1272,6 @@
                                             <constraint firstAttribute="width" constant="320" id="hJc-xc-PbQ"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En proceeso ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-Pn-DYq">
-                                        <rect key="frame" x="153.33333333333331" y="405.66666666666663" width="128.33333333333331" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
-                                        <color key="textColor" red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-5Q-BXd">
                                         <rect key="frame" x="175.66666666666666" y="261" width="83.999999999999972" height="84"/>
                                         <subviews>
@@ -1307,15 +1301,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="G1a-30-gpa" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" id="Aqn-NH-bXC"/>
-                                    <constraint firstAttribute="bottom" secondItem="cTv-Pn-DYq" secondAttribute="bottom" constant="84" id="JY6-zD-3jI"/>
                                     <constraint firstItem="fyV-06-zZx" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" constant="40" id="KS7-Ie-udH"/>
                                     <constraint firstItem="fyV-06-zZx" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" constant="26" id="bde-Dp-fFe"/>
                                     <constraint firstItem="G1a-30-gpa" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" id="gVP-cW-Irj"/>
                                     <constraint firstItem="LHP-5Q-BXd" firstAttribute="centerX" secondItem="s3B-Gb-ajg" secondAttribute="centerX" constant="46" id="nMI-so-IPw"/>
                                     <constraint firstItem="LHP-5Q-BXd" firstAttribute="centerY" secondItem="s3B-Gb-ajg" secondAttribute="centerY" constant="48" id="qVk-Yb-APx"/>
-                                    <constraint firstItem="cTv-Pn-DYq" firstAttribute="centerX" secondItem="LHP-5Q-BXd" secondAttribute="centerX" id="r87-9f-N2Y"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En proceeso ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-Pn-DYq">
+                                <rect key="frame" x="123.33333333333333" y="681.66666666666663" width="128.33333333333337" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKo-mH-mCi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
@@ -1934,10 +1932,12 @@
                             <constraint firstItem="S4t-28-feu" firstAttribute="top" secondItem="faG-QF-V2d" secondAttribute="top" id="LsB-18-QIm"/>
                             <constraint firstItem="fK5-FZ-OCW" firstAttribute="leading" secondItem="faG-QF-V2d" secondAttribute="leading" id="Plq-Lq-Y1e"/>
                             <constraint firstItem="S4t-28-feu" firstAttribute="leading" secondItem="faG-QF-V2d" secondAttribute="leading" id="Pqx-2c-xZp"/>
+                            <constraint firstItem="cTv-Pn-DYq" firstAttribute="centerX" secondItem="gKr-KE-ewW" secondAttribute="centerX" id="SYm-Sb-5xm"/>
                             <constraint firstItem="fK5-FZ-OCW" firstAttribute="top" secondItem="gKr-KE-ewW" secondAttribute="top" id="TnT-LD-NxR"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="fK5-FZ-OCW" secondAttribute="trailing" id="Ubt-fr-1BN"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="bottom" secondItem="9ct-cu-8G1" secondAttribute="bottom" id="YMX-4d-BJk"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="8bJ-wo-jpg" secondAttribute="trailing" id="b8B-WS-yfy"/>
+                            <constraint firstItem="tex-kH-IJq" firstAttribute="top" secondItem="cTv-Pn-DYq" secondAttribute="bottom" constant="16" id="c9U-YA-M6p"/>
                             <constraint firstItem="8bJ-wo-jpg" firstAttribute="top" secondItem="gKr-KE-ewW" secondAttribute="top" id="cuq-LZ-udo"/>
                             <constraint firstItem="sPc-4x-cs7" firstAttribute="top" secondItem="s3B-Gb-ajg" secondAttribute="bottom" id="dDS-Gf-Irh"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="9ct-cu-8G1" secondAttribute="trailing" id="efc-iL-fjG"/>
