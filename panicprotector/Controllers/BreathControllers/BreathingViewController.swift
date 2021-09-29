@@ -376,7 +376,7 @@ class BreathingViewController: UIViewController {
         if isBreathing {
             transY = getTransY(level: pulseLevel, success: success)//-4.5
         } else if isBreathingOK {
-            transY = 2.0 * weight
+            transY = 2.3 * weight
         } else {
             transY = 3.5 * weight
         }

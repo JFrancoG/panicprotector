@@ -307,15 +307,16 @@ class HeartBeatsViewController: UIViewController {
                 } else {
                     delegate?.endProcessPulse()
                     resetValues()
+                    lblInProcess.isHidden = true
                     if state == .heartbeats {
                         lblContinue.text = txtCompleteMeasure
-                        let trimAverage = 134//trimPulseAverage()
+                        let trimAverage = 125//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         savePreferencesPulse(bpm: trimAverage)
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
-                        let trimAverage = 108//trimPulseAverage()
+                        let trimAverage = 98//trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false
