@@ -7,6 +7,13 @@
 
 import Foundation
 
+func savePreferencesIsSubscribed(isSubscribed: Bool) {
+    UserDefaults.standard.set(isSubscribed, forKey: "subscribed")
+}
+func readIsSubscribedPreferences() -> Bool {
+    return UserDefaults.standard.bool(forKey: "subscribed")
+}
+
 func savePreferencesAcceptTerms(acceptTerms: Bool) {
     UserDefaults.standard.set(acceptTerms, forKey: "acceptTerms")
 }

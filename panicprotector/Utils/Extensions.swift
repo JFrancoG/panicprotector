@@ -105,6 +105,7 @@ extension UIButton {
         backgroundColor = .lightGray
         isUserInteractionEnabled = false
     }
+
 }
 
 extension String {
@@ -118,6 +119,10 @@ extension UIView {
         layer.cornerRadius = self.frame.height / 2.0
     }
     
+    func round(cornerRadius: CGFloat){
+        layer.cornerRadius = cornerRadius
+    }
+    
     func showShadow(){
         layer.masksToBounds = false
         layer.shadowColor = UIColor(white: 0.0, alpha: 0.5).cgColor
@@ -125,6 +130,12 @@ extension UIView {
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 5.0
 
+    }
+}
+
+extension Double {
+    func formatTwoDecimals(unity: String) -> String {
+        return (String(format:"%.2f", self) + " \(unity)").replacingOccurrences(of: ".", with: ",")
     }
 }
 

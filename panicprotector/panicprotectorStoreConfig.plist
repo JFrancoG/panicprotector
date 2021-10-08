@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>products</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>panicprotector.panicprotector.2.0.MonthlySubscription</string>
+			<key>Kind</key>
+			<string>Subscription</string>
+			<key>Automaticaly Renews</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>panicprotector.panicprotector.2.0.YearlySubscription</string>
+			<key>Kind</key>
+			<string>Subscription</string>
+			<key>Automaticaly Renews</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

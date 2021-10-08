@@ -15,7 +15,11 @@
 "txtContinue" = "Continue";
 "txtToContinue" = "Continue";
 "txtEnd" = "End";
-"txtInProcess" = "In process ...";
+"txtCancel" = "Cancel";
+"txtSubscriptionDialog" = "To access pulse and respiration measurements you must purchase a subscription";
+"txtMonthlySubscription" = "Monthly subscription";
+"txtYearlySubscription" = "Yearly subscription";
+"txtInProcess" = "processing ...";
 "txtBlow" = "Blow";
 "txtBreathAndBlow" = "Take deep breath and blow";
 "txtRest" = "Rest";
@@ -60,3 +64,10 @@
 "txtTerms3" = "With your consent, panicPROTECTOR will use the camera and the microphone on your phone to process your stress level and your exhalation respectively. We will use neither the camera nor the microphone for any other purposes.";
 "txtTerms4" = "We will use such data to optimize the performance of the app, following our Privacy Policy.";
 "txtAcceptTerms" = "By clicking on the ACCEPT button, I agree to panicPROTECTOR processing my data for measurement purposes.";
+"txt7DaysTrial" = "7 DAY FREE TRIAL!";
+"txtSubsMonthly" = "%@ / month";
+"txtSubsYearly" = "%@ / year";
+"txtSaving" = "(12 months at 4,16€ / month. Save 40%)";
+"txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
+"txtCalmYourAnxiety" = "Calm your anxiety on the spot with personalized breathing exercises.";
+"txtCancelSubscription" = "You may unsubscribe at any time.";

@@ -15,7 +15,11 @@
 "txtContinue" = "Seguir";
 "txtToContinue" = "Continuar";
 "txtEnd" = "Finalizar";
-"txtInProcess" = "En proceso ...";
+"txtCancel" = "Cancelar";
+"txtSubscriptionDialog" = "Para poder acceder a las mediciones de pulso y respiración debe adquirir una subscripción";
+"txtMonthlySubscription" = "Subscripción mensual";
+"txtYearlySubscription" = "Subscripción anual";
+"txtInProcess" = "procesando ...";
 "txtBlow" = "Sopla";
 "txtBreathAndBlow" = "Toma aire y sopla";
 "txtRest" = "Tiempo de espera";
@@ -60,3 +64,10 @@
 "txtTerms3" = "Con tu consentimiento, panicPROTECTOR utilizará la cámara y el micrófono para detectar tu nivel de estrés y tu exhalación respectivamente. No utilizaremos ni la cámara ni el micrófono para otros fines.";
 "txtTerms4" = "Utilizaremos estos datos para optimizar el rendimiento de la aplicación conforme a nuestra Política de Privacidad.";
 "txtAcceptTerms" = "Al hacer click en el botón ACEPTAR, acepto el procesamiento de mis datos con fines de medición.";
+"txt7DaysTrial" = "¡7 DÍAS DE PRUEBA GRATIS!";
+"txtSubsMonthly" = "%@ / mes";
+"txtSubsYearly" = "%@ / año";
+"txtSaving" = "(12 meses por 4,16€ / mes. Ahorro del 40%)";
+"txtExhaleAnxiety" = "EXHALA ANSIEDAD.\nINHALA CALMA.";
+"txtCalmYourAnxiety" = "Calma tu ansiedad al instante con ejercicios de respiración personalizados.";
+"txtCancelSubscription" = "Podrá cancelar la subscripción en cualquier momento.";
