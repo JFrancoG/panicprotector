@@ -43,10 +43,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n52-PL-NC4">
-                                <rect key="frame" x="136" y="658" width="103" height="48"/>
+                                <rect key="frame" x="107.66666666666669" y="658" width="160" height="48"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="X3I-4e-M4e"/>
+                                    <constraint firstAttribute="width" constant="160" id="uFQ-da-J0q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="COMENZAR">
@@ -283,6 +284,9 @@
                                     <constraint firstAttribute="trailing" secondItem="l8h-Yv-5I2" secondAttribute="trailing" constant="20" id="zNl-E2-GS7"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kHT-Aa-r4I">
+                                <rect key="frame" x="177.66666666666666" y="614" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -291,10 +295,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jUP-WA-5Pi" secondAttribute="trailing" id="9zc-AN-rE5"/>
                             <constraint firstItem="jr0-co-00N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B04-QQ-0D4"/>
                             <constraint firstItem="jUP-WA-5Pi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cvb-lv-p2Z"/>
+                            <constraint firstItem="kHT-Aa-r4I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HGV-qV-c91"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dxf-gD-FlF" secondAttribute="bottom" constant="32" id="QDS-az-cjP"/>
                             <constraint firstItem="jr0-co-00N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wld-E7-jfC"/>
                             <constraint firstItem="P3n-nN-gXS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cNv-zP-qnp"/>
                             <constraint firstItem="n52-PL-NC4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="clP-Ex-zth"/>
+                            <constraint firstItem="n52-PL-NC4" firstAttribute="top" secondItem="kHT-Aa-r4I" secondAttribute="bottom" constant="24" id="dU2-pP-Jda"/>
                             <constraint firstItem="P3n-nN-gXS" firstAttribute="centerY" secondItem="dxf-gD-FlF" secondAttribute="centerY" id="dVD-G7-7ZD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P3n-nN-gXS" secondAttribute="trailing" constant="20" id="prM-EX-ywQ"/>
                             <constraint firstAttribute="bottom" secondItem="jUP-WA-5Pi" secondAttribute="bottom" id="suE-2b-wHd"/>
@@ -306,6 +312,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YtC-Nf-ftH"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="kHT-Aa-r4I" id="1MH-Cu-6TD"/>
                         <outlet property="btnBuyMonthly" destination="nDm-nf-mS5" id="GUk-8h-AER"/>
                         <outlet property="btnBuyYearly" destination="Dxb-ic-gve" id="3bc-LV-3ev"/>
                         <outlet property="btnCancel" destination="kby-hT-Q5m" id="fjL-S7-uG4"/>

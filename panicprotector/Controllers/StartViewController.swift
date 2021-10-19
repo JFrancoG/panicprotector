@@ -7,6 +7,7 @@
 
 import UIKit
 import StoreKit
+import SwiftyStoreKit
 
 class StartViewController: UIViewController {
     
@@ -34,9 +35,24 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var lblCancelSubscription: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var prodSubscriptions = [SKProduct]()
     let paymentQueue = SKPaymentQueue.default()
+    
+    enum StateSub {
+        case purchased
+        case notPurchased
+        case expired
+        case error
+    }
+    
+    var checkedSubs = 0
+    var hasSubscription = false
+    var hasVerified = false
+    
+    var stateMonthlySub = StateSub.error
+    var stateYearlySub = StateSub.error
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +61,12 @@ class StartViewController: UIViewController {
         savePreferencesPulseLevel(level: -1)
         savePreferencesPulse(bpm: -1)
         customizeControls()
+        
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        verifySubs()
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
         if !readAcceptTermsPreferences(){
             performSegue(withIdentifier: "segueTerms", sender: nil)
@@ -67,6 +85,69 @@ class StartViewController: UIViewController {
         }
     }
     
+    private func verifySubs() {
+        activityIndicator.startAnimating()
+        verifySub(prodId: ProductSubscriptionID.yearlySubscription.rawValue) { state in
+            self.stateYearlySub = state
+            self.checkedSubs += 1
+            self.checkStates()
+        }
+        verifySub(prodId: ProductSubscriptionID.monthlySubscription.rawValue) { state in
+            self.stateMonthlySub = state
+            self.checkedSubs += 1
+            self.checkStates()
+        }
+    }
+    
+    private func checkStates() {
+        if checkedSubs > 1 {
+            activityIndicator.stopAnimating()
+            btnStart.isUserInteractionEnabled = true
+            if stateYearlySub == .purchased || stateMonthlySub == .purchased {
+                hasSubscription = true
+                hasVerified = true
+                // habilitamos botón comenzar y ocultamos dialogos si hace falta o activityIndicator
+            } else if stateYearlySub == .error || stateMonthlySub == .error {
+                hasVerified = false
+                // Lanzar alert con problem
+            } else {
+                hasVerified = true
+                viewBackSubscriptionDialog.isHidden = false
+                // Mostrar dialogo de compra
+                // si queremos mostrar fecha de cuando expiró hay que capturarla
+            }
+            checkedSubs = 0
+        }
+    }
+    
+    private func verifySub(prodId: String, completionHandler: @escaping (StateSub) -> Void) {
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
+        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+            switch result {
+            case .success(let receipt):
+                //print("receipt:\(receipt)")
+                let purchaseResult = SwiftyStoreKit.verifySubscription(
+                    ofType: .autoRenewable,
+                    productId: prodId,
+                    inReceipt: receipt)
+                switch purchaseResult {
+                case .purchased(let expiryDate, let items):
+                    print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
+                    completionHandler(.purchased)
+                case .expired(let expiryDate, let items):
+                    print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+                    completionHandler(.expired)
+                case .notPurchased:
+                    print("The user has never purchased \(prodId)")
+                    completionHandler(.notPurchased)
+                }
+            case .error(let error):
+                print("Receipt verification failed: \(error)")
+                completionHandler(.error)
+            }
+        }
+    }
+    
     private func fetchProducts() {
         let productSet: Set = [ProductSubscriptionID.monthlySubscription.rawValue,
                              ProductSubscriptionID.yearlySubscription.rawValue]
@@ -77,6 +158,7 @@ class StartViewController: UIViewController {
     }
 
     private func customizeControls() {
+        activityIndicator.style()
         
         view.backgroundColor = .colorPrimaryDark
         viewBackground.backgroundColor = .colorPrimaryBackground
@@ -130,6 +212,7 @@ class StartViewController: UIViewController {
                                     fontName: fontArialRegular)
 
         btnStart.style(txt: txtStart.uppercased())
+        btnStart.isUserInteractionEnabled = false
         btnCancel.setTitle("", for: .normal)
         btnBuyMonthly.setTitle("", for: .normal)
         btnBuyYearly.setTitle("", for: .normal)
@@ -141,6 +224,8 @@ class StartViewController: UIViewController {
         if SKPaymentQueue.canMakePayments() {
             let payment = SKPayment(product: productToPurchase)
             paymentQueue.add(payment)
+        } else {
+            // lanzar alert "User unable to make payments"
         }
     }
     
@@ -168,7 +253,16 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-        checkSubscribed()
+        print("START")
+        if hasSubscription {
+            performSegue(withIdentifier: "segueTransition", sender: nil)
+        } else {
+            if hasVerified {
+                viewBackSubscriptionDialog.isHidden = false
+            } else {
+                verifySubs()
+            }
+        }
     }
 
     @IBAction func actionTerms(_ sender: UIButton) {
@@ -201,6 +295,7 @@ extension StartViewController: SKPaymentTransactionObserver {
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchasing:
+                viewBackSubscriptionDialog.isHidden = true
                 break
             case .purchased, .restored:
                 savePreferencesIsSubscribed(isSubscribed: true)

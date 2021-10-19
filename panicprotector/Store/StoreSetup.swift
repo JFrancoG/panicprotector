@@ -10,4 +10,6 @@ enum ProductSubscriptionID: String {
     case yearlySubscription = "panicprotector.panicprotector.2.0.YearlySubscription"
 }
 
+let groupSubscription = "panicprotector.panicprotector.2.0.groupSubscription"
+
 var sharedSecret = "8e294141dcb74be9836fc9d7895d7f75"

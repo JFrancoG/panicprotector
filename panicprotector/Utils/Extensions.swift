@@ -139,6 +139,18 @@ extension Double {
     }
 }
 
+extension UIActivityIndicatorView {
+    func style() {
+        color = .colorPrimaryDark
+        if #available(iOS 13.0, *) {
+            style = .large
+        } else {
+            // Fallback on earlier versions
+        }
+        hidesWhenStopped = true
+    }
+}
+
 extension BEMCheckBox {
     func customizeCheckBox() {
         boxType = .square
