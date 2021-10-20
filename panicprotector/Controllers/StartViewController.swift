@@ -57,7 +57,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchProducts()
+        
         savePreferencesPulseLevel(level: -1)
         savePreferencesPulse(bpm: -1)
         customizeControls()
@@ -66,6 +66,7 @@ class StartViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        fetchProducts()
         verifySubs()
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
         if !readAcceptTermsPreferences(){
@@ -132,10 +133,12 @@ class StartViewController: UIViewController {
                     inReceipt: receipt)
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
-                    print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
+                    //print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
+                    print("\(prodId) is valid until \(expiryDate)\n")
                     completionHandler(.purchased)
                 case .expired(let expiryDate, let items):
-                    print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+                    print("\(prodId) is expired since \(expiryDate)\n\n")
                     completionHandler(.expired)
                 case .notPurchased:
                     print("The user has never purchased \(prodId)")
@@ -186,11 +189,11 @@ class StartViewController: UIViewController {
                             color: .white,
                             size: 18,
                             fontName: fontArialBold)
-        lblMonthlyPrice.style(text: "6,99 € / mes",
+        lblMonthlyPrice.style(text: "",
                               color: .white,
                               size: 24,
                               fontName: fontArialBold)
-        lblYearlyPrice.style(text: "49,99 € / año",
+        lblYearlyPrice.style(text: "",
                               color: .white,
                               size: 24,
                               fontName: fontArialBold)
@@ -253,7 +256,6 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-        print("START")
         if hasSubscription {
             performSegue(withIdentifier: "segueTransition", sender: nil)
         } else {
@@ -295,15 +297,21 @@ extension StartViewController: SKPaymentTransactionObserver {
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchasing:
+                print("PURCHASINGG")
+                btnStart.isUserInteractionEnabled = false
                 viewBackSubscriptionDialog.isHidden = true
                 break
             case .purchased, .restored:
-                savePreferencesIsSubscribed(isSubscribed: true)
+                print("PURCHASED OR RESTORED")
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
+                hasVerified = false
+                verifySubs()
+                viewBackSubscriptionDialog.isHidden = true
             case .failed, .deferred:
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
+                btnStart.isUserInteractionEnabled = true
             default:
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
