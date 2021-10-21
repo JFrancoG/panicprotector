@@ -61,12 +61,11 @@ class StartViewController: UIViewController {
         savePreferencesPulseLevel(level: -1)
         savePreferencesPulse(bpm: -1)
         customizeControls()
-        
+        fetchProducts()
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        fetchProducts()
         verifySubs()
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
         if !readAcceptTermsPreferences(){
@@ -76,14 +75,6 @@ class StartViewController: UIViewController {
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
-    }
-    
-    private func checkSubscribed() {
-        if !readIsSubscribedPreferences() {
-            viewBackSubscriptionDialog.isHidden = false
-        } else {
-            performSegue(withIdentifier: "segueTransition", sender: nil)
-        }
     }
     
     private func verifySubs() {
@@ -282,6 +273,7 @@ extension StartViewController: SKProductsRequestDelegate {
         for product in response.products {
             print("product.productIdentifier: \(product.productIdentifier)")
             print("product.price: \(product.price)")
+            print("product.priceLocale: \(product.priceLocale)")
             print("product.localizedTitle: \(product.localizedTitle)")
             print("product.localizedDescription: \(product.localizedDescription)")
             prodSubscriptions.append(product)
@@ -309,10 +301,14 @@ extension StartViewController: SKPaymentTransactionObserver {
                 verifySubs()
                 viewBackSubscriptionDialog.isHidden = true
             case .failed, .deferred:
+                print("FAILEDD")
+                print("purchase error : \(transaction.error?.localizedDescription ?? "")")
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
                 btnStart.isUserInteractionEnabled = true
+                fetchProducts()
             default:
+                print("UNKNOWNN")
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
             }
