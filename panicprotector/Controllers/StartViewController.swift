@@ -34,6 +34,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var lblCalmYourAnxiety: UILabel!
     
     @IBOutlet weak var lblCancelSubscription: UILabel!
+    @IBOutlet weak var lblVariationPrices: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -190,7 +191,7 @@ class StartViewController: UIViewController {
                               fontName: fontArialBold)
         lblSaving.style(text: txtSaving,
                         color: .white,
-                        size: 14,
+                        size: 13,
                         fontName: fontArialBold)
         lblExhaleAnxiety.style(text: txtExhaleAnxiety,
                                color: .colorPrimaryDark,
@@ -198,12 +199,16 @@ class StartViewController: UIViewController {
                                fontName: fontArialBold)
         lblCalmYourAnxiety.style(text: txtCalmYourAnxiety,
                                  color: .colorPrimary,
-                                 size: 16,
+                                 size: 14,
                                  fontName: fontArialBold)
         lblCancelSubscription.style(text: txtCancelSubscription,
                                     color: .colorPrimary,
                                     size: 14,
                                     fontName: fontArialRegular)
+        lblVariationPrices.style(text: txtVariationPrices,
+                                 color: .colorPrimary,
+                                 size: 12,
+                                 fontName: fontArialRegular)
 
         btnStart.style(txt: txtStart.uppercased())
         btnStart.isUserInteractionEnabled = false
@@ -219,7 +224,7 @@ class StartViewController: UIViewController {
             let payment = SKPayment(product: productToPurchase)
             paymentQueue.add(payment)
         } else {
-            // lanzar alert "User unable to make payments"
+            print("User unable to make payments")
         }
     }
     
@@ -247,8 +252,9 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
+        viewBackSubscriptionDialog.isHidden = false
         if hasSubscription {
-            performSegue(withIdentifier: "segueTransition", sender: nil)
+            //performSegue(withIdentifier: "segueTransition", sender: nil)
         } else {
             if hasVerified {
                 viewBackSubscriptionDialog.isHidden = false
