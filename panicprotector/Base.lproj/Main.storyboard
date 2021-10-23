@@ -162,37 +162,37 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8h-Yv-5I2">
-                                                        <rect key="frame" x="31.333333333333343" y="328" width="312.33333333333326" height="264"/>
+                                                        <rect key="frame" x="37.666666666666657" y="328" width="300" height="280"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡7 DÍAS DE PRUEBA GRATIS!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jT-Wi-G7G">
-                                                                <rect key="frame" x="16" y="16" width="280.33333333333331" height="22.666666666666671"/>
+                                                                <rect key="frame" x="16" y="16" width="268" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscripción mensual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UN-SG-bDp">
-                                                                <rect key="frame" x="60.000000000000014" y="54.666666666666693" width="192.33333333333337" height="20.333333333333336"/>
+                                                                <rect key="frame" x="53.666666666666671" y="77" width="192.33333333333331" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscripción anual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMx-6L-8Dy">
-                                                                <rect key="frame" x="73.000000000000014" y="147" width="166.33333333333337" height="20.333333333333343"/>
+                                                                <rect key="frame" x="66.666666666666643" y="169.33333333333337" width="166.33333333333337" height="20.333333333333343"/>
                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzH-H8-Sf4">
-                                                                <rect key="frame" x="16" y="83" width="280.33333333333331" height="48"/>
+                                                                <rect key="frame" x="16" y="105.33333333333331" width="268" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6,99 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-hG-kUg">
-                                                                        <rect key="frame" x="104" y="9.3333333333333126" width="72.666666666666686" height="29.333333333333329"/>
+                                                                        <rect key="frame" x="97.666666666666686" y="9.3333333333333695" width="72.666666666666686" height="29.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDm-nf-mS5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280.33333333333331" height="48"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="48"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <connections>
@@ -212,16 +212,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dV8-Rv-WD3">
-                                                                <rect key="frame" x="16" y="175.33333333333337" width="280.33333333333331" height="48"/>
+                                                                <rect key="frame" x="16" y="197.66666666666663" width="268" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="49,99 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVy-n0-Cd8">
-                                                                        <rect key="frame" x="96.666666666666657" y="9.3333333333332558" width="87" height="29.333333333333329"/>
+                                                                        <rect key="frame" x="90.333333333333343" y="9.3333333333333695" width="87" height="29.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxb-ic-gve">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280.33333333333331" height="48"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="48"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <connections>
@@ -241,7 +241,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(12 meses por 4,16€ / mes. Ahorro del 40%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-jL-LVa">
-                                                                <rect key="frame" x="12.333333333333343" y="235.33333333333337" width="287.66666666666663" height="15.666666666666657"/>
+                                                                <rect key="frame" x="6" y="257.66666666666663" width="287.66666666666669" height="15.666666666666686"/>
                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -255,12 +255,13 @@
                                                             <constraint firstAttribute="trailing" secondItem="dV8-Rv-WD3" secondAttribute="trailing" constant="16" id="Dtk-6N-lEO"/>
                                                             <constraint firstItem="Oau-jL-LVa" firstAttribute="centerX" secondItem="l8h-Yv-5I2" secondAttribute="centerX" id="Ftw-c9-nRq"/>
                                                             <constraint firstItem="Oau-jL-LVa" firstAttribute="top" secondItem="dV8-Rv-WD3" secondAttribute="bottom" constant="12" id="GJU-ul-AUA"/>
+                                                            <constraint firstAttribute="width" constant="300" id="GPz-g7-LKh"/>
                                                             <constraint firstItem="dV8-Rv-WD3" firstAttribute="top" secondItem="cMx-6L-8Dy" secondAttribute="bottom" constant="8" id="GUb-hh-F4f"/>
                                                             <constraint firstItem="9UN-SG-bDp" firstAttribute="top" secondItem="3jT-Wi-G7G" secondAttribute="bottom" constant="16" id="Grh-S0-y0I"/>
                                                             <constraint firstItem="cMx-6L-8Dy" firstAttribute="top" secondItem="xzH-H8-Sf4" secondAttribute="bottom" constant="16" id="Iwy-z4-YYg"/>
                                                             <constraint firstItem="xzH-H8-Sf4" firstAttribute="leading" secondItem="l8h-Yv-5I2" secondAttribute="leading" constant="16" id="VrI-F3-YUs"/>
                                                             <constraint firstItem="3jT-Wi-G7G" firstAttribute="top" secondItem="l8h-Yv-5I2" secondAttribute="top" constant="16" id="a4f-Wu-cqY"/>
-                                                            <constraint firstAttribute="height" constant="264" id="eFX-ba-y07"/>
+                                                            <constraint firstAttribute="height" constant="280" id="eFX-ba-y07"/>
                                                             <constraint firstAttribute="trailing" secondItem="3jT-Wi-G7G" secondAttribute="trailing" constant="16" id="gPP-V9-rIQ"/>
                                                             <constraint firstItem="9UN-SG-bDp" firstAttribute="centerX" secondItem="l8h-Yv-5I2" secondAttribute="centerX" id="iBb-Xy-FkL"/>
                                                             <constraint firstItem="3jT-Wi-G7G" firstAttribute="leading" secondItem="l8h-Yv-5I2" secondAttribute="leading" constant="16" id="mab-8g-NEa"/>
@@ -268,7 +269,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podrá cancelar la subscripción en cualquier momento." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ull-ek-APt">
-                                                        <rect key="frame" x="47.666666666666657" y="600" width="280" height="36"/>
+                                                        <rect key="frame" x="47.666666666666657" y="616" width="280" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="280" id="Jem-Mw-Mv7"/>
                                                         </constraints>
@@ -277,9 +278,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nota: Los precios pueden variar ligeramente de un país a otro." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STI-TG-JJ3">
-                                                        <rect key="frame" x="47.666666666666657" y="668" width="280" height="27"/>
+                                                        <rect key="frame" x="37.666666666666657" y="684" width="300" height="27"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="280" id="xBT-2f-Wt1"/>
+                                                            <constraint firstAttribute="width" constant="300" id="xBT-2f-Wt1"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                         <color key="textColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -367,6 +368,7 @@
                         <outlet property="lblVariationPrices" destination="STI-TG-JJ3" id="MmX-ei-nzL"/>
                         <outlet property="lblYearlyPrice" destination="OVy-n0-Cd8" id="drL-Fr-2WW"/>
                         <outlet property="lblYearlySub" destination="cMx-6L-8Dy" id="QyW-q4-inG"/>
+                        <outlet property="scroll" destination="1Ps-Nl-Sev" id="D0z-bw-gjb"/>
                         <outlet property="viewBackMonthlySub" destination="xzH-H8-Sf4" id="kBc-wW-I2s"/>
                         <outlet property="viewBackSubscriptionDialog" destination="jr0-co-00N" id="Wzw-Zt-YKt"/>
                         <outlet property="viewBackYearlySub" destination="dV8-Rv-WD3" id="mTt-z3-fSa"/>

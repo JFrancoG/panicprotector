@@ -12,6 +12,7 @@ import SwiftyStoreKit
 class StartViewController: UIViewController {
     
     @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var scroll: UIScrollView!
     
     @IBOutlet weak var lblTerms: UILabel!
     @IBOutlet weak var btnStart: UIButton!
@@ -68,6 +69,7 @@ class StartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         verifySubs()
+        scroll.contentSize = CGSize(width: self.view.frame.width, height: 700)
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
         if !readAcceptTermsPreferences(){
             performSegue(withIdentifier: "segueTerms", sender: nil)
@@ -252,9 +254,8 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-        viewBackSubscriptionDialog.isHidden = false
         if hasSubscription {
-            //performSegue(withIdentifier: "segueTransition", sender: nil)
+            performSegue(withIdentifier: "segueTransition", sender: nil)
         } else {
             if hasVerified {
                 viewBackSubscriptionDialog.isHidden = false
