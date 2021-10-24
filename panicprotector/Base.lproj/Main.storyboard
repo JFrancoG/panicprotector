@@ -1272,6 +1272,87 @@
                                     <constraint firstItem="fus-uF-3v1" firstAttribute="centerX" secondItem="ylf-ma-rLa" secondAttribute="centerX" id="fkY-3T-Yzu"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hL8-eY-S6b">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTS-S3-a2g">
+                                        <rect key="frame" x="37.666666666666657" y="241" width="300" height="330"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permiso de uso del micrófono" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRs-hf-ueW">
+                                                <rect key="frame" x="20" y="32" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lo sentimos sin este permiso la aplicación no funciona." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FA-Xb-hfx">
+                                                <rect key="frame" x="20" y="101" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para habilitar el permiso debe dirigirse a ajustes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-0Y-qNh">
+                                                <rect key="frame" x="20" y="170" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imD-Fd-YE2">
+                                                <rect key="frame" x="12" y="250" width="134" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="t2O-a7-lCe"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="SALIR">
+                                                    <color key="baseForegroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="actionExit:" destination="43r-Oc-DNK" eventType="touchUpInside" id="s5j-TD-1Hm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3W-cq-bwR">
+                                                <rect key="frame" x="154" y="250" width="134" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="ded-Co-vN7"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="AJUSTES">
+                                                    <color key="baseForegroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="actionSettings:" destination="43r-Oc-DNK" eventType="touchUpInside" id="1oJ-0j-oa7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="G3W-cq-bwR" secondAttribute="bottom" constant="32" id="0IJ-0R-rfS"/>
+                                            <constraint firstItem="7FA-Xb-hfx" firstAttribute="top" secondItem="XRs-hf-ueW" secondAttribute="bottom" constant="24" id="2ge-oA-Ymj"/>
+                                            <constraint firstAttribute="trailing" secondItem="7FA-Xb-hfx" secondAttribute="trailing" constant="20" id="53k-XF-opB"/>
+                                            <constraint firstAttribute="height" constant="330" id="6gh-5C-DO9"/>
+                                            <constraint firstItem="7FA-Xb-hfx" firstAttribute="leading" secondItem="MTS-S3-a2g" secondAttribute="leading" constant="20" id="HsE-OY-xj1"/>
+                                            <constraint firstItem="XRs-hf-ueW" firstAttribute="leading" secondItem="MTS-S3-a2g" secondAttribute="leading" constant="20" id="Lol-0I-scn"/>
+                                            <constraint firstAttribute="trailing" secondItem="XRs-hf-ueW" secondAttribute="trailing" constant="20" id="Muf-MF-KTa"/>
+                                            <constraint firstAttribute="width" constant="300" id="N9L-9K-JgI"/>
+                                            <constraint firstAttribute="trailing" secondItem="wHA-0Y-qNh" secondAttribute="trailing" constant="20" id="NcS-MO-5j1"/>
+                                            <constraint firstItem="imD-Fd-YE2" firstAttribute="width" secondItem="G3W-cq-bwR" secondAttribute="width" id="Tdd-7o-w0e"/>
+                                            <constraint firstItem="wHA-0Y-qNh" firstAttribute="leading" secondItem="MTS-S3-a2g" secondAttribute="leading" constant="20" id="Y4B-MY-65z"/>
+                                            <constraint firstItem="XRs-hf-ueW" firstAttribute="top" secondItem="MTS-S3-a2g" secondAttribute="top" constant="32" id="c7K-gW-XPm"/>
+                                            <constraint firstItem="G3W-cq-bwR" firstAttribute="leading" secondItem="imD-Fd-YE2" secondAttribute="trailing" constant="8" id="eaH-p0-acx"/>
+                                            <constraint firstItem="imD-Fd-YE2" firstAttribute="leading" secondItem="MTS-S3-a2g" secondAttribute="leading" constant="12" id="ife-Pi-Aps"/>
+                                            <constraint firstAttribute="trailing" secondItem="G3W-cq-bwR" secondAttribute="trailing" constant="12" id="kQI-I6-SGU"/>
+                                            <constraint firstAttribute="bottom" secondItem="imD-Fd-YE2" secondAttribute="bottom" constant="32" id="wMp-xk-7d0"/>
+                                            <constraint firstItem="wHA-0Y-qNh" firstAttribute="top" secondItem="7FA-Xb-hfx" secondAttribute="bottom" constant="24" id="zuc-Hf-dew"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MTS-S3-a2g" firstAttribute="centerY" secondItem="hL8-eY-S6b" secondAttribute="centerY" id="EuS-Mz-FpO"/>
+                                    <constraint firstItem="MTS-S3-a2g" firstAttribute="centerX" secondItem="hL8-eY-S6b" secondAttribute="centerX" id="HJQ-kf-dV7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HuD-GL-dbW"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -1280,14 +1361,18 @@
                             <constraint firstItem="ylf-ma-rLa" firstAttribute="top" secondItem="zGL-Ck-beU" secondAttribute="top" id="2cz-tN-Rqa"/>
                             <constraint firstItem="9jw-tN-OLF" firstAttribute="top" secondItem="wjc-TX-qbb" secondAttribute="bottom" id="3Nj-LJ-dAe"/>
                             <constraint firstItem="wjc-TX-qbb" firstAttribute="top" secondItem="HuD-GL-dbW" secondAttribute="top" id="5rT-7d-X1x"/>
+                            <constraint firstItem="hL8-eY-S6b" firstAttribute="leading" secondItem="HuD-GL-dbW" secondAttribute="leading" id="6Mx-7N-KKr"/>
                             <constraint firstItem="9jw-tN-OLF" firstAttribute="leading" secondItem="HuD-GL-dbW" secondAttribute="leading" id="6o9-Fc-vVU"/>
                             <constraint firstItem="LGh-UP-x6c" firstAttribute="top" secondItem="zGL-Ck-beU" secondAttribute="top" id="7j7-IB-mJI"/>
                             <constraint firstAttribute="bottom" secondItem="LGh-UP-x6c" secondAttribute="bottom" id="Hzz-Ff-cl6"/>
+                            <constraint firstAttribute="bottom" secondItem="hL8-eY-S6b" secondAttribute="bottom" id="So8-hr-0jl"/>
                             <constraint firstAttribute="bottom" secondItem="ylf-ma-rLa" secondAttribute="bottom" id="USn-sU-CLZ"/>
+                            <constraint firstItem="HuD-GL-dbW" firstAttribute="trailing" secondItem="hL8-eY-S6b" secondAttribute="trailing" id="ch0-BC-nfp"/>
                             <constraint firstItem="HuD-GL-dbW" firstAttribute="bottom" secondItem="9jw-tN-OLF" secondAttribute="bottom" id="gd1-5V-kPw"/>
                             <constraint firstItem="HuD-GL-dbW" firstAttribute="trailing" secondItem="wjc-TX-qbb" secondAttribute="trailing" id="hVj-oo-y9Z"/>
                             <constraint firstItem="HuD-GL-dbW" firstAttribute="trailing" secondItem="ylf-ma-rLa" secondAttribute="trailing" id="hou-4J-SNt"/>
                             <constraint firstItem="wjc-TX-qbb" firstAttribute="leading" secondItem="HuD-GL-dbW" secondAttribute="leading" id="iWG-xL-Eu3"/>
+                            <constraint firstItem="hL8-eY-S6b" firstAttribute="top" secondItem="zGL-Ck-beU" secondAttribute="top" id="jPd-JW-chV"/>
                             <constraint firstItem="LGh-UP-x6c" firstAttribute="leading" secondItem="HuD-GL-dbW" secondAttribute="leading" id="n2s-n7-Eai"/>
                             <constraint firstItem="HuD-GL-dbW" firstAttribute="trailing" secondItem="9jw-tN-OLF" secondAttribute="trailing" id="qld-GR-v1b"/>
                             <constraint firstItem="HuD-GL-dbW" firstAttribute="trailing" secondItem="LGh-UP-x6c" secondAttribute="trailing" id="sgY-fI-e7B"/>
@@ -1297,8 +1382,10 @@
                     <connections>
                         <outlet property="btnEndHelp" destination="py3-jj-bmV" id="2KR-Jz-s1h"/>
                         <outlet property="btnEndProcess" destination="DsU-KZ-JHp" id="D0x-0q-y70"/>
+                        <outlet property="btnExit" destination="imD-Fd-YE2" id="Vf2-VR-oEJ"/>
                         <outlet property="btnHelp" destination="F6c-54-JZV" id="NxG-sr-l7Z"/>
                         <outlet property="btnNextProcess" destination="u62-dZ-I0G" id="FrW-Ji-ut3"/>
+                        <outlet property="btnSettings" destination="G3W-cq-bwR" id="joZ-cS-GH7"/>
                         <outlet property="checkBoxHelp" destination="EkS-3D-teh" id="s4Y-ko-g3Z"/>
                         <outlet property="constrainHeightCloud1" destination="saJ-9E-wCa" id="7Eq-TQ-Vqs"/>
                         <outlet property="constrainHeightCloud2" destination="NKd-2e-mWV" id="jZI-aw-Ppk"/>
@@ -1311,6 +1398,8 @@
                         <outlet property="imgCountdown" destination="dMa-JQ-bFO" id="nWv-NK-MF6"/>
                         <outlet property="imgFloor" destination="8MN-2c-pFk" id="HmH-SX-NpV"/>
                         <outlet property="keypad" destination="fpe-ib-FNi" id="2kV-Ve-elZ"/>
+                        <outlet property="lbl1Permission" destination="7FA-Xb-hfx" id="kjo-5Q-kQc"/>
+                        <outlet property="lbl2Permission" destination="wHA-0Y-qNh" id="P71-C0-sfj"/>
                         <outlet property="lblBreathMessages" destination="4m3-Z9-7Vh" id="fOV-Ab-vZa"/>
                         <outlet property="lblCheckBox" destination="t3b-h4-kXz" id="Vyx-jw-eVq"/>
                         <outlet property="lblContinue" destination="glB-g1-ZvW" id="A8g-9T-T7i"/>
@@ -1327,12 +1416,14 @@
                         <outlet property="lblInstruction33" destination="WK8-PU-9rS" id="6EF-gz-bnp"/>
                         <outlet property="lblInstruction34" destination="51o-WG-rCc" id="Qvl-1l-Dn9"/>
                         <outlet property="lblInstruction35" destination="UUj-r3-4GB" id="pYe-h6-A8J"/>
+                        <outlet property="lblPermissionTitle" destination="XRs-hf-ueW" id="WR2-V2-7WS"/>
                         <outlet property="lblTitle" destination="Uak-Jq-5IG" id="8dV-wb-7Et"/>
                         <outlet property="toolbar" destination="wjc-TX-qbb" id="8Od-Ow-3jV"/>
                         <outlet property="viewBackCheckBox" destination="oGZ-w3-XUm" id="NWO-Jr-xJ9"/>
                         <outlet property="viewBackDialogEndProcess" destination="ylf-ma-rLa" id="Bxs-po-IiJ"/>
                         <outlet property="viewBackHelp" destination="LGh-UP-x6c" id="pde-Sv-qqB"/>
                         <outlet property="viewBackNextHelp" destination="oFv-Qn-0Nb" id="hjC-BZ-AEi"/>
+                        <outlet property="viewBackPermissionDenied" destination="hL8-eY-S6b" id="6LB-un-c1b"/>
                         <outlet property="viewBackPreviousHelp" destination="XYQ-Vp-8Ub" id="J3p-Zc-oY4"/>
                         <outlet property="viewBackground" destination="9jw-tN-OLF" id="BGp-Cz-BQw"/>
                         <outlet property="viewBreath1" destination="mFV-w8-OLf" id="im1-bd-pMF"/>
@@ -1351,6 +1442,7 @@
                         <outlet property="viewHelp3" destination="XnI-gJ-FfT" id="HW1-mI-mx3"/>
                         <outlet property="viewInterrogation" destination="fMH-Go-HeK" id="YuV-go-z7d"/>
                         <outlet property="viewNextProcess" destination="vMu-OJ-uJ6" id="CLH-Xo-ST3"/>
+                        <outlet property="viewPermission" destination="MTS-S3-a2g" id="vbS-xx-hp9"/>
                         <segue destination="Ma7-QS-aJI" kind="unwind" identifier="unwindBreath" unwindAction="unwindFromBreathWithSegue:" id="k5M-CV-RzU"/>
                     </connections>
                 </viewController>
@@ -2193,11 +2285,95 @@
                                     <constraint firstItem="Jyd-RE-Ini" firstAttribute="centerX" secondItem="8bJ-wo-jpg" secondAttribute="centerX" id="JXp-HW-zMB"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5K-nO-7ic">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shN-jo-Wmq">
+                                        <rect key="frame" x="37.666666666666657" y="241" width="300" height="330"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lo sentimos sin este permiso la aplicación no funciona." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heC-qe-Flz">
+                                                <rect key="frame" x="20" y="101" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para habilitar el permiso debe dirigirse a ajustes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOi-2e-7I9">
+                                                <rect key="frame" x="20" y="170" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8C-hY-vvM">
+                                                <rect key="frame" x="154" y="250" width="134" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="XCk-xx-hrI"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="AJUSTES">
+                                                    <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                    <color key="baseForegroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="actionSettings:" destination="kc4-7V-HoI" eventType="touchUpInside" id="1X8-JV-Ip5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L22-qA-bXB">
+                                                <rect key="frame" x="12" y="250" width="134" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Y6t-Ur-bJH"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="SALIR">
+                                                    <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                    <color key="baseForegroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="actionExit:" destination="kc4-7V-HoI" eventType="touchUpInside" id="1Gc-b6-Rzv"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permiso de uso de la cámara" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-tU-NGf">
+                                                <rect key="frame" x="20" y="32" width="260" height="45"/>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.30196078430000001" green="0.81568627449999997" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="heC-qe-Flz" firstAttribute="leading" secondItem="shN-jo-Wmq" secondAttribute="leading" constant="20" id="1Xv-pE-iQq"/>
+                                            <constraint firstAttribute="bottom" secondItem="h8C-hY-vvM" secondAttribute="bottom" constant="32" id="7ER-E3-YbH"/>
+                                            <constraint firstAttribute="width" constant="300" id="ABV-85-cVw"/>
+                                            <constraint firstItem="h8C-hY-vvM" firstAttribute="leading" secondItem="L22-qA-bXB" secondAttribute="trailing" constant="8" id="EVj-kb-DH1"/>
+                                            <constraint firstItem="xrr-tU-NGf" firstAttribute="leading" secondItem="shN-jo-Wmq" secondAttribute="leading" constant="20" id="H6q-7k-4Vd"/>
+                                            <constraint firstItem="heC-qe-Flz" firstAttribute="top" secondItem="xrr-tU-NGf" secondAttribute="bottom" constant="24" id="Ygt-Qo-1eW"/>
+                                            <constraint firstItem="HOi-2e-7I9" firstAttribute="leading" secondItem="shN-jo-Wmq" secondAttribute="leading" constant="20" id="bkg-gj-gVr"/>
+                                            <constraint firstAttribute="bottom" secondItem="L22-qA-bXB" secondAttribute="bottom" constant="32" id="d08-eT-xxl"/>
+                                            <constraint firstAttribute="trailing" secondItem="heC-qe-Flz" secondAttribute="trailing" constant="20" id="fTv-TL-itP"/>
+                                            <constraint firstAttribute="trailing" secondItem="HOi-2e-7I9" secondAttribute="trailing" constant="20" id="fVc-d6-WW8"/>
+                                            <constraint firstItem="xrr-tU-NGf" firstAttribute="top" secondItem="shN-jo-Wmq" secondAttribute="top" constant="32" id="fgJ-eg-Fxm"/>
+                                            <constraint firstAttribute="trailing" secondItem="xrr-tU-NGf" secondAttribute="trailing" constant="20" id="hsM-2a-Yuc"/>
+                                            <constraint firstItem="L22-qA-bXB" firstAttribute="leading" secondItem="shN-jo-Wmq" secondAttribute="leading" constant="12" id="j9u-Yb-DKg"/>
+                                            <constraint firstItem="L22-qA-bXB" firstAttribute="width" secondItem="h8C-hY-vvM" secondAttribute="width" id="qCH-xV-emG"/>
+                                            <constraint firstAttribute="height" constant="330" id="tr1-uj-wuG"/>
+                                            <constraint firstItem="HOi-2e-7I9" firstAttribute="top" secondItem="heC-qe-Flz" secondAttribute="bottom" constant="24" id="w9a-dl-Bgz"/>
+                                            <constraint firstAttribute="trailing" secondItem="h8C-hY-vvM" secondAttribute="trailing" constant="12" id="xPs-6M-CEh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="shN-jo-Wmq" firstAttribute="centerY" secondItem="j5K-nO-7ic" secondAttribute="centerY" id="gRV-Op-PD8"/>
+                                    <constraint firstItem="shN-jo-Wmq" firstAttribute="centerX" secondItem="j5K-nO-7ic" secondAttribute="centerX" id="onK-wB-N6r"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="faG-QF-V2d"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="s3B-Gb-ajg" firstAttribute="leading" secondItem="gKr-KE-ewW" secondAttribute="leadingMargin" id="8Em-Dn-jFx"/>
+                            <constraint firstItem="j5K-nO-7ic" firstAttribute="leading" secondItem="faG-QF-V2d" secondAttribute="leading" id="8oV-ov-tLW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s3B-Gb-ajg" secondAttribute="trailing" id="Atb-Z5-Scn"/>
                             <constraint firstAttribute="bottom" secondItem="rGk-F1-vb8" secondAttribute="bottom" id="B2W-Ea-xk6"/>
                             <constraint firstItem="8bJ-wo-jpg" firstAttribute="leading" secondItem="faG-QF-V2d" secondAttribute="leading" id="CIf-Ka-fnT"/>
@@ -2205,6 +2381,7 @@
                             <constraint firstItem="TKo-mH-mCi" firstAttribute="top" secondItem="gKr-KE-ewW" secondAttribute="top" id="DFj-7S-OJ4"/>
                             <constraint firstAttribute="trailing" secondItem="sPc-4x-cs7" secondAttribute="trailing" id="Def-BU-wZc"/>
                             <constraint firstItem="sPc-4x-cs7" firstAttribute="leading" secondItem="gKr-KE-ewW" secondAttribute="leading" id="Gwc-7b-Wxp"/>
+                            <constraint firstItem="j5K-nO-7ic" firstAttribute="top" secondItem="gKr-KE-ewW" secondAttribute="top" id="IpC-Yz-JJF"/>
                             <constraint firstAttribute="bottom" secondItem="TKo-mH-mCi" secondAttribute="bottom" id="KbO-H4-XuQ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="sPc-4x-cs7" secondAttribute="bottom" constant="-10" id="LDv-t9-lbv"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="bottom" secondItem="tex-kH-IJq" secondAttribute="bottom" id="LjV-c6-A3N"/>
@@ -2219,8 +2396,10 @@
                             <constraint firstItem="tex-kH-IJq" firstAttribute="top" secondItem="cTv-Pn-DYq" secondAttribute="bottom" constant="16" id="c9U-YA-M6p"/>
                             <constraint firstItem="8bJ-wo-jpg" firstAttribute="top" secondItem="gKr-KE-ewW" secondAttribute="top" id="cuq-LZ-udo"/>
                             <constraint firstItem="sPc-4x-cs7" firstAttribute="top" secondItem="s3B-Gb-ajg" secondAttribute="bottom" id="dDS-Gf-Irh"/>
+                            <constraint firstAttribute="bottom" secondItem="j5K-nO-7ic" secondAttribute="bottom" id="dId-Mu-V4k"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="9ct-cu-8G1" secondAttribute="trailing" id="efc-iL-fjG"/>
                             <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="TKo-mH-mCi" secondAttribute="trailing" id="fZ2-dc-lcP"/>
+                            <constraint firstItem="faG-QF-V2d" firstAttribute="trailing" secondItem="j5K-nO-7ic" secondAttribute="trailing" id="fec-uC-fcR"/>
                             <constraint firstAttribute="bottom" secondItem="8bJ-wo-jpg" secondAttribute="bottom" id="hIU-Ja-OMi"/>
                             <constraint firstItem="TKo-mH-mCi" firstAttribute="leading" secondItem="faG-QF-V2d" secondAttribute="leading" id="ht8-Pd-0FI"/>
                             <constraint firstAttribute="bottom" secondItem="fK5-FZ-OCW" secondAttribute="bottom" id="kby-px-Asz"/>
@@ -2236,16 +2415,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="ygH-Ff-97h"/>
                     <connections>
+                        <outlet property="btnClose" destination="L22-qA-bXB" id="RGb-8f-CiC"/>
                         <outlet property="btnContinue" destination="Qct-YE-hEs" id="tg7-x8-MKQ"/>
                         <outlet property="btnEndHelp" destination="mwV-3g-e7x" id="Dkl-Gu-qnL"/>
                         <outlet property="btnHelp" destination="rVG-t7-inM" id="lr1-od-nUQ"/>
                         <outlet property="btnNextProcess" destination="rNQ-Um-L7O" id="4Vg-TH-fuG"/>
                         <outlet property="btnRestartCycleCorrect" destination="T8O-al-OFS" id="jad-Kc-x0L"/>
                         <outlet property="btnRestartCycleIncorrect" destination="gEI-VL-cbf" id="Ggo-20-3MS"/>
+                        <outlet property="btnSettings" destination="h8C-hY-vvM" id="3ej-V3-yMt"/>
                         <outlet property="btnStart" destination="LWB-BP-U4t" id="X8b-2T-Cq1"/>
                         <outlet property="checkBoxHelp" destination="3Ky-yk-y95" id="hap-r9-5aY"/>
                         <outlet property="imgShapeHeart" destination="G6n-Rr-NFj" id="6lh-Ig-dIX"/>
                         <outlet property="keypad" destination="tex-kH-IJq" id="gsh-EO-BZQ"/>
+                        <outlet property="lbl1Permission" destination="heC-qe-Flz" id="TOE-kM-zP9"/>
+                        <outlet property="lbl2Permission" destination="HOi-2e-7I9" id="Kgn-yS-JwD"/>
                         <outlet property="lblCalmLevel" destination="4Ct-MC-JXs" id="pkL-5i-7uU"/>
                         <outlet property="lblCalmLevelDescription" destination="Oy2-fR-KSG" id="7w2-kc-alf"/>
                         <outlet property="lblCalmLevels" destination="woQ-8y-OsL" id="rjf-7j-FAl"/>
@@ -2264,6 +2447,7 @@
                         <outlet property="lblInstruction5" destination="wKi-Fq-Ujz" id="o2h-X0-Gus"/>
                         <outlet property="lblInstruction6" destination="Lf6-sL-9Mb" id="sZ6-xv-LYS"/>
                         <outlet property="lblInstruction7" destination="zp1-7h-eJn" id="Emc-Wq-Han"/>
+                        <outlet property="lblPermissionTitle" destination="xrr-tU-NGf" id="eZu-gN-Pp3"/>
                         <outlet property="lblRemoveFinger" destination="nf6-0x-Kv8" id="DHr-Ax-Htw"/>
                         <outlet property="lblTitle" destination="S6I-bO-nG2" id="roP-Mj-PWm"/>
                         <outlet property="progress" destination="fyV-06-zZx" id="1Xd-2R-uDi"/>
@@ -2276,6 +2460,7 @@
                         <outlet property="viewBackHelp" destination="fK5-FZ-OCW" id="Wgv-Jc-o5K"/>
                         <outlet property="viewBackMeasurement" destination="rGk-F1-vb8" id="vew-Sf-QyJ"/>
                         <outlet property="viewBackNextHelp" destination="C6v-nU-dDA" id="Prj-FT-TT7"/>
+                        <outlet property="viewBackPermissionDenied" destination="j5K-nO-7ic" id="8f7-hj-Ryy"/>
                         <outlet property="viewBackPreviousHelp" destination="GGQ-8d-z1o" id="1FS-As-ODy"/>
                         <outlet property="viewBackground" destination="9ct-cu-8G1" id="ydF-fc-gKI"/>
                         <outlet property="viewCorrectMeasure" destination="T6Q-ia-Ff3" id="Cfq-4C-JGl"/>
@@ -2288,6 +2473,7 @@
                         <outlet property="viewIncorrectMeasure" destination="WuP-NX-5hz" id="gvO-pZ-PVh"/>
                         <outlet property="viewInterrogation" destination="gGJ-f4-n3m" id="Ymg-tc-ynI"/>
                         <outlet property="viewNextProcess" destination="O8e-vl-oLr" id="30x-RE-B52"/>
+                        <outlet property="viewPermission" destination="shN-jo-Wmq" id="CrK-uq-E5G"/>
                         <outlet property="viewResult" destination="iWS-2J-AW2" id="Ojs-5Y-pYO"/>
                         <outlet property="viewVisor" destination="54a-js-KjM" id="O0Z-ku-sKT"/>
                         <segue destination="KGn-5m-PaY" kind="unwind" identifier="unwindPulse" unwindAction="unwindFromHeartBeatsWithSegue:" id="r4T-Rk-KfF"/>

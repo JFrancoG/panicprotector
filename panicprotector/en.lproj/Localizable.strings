@@ -47,6 +47,12 @@
 "txtHeartBeatsInstruction5" = "DO NOT MOVE YOUR FINGER until you have finished the process!";
 "txtHeartBeatsInstruction6" = "The SMILE indicates the input process of your HEARTBEAT";
 "txtHeartBeatsInstruction7" = "Once the smile is COMPLETE, the process is finished";
+"txtCameraPermission" = "Permission to use the camera";
+"txtMicroPermission" = "Permission to use the microphone";
+"txtWithoutPermissionNotWork" = "Sorry, but without this permission, the application does not work.";
+"txtEnabledPermission" = "To enable the permission you should go to settings.";
+"txtExit" = "Exit";
+"txtSettings" = "Settings";
 "txtBreathInstruction11" = "BREATHE IN / INSPIRATION";
 "txtBreathInstruction12" = "With the FIGURE at the bottom";
 "txtBreathInstruction13" = "Take in as much air as possible through ABDOMINAL BREATHING (stomach should inflate).";
@@ -65,8 +71,10 @@
 "txtTerms4" = "We will use such data to optimize the performance of the app, following our Privacy Policy.";
 "txtAcceptTerms" = "By clicking on the ACCEPT button, I agree to panicPROTECTOR processing my data for measurement purposes.";
 "txt7DaysTrial" = "7 DAY FREE TRIAL!";
-"txtSubsMonthly" = "%@ / month";
-"txtSubsYearly" = "%@ / year";
+//"txtSubsMonthly" = "%@ / month";
+//"txtSubsYearly" = "%@ / year";
+"txtSubsMonthly" = "6.99 € / month";
+"txtSubsYearly" = "49.99 € / year";
 "txtSaving" = "(12 months at 4,16€ / month. Save 40%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Calm your anxiety on the spot with personalized breathing exercises.";

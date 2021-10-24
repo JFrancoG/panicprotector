@@ -78,6 +78,14 @@ class HeartBeatsViewController: UIViewController {
     
     @IBOutlet weak var btnEndHelp: UIButton!
     
+    @IBOutlet weak var viewBackPermissionDenied: UIView!
+    @IBOutlet weak var viewPermission: UIView!
+    @IBOutlet weak var lblPermissionTitle: UILabel!
+    @IBOutlet weak var lbl1Permission: UILabel!
+    @IBOutlet weak var lbl2Permission: UILabel!
+    @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var btnSettings: UIButton!
+    
     
     var delegate: HeartBeatsProtocol?
     var counter = 0
@@ -86,6 +94,7 @@ class HeartBeatsViewController: UIViewController {
     
     var isPulse = false
     var isCanCheck = false
+    var isPermissionDenied = false
     
     var pulseLevel = -1
     var state = StateProcess.heartbeats
@@ -104,10 +113,11 @@ class HeartBeatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initVideoCapture()
+        //initVideoCapture()
         customizeControls()
         //savePreferencesPulseLevel(level: pulseLevel)
-        checkHelp()
+        //checkHelp()
+        checkPermissions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +130,35 @@ class HeartBeatsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        resetValues()
+        if !isPermissionDenied {
+            resetValues()
+        }
+    }
+    
+    private func initProcess() {
+        initVideoCapture()
+        checkHelp()
+    }
+    
+    func checkPermissions() {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+
+        switch authStatus {
+        case .authorized:
+            print("AUTHORRIZED")
+            isPermissionDenied = false
+            initProcess()
+        case .denied:
+            print("DENEGADO")
+            isPermissionDenied = true
+            viewBackPermissionDenied.isHidden = false
+        default:
+            print("NOT DETERMINED")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                self.checkPermissions()
+            }
+            initProcess()
+        }
     }
     
     func resetValues() {
@@ -161,6 +199,9 @@ class HeartBeatsViewController: UIViewController {
         viewIncorrectMeasure.isHidden = true
         viewIncorrectMeasure.backgroundColor = .colorPrimary
         viewResult.backgroundColor = .colorGreenCalm
+        viewBackPermissionDenied.backgroundColor = .colorGreyTranslucid
+        viewBackPermissionDenied.isHidden = true
+        viewPermission.backgroundColor = .colorPrimary
 
         // labels
         lblInProcess.style(text: txtInProcess,
@@ -247,6 +288,18 @@ class HeartBeatsViewController: UIViewController {
                               color: .white,
                               size: 14,
                               fontName: fontArialRegular)
+        lblPermissionTitle.style(text: txtCameraPermission,
+                             color: .colorPrimaryDark,
+                             size: 20,
+                             fontName: fontArialBold)
+        lbl1Permission.style(text: txtWithoutPermissionNotWork,
+                             color: .white,
+                             size: 20,
+                             fontName: fontArialRegular)
+        lbl2Permission.style(text: txtEnabledPermission,
+                             color: .white,
+                             size: 20,
+                             fontName: fontArialRegular)
         
         // buttons
         btnContinue.styleDialog(txt: txtContinue.uppercased())
@@ -255,6 +308,8 @@ class HeartBeatsViewController: UIViewController {
         btnStart.styleDialog(txt: txtStart.uppercased())
         btnRestartCycleCorrect.styleDialog(txt: txtRestartCycle.uppercased())
         btnRestartCycleIncorrect.styleDialog(txt: txtRestartCycle.uppercased())
+        btnClose.styleDialog(txt: txtExit.uppercased())
+        btnSettings.styleDialog(txt: txtSettings.uppercased())
         
         // progress
         progress.clockwise = false
@@ -434,6 +489,24 @@ class HeartBeatsViewController: UIViewController {
         } else {
             state = .end
         }
+    }
+    
+    @IBAction func actionExit(_ sender: Any) {
+        checkState()
+        performSegue(withIdentifier: "unwindPulse", sender: nil)
+    }
+    
+    @IBAction func actionSettings(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        performSegue(withIdentifier: "unwindPulse", sender: nil)
     }
     
     @IBAction func actionCheckBox(_ sender: BEMCheckBox) {

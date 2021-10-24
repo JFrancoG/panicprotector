@@ -80,6 +80,14 @@ class BreathingViewController: UIViewController {
     @IBOutlet weak var lblHeartBeatsScreen: UILabel!
     @IBOutlet weak var btnEndProcess: UIButton!
     
+    @IBOutlet weak var viewBackPermissionDenied: UIView!
+    @IBOutlet weak var viewPermission: UIView!
+    @IBOutlet weak var lblPermissionTitle: UILabel!
+    @IBOutlet weak var lbl1Permission: UILabel!
+    @IBOutlet weak var lbl2Permission: UILabel!
+    @IBOutlet weak var btnExit: UIButton!
+    @IBOutlet weak var btnSettings: UIButton!
+    
     
     var recorder: AVAudioRecorder!
     var levelTimer = Timer()
@@ -114,7 +122,8 @@ class BreathingViewController: UIViewController {
         super.viewDidLoad()
         pulseLevel = readPulseLevelPreferences()
         customizeControls()
-        checkHelp()
+        checkPermissions()
+        //checkHelp()
     }
     
 
@@ -133,6 +142,27 @@ class BreathingViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         if recorder != nil {
             recorder.stop()
+        }
+    }
+    
+    func checkPermissions() {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
+
+        switch authStatus {
+        case .authorized:
+            print("AUTHORRIZED")
+            //isPermissionDenied = false
+            checkHelp()
+        case .denied:
+            print("DENEGADO")
+            //isPermissionDenied = true
+            viewBackPermissionDenied.isHidden = false
+        default:
+            print("NOT DETERMINED")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                self.checkPermissions()
+            }
+            checkHelp()
         }
     }
     
@@ -216,6 +246,9 @@ class BreathingViewController: UIViewController {
         viewBackCheckBox.isHidden = true
         viewBackPreviousHelp.isHidden = true
         viewGenius.isHidden = true
+        viewBackPermissionDenied.backgroundColor = .colorGreyTranslucid
+        viewBackPermissionDenied.isHidden = true
+        viewPermission.backgroundColor = .colorPrimary
 
         lblTitle.style(text: txtBreathing.uppercased(),
                        color: .colorPrimary,
@@ -288,10 +321,25 @@ class BreathingViewController: UIViewController {
                               color: .colorPrimaryDark,
                               size: 14,
                               fontName: fontArialRegular)
+        lblPermissionTitle.style(text: txtMicroPermission,
+                             color: .colorPrimaryDark,
+                             size: 20,
+                             fontName: fontArialBold)
+        lbl1Permission.style(text: txtWithoutPermissionNotWork,
+                             color: .white,
+                             size: 20,
+                             fontName: fontArialRegular)
+        lbl2Permission.style(text: txtEnabledPermission,
+                             color: .white,
+                             size: 20,
+                             fontName: fontArialRegular)
+        
         
         btnEndProcess.styleDialog(txt: txtEnd.uppercased())
         btnEndHelp.style(txt: txtContinue.uppercased(), size: 16)
         btnEndHelp.isHidden = true
+        btnExit.styleDialog(txt: txtExit.uppercased())
+        btnSettings.styleDialog(txt: txtSettings.uppercased())
         
         checkBoxHelp.customizeCheckBox()
     }
@@ -533,6 +581,23 @@ class BreathingViewController: UIViewController {
     private func disableHelp(){
         viewInterrogation.backgroundColor = .lightGray
         btnHelp.isUserInteractionEnabled = false
+    }
+    
+    @IBAction func actionExit(_ sender: Any) {
+        performSegue(withIdentifier: "unwindBreath", sender: nil)
+    }
+    
+    @IBAction func actionSettings(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        performSegue(withIdentifier: "unwindBreath", sender: nil)
     }
     
     @IBAction func actionCheckBox(_ sender: BEMCheckBox) {

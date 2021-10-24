@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Panic protector needs to use the camera to be able to use the camera and tell you your approximate pulse level.</string>
+	<string>We need to use the camera to determine your stress level. No data will be stored or transmitted to third parties.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Panic protector needs to use the microphone in order to take measurements of his lung capacity.</string>
+	<string>We need to use the microphone to capture the intensity of your exhalation.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -47,6 +47,12 @@
 "txtHeartBeatsInstruction5" = "DEN FINGER NICHT BEWEGEN, bis die Prozedur abgeschlossen ist!";
 "txtHeartBeatsInstruction6" = "DAS LÄCHELN zeigt an, dass die Messung deines HERZSCHLAGS erfolgt";
 "txtHeartBeatsInstruction7" = "Wenn das Lächeln KOMPLETT ist, ist die Messung abgeschlossen";
+"txtCameraPermission" = "Erlaubnis zur Benutzung der Kamera";
+"txtMicroPermission" = "Erlaubnis zur Benutzung des Mikrofons";
+"txtWithoutPermissionNotWork" = "Es tut uns leid, aber ohne deine Freigabe funktioniert die App nicht.";
+"txtEnabledPermission" = "Um die Berechtigung zu aktivieren, müssen Sie zu den Einstellungen gehen.";
+"txtExit" = "Ausfahrt";
+"txtSettings" = "Einstellungen";
 "txtBreathInstruction11" = "ATME EIN / INSPIRATION";
 "txtBreathInstruction12" = "Mit der FIGUR auf dem Boden";
 "txtBreathInstruction13" = "Hole so viel Luft wie möglich aus den UNTEREN LUNGENFLÜGELN, damit die  Bauchdecke sich anhebt.";
@@ -65,8 +71,10 @@
 "txtTerms4" = "Wir nutzen diese Daten zur Optimierung der Leistung der App gemäß unserer Datenschutzrichtlinien.";
 "txtAcceptTerms" = "Mit dem Klick auf die Schaltfläche AKZEPTIEREN stimme ich der Verarbeitung meiner Daten zu Messzwecken zu.";
 "txt7DaysTrial" = "7 TAGE GRATIS TESTEN!";
-"txtSubsMonthly" = "%@ / monat";
-"txtSubsYearly" = "%@ / Jahr";
+//"txtSubsMonthly" = "%@ / monat";
+//"txtSubsYearly" = "%@ / Jahr";
+"txtSubsMonthly" = "6,99 € / monat";
+"txtSubsYearly" = "49,99 € / Jahr";
 "txtSaving" = "(12 Monate für 4,16€ / Monat. Spare 40%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Beruhige deine Ängste auf der Stelle mit personalisierten Atemübungen.";

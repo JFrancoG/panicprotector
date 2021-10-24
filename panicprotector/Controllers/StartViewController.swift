@@ -68,7 +68,7 @@ class StartViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        verifySubs()
+        verifySubscriptions()
         scroll.contentSize = CGSize(width: self.view.frame.width, height: 700)
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
         if !readAcceptTermsPreferences(){
@@ -80,7 +80,7 @@ class StartViewController: UIViewController {
         return .lightContent
     }
     
-    private func verifySubs() {
+    private func verifySub() {
         activityIndicator.startAnimating()
         verifySub(prodId: ProductSubscriptionID.yearlySubscription.rawValue) { state in
             self.stateYearlySub = state
@@ -91,6 +91,35 @@ class StartViewController: UIViewController {
             self.stateMonthlySub = state
             self.checkedSubs += 1
             self.checkStates()
+        }
+    }
+    
+    private func verifySubscriptions() {
+        activityIndicator.startAnimating()
+        verifySubs { state in
+            self.activityIndicator.stopAnimating()
+            self.btnStart.isUserInteractionEnabled = true
+            switch state {
+            case .purchased:
+                print("purchased")
+                self.hasSubscription = true
+                self.hasVerified = true
+                
+            case .expired:
+                print("expired")
+                self.hasVerified = true
+                self.viewBackSubscriptionDialog.isHidden = false
+                // Mostrar dialogo de compra
+                // si queremos mostrar fecha de cuando expiró hay que capturarla
+            case .notPurchased:
+                print("not purchased")
+                self.hasVerified = true
+                self.viewBackSubscriptionDialog.isHidden = false
+            case .error:
+                print("error")
+                self.hasVerified = false
+                // Lanzar alert con problem
+            }
         }
     }
     
@@ -115,15 +144,54 @@ class StartViewController: UIViewController {
         }
     }
     
+    private func verifySubs(completionHandler: @escaping (StateSub) -> Void) {
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
+        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
+                                ProductSubscriptionID.yearlySubscription.rawValue]
+        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+            switch result {
+            case .success(let receipt):
+                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
+                    productIds: prods,
+                    inReceipt: receipt)
+                switch purchaseResult {
+                case .purchased(let expiryDate, let items):
+                    //print("\(prods) is valid until \(expiryDate)\n\(items)\n")
+                    //print("\(prodId) is valid until \(expiryDate)\n")
+                    print("is valid until \(expiryDate)\n")
+                    completionHandler(.purchased)
+                case .expired(let expiryDate, let items):
+                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+                    //print("\(prodId) is expired since \(expiryDate)\n\n")
+                    print("is expired since \(expiryDate)\n")
+                    completionHandler(.expired)
+                case .notPurchased:
+//                    print("The user has never purchased \(prodId)")
+                    print("The user has never purchased")
+                    completionHandler(.notPurchased)
+                }
+            case .error(let error):
+                print("Receipt verification failed: \(error)")
+                completionHandler(.error)
+            }
+        }
+    }
+    
     private func verifySub(prodId: String, completionHandler: @escaping (StateSub) -> Void) {
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
+        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
+                                      ProductSubscriptionID.yearlySubscription.rawValue]
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
                 //print("receipt:\(receipt)")
-                let purchaseResult = SwiftyStoreKit.verifySubscription(
-                    ofType: .autoRenewable,
-                    productId: prodId,
+//                let purchaseResult = SwiftyStoreKit.verifySubscription(
+//                    ofType: .autoRenewable,
+//                    productId: prodId,
+//                    inReceipt: receipt)
+                
+                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
+                    productIds: prods,
                     inReceipt: receipt)
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
@@ -183,11 +251,11 @@ class StartViewController: UIViewController {
                             color: .white,
                             size: 18,
                             fontName: fontArialBold)
-        lblMonthlyPrice.style(text: "",
+        lblMonthlyPrice.style(text: txtSubsMonthly,
                               color: .white,
                               size: 24,
                               fontName: fontArialBold)
-        lblYearlyPrice.style(text: "",
+        lblYearlyPrice.style(text: txtSubsYearly,
                               color: .white,
                               size: 24,
                               fontName: fontArialBold)
@@ -257,11 +325,12 @@ class StartViewController: UIViewController {
         if hasSubscription {
             performSegue(withIdentifier: "segueTransition", sender: nil)
         } else {
-            if hasVerified {
-                viewBackSubscriptionDialog.isHidden = false
-            } else {
-                verifySubs()
-            }
+            verifySubscriptions()
+//            if hasVerified {
+//                viewBackSubscriptionDialog.isHidden = false
+//            } else {
+//                verifySubscriptions()
+//            }
         }
     }
 
@@ -286,7 +355,7 @@ extension StartViewController: SKProductsRequestDelegate {
             prodSubscriptions.append(product)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.showSubscriptionPrice()
+            //self.showSubscriptionPrice()
         }
     }
 }
@@ -305,7 +374,7 @@ extension StartViewController: SKPaymentTransactionObserver {
                 paymentQueue.finishTransaction(transaction)
                 paymentQueue.remove(self)
                 hasVerified = false
-                verifySubs()
+                verifySubscriptions()
                 viewBackSubscriptionDialog.isHidden = true
             case .failed, .deferred:
                 print("FAILEDD")
