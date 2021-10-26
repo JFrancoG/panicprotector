@@ -154,7 +154,7 @@ class HeartBeatsViewController: UIViewController {
             viewBackPermissionDenied.isHidden = false
         default:
             print("NOT DETERMINED")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 self.checkPermissions()
             }
             initProcess()

@@ -123,7 +123,7 @@ class BreathingViewController: UIViewController {
         pulseLevel = readPulseLevelPreferences()
         customizeControls()
         checkPermissions()
-        //checkHelp()
+        checkHelp()
     }
     
 
@@ -146,24 +146,50 @@ class BreathingViewController: UIViewController {
     }
     
     func checkPermissions() {
-        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
-
-        switch authStatus {
-        case .authorized:
-            print("AUTHORRIZED")
-            //isPermissionDenied = false
-            checkHelp()
-        case .denied:
-            print("DENEGADO")
-            //isPermissionDenied = true
+        
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSession.RecordPermission.granted:
+            print("Permission granted")
+        case AVAudioSession.RecordPermission.denied:
+            print("Pemission denied")
             viewBackPermissionDenied.isHidden = false
+        case AVAudioSession.RecordPermission.undetermined:
+            print("Request permission here")
+            AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+                if granted {
+                    print("GRANTED")
+                } else {
+                    DispatchQueue.main.async {
+                        self.viewBackPermissionDenied.isHidden = false
+                    }
+                }
+            })
         default:
-            print("NOT DETERMINED")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                self.checkPermissions()
-            }
-            checkHelp()
+            break
         }
+        
+        
+        
+        
+//        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
+//
+//        switch authStatus {
+//        case .authorized:
+//            print("AUTHORRIZED")
+//            //isPermissionDenied = false
+//            startProcessBreath()
+//        case .denied:
+//            print("DENEGADO")
+//            //isPermissionDenied = true
+//            viewBackPermissionDenied.isHidden = false
+//        default:
+//            print("NOT DETERMINED")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//                self.checkPermissions()
+//            }
+//            startProcessBreath()
+//
+        
     }
     
     private func setMeasures(){
@@ -584,6 +610,7 @@ class BreathingViewController: UIViewController {
     }
     
     @IBAction func actionExit(_ sender: Any) {
+        state = .heartbeats2
         performSegue(withIdentifier: "unwindBreath", sender: nil)
     }
     

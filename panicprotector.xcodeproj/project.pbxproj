@@ -20,12 +20,11 @@
 		F70C8564263D5EE90098442A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8563263D5EE90098442A /* Constants.swift */; };
 		F70C856F263D65010098442A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C8571263D65010098442A /* Localizable.strings */; };
 		F71F07882706265D00C5A4C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71F07872706265D00C5A4C9 /* StoreKit.framework */; };
-		F71F078A270631EE00C5A4C9 /* panicprotectorStoreConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F71F0789270631EE00C5A4C9 /* panicprotectorStoreConfig.plist */; };
 		F71F078D2706350300C5A4C9 /* StoreSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F078C2706350300C5A4C9 /* StoreSetup.swift */; };
 		F71F078F2709943B00C5A4C9 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F078E2709943B00C5A4C9 /* StoreService.swift */; };
 		F77C73D726E37176002B975C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C73D626E37176002B975C /* GlobalVariables.swift */; };
 		F77FBAC9267DD9180059517D /* PulseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBAC8267DD9170059517D /* PulseViewController.swift */; };
-		F78DB72C2663E7E300747269 /* info.plist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* info.plist.strings */; };
+		F78DB72C2663E7E300747269 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* InfoPlist.strings */; };
 		F7C426802671605700EE11C8 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4267F2671605700EE11C8 /* TransitionViewController.swift */; };
 		F7D85E262646AB82007D624D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E252646AB82007D624D /* Messages.swift */; };
 		F7D85E34265AFBEF007D624D /* HeartBeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */; };
@@ -59,14 +58,13 @@
 		F70C8573263D65180098442A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8574263D652F0098442A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F71F07872706265D00C5A4C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		F71F0789270631EE00C5A4C9 /* panicprotectorStoreConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = panicprotectorStoreConfig.plist; sourceTree = "<group>"; };
 		F71F078C2706350300C5A4C9 /* StoreSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSetup.swift; sourceTree = "<group>"; };
 		F71F078E2709943B00C5A4C9 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		F77C73D626E37176002B975C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		F77FBAC8267DD9170059517D /* PulseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewController.swift; sourceTree = "<group>"; };
-		F78DB72D2663E7E300747269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/info.plist.strings; sourceTree = "<group>"; };
-		F78DB7302663E7E800747269 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/info.plist.strings; sourceTree = "<group>"; };
-		F78DB7312663E7E900747269 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/info.plist.strings; sourceTree = "<group>"; };
+		F78DB72D2663E7E300747269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F78DB7302663E7E800747269 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F78DB7312663E7E900747269 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7C4267F2671605700EE11C8 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		F7D85E252646AB82007D624D /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		F7D85E33265AFBEF007D624D /* HeartBeatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsViewController.swift; sourceTree = "<group>"; };
@@ -141,9 +139,8 @@
 				F70C854D263A0AB20098442A /* Assets.xcassets */,
 				F70C854F263A0AB20098442A /* LaunchScreen.storyboard */,
 				F70C8552263A0AB20098442A /* Info.plist */,
-				F71F0789270631EE00C5A4C9 /* panicprotectorStoreConfig.plist */,
 				F70C8571263D65010098442A /* Localizable.strings */,
-				F78DB72E2663E7E300747269 /* info.plist.strings */,
+				F78DB72E2663E7E300747269 /* InfoPlist.strings */,
 			);
 			path = panicprotector;
 			sourceTree = "<group>";
@@ -271,10 +268,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78DB72C2663E7E300747269 /* info.plist.strings in Resources */,
+				F78DB72C2663E7E300747269 /* InfoPlist.strings in Resources */,
 				F70C8551263A0AB20098442A /* LaunchScreen.storyboard in Resources */,
 				F70C856F263D65010098442A /* Localizable.strings in Resources */,
-				F71F078A270631EE00C5A4C9 /* panicprotectorStoreConfig.plist in Resources */,
 				F70C854E263A0AB20098442A /* Assets.xcassets in Resources */,
 				F70C854C263A0AB00098442A /* Main.storyboard in Resources */,
 			);
@@ -382,14 +378,14 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		F78DB72E2663E7E300747269 /* info.plist.strings */ = {
+		F78DB72E2663E7E300747269 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F78DB72D2663E7E300747269 /* en */,
 				F78DB7302663E7E800747269 /* de */,
 				F78DB7312663E7E900747269 /* es */,
 			);
-			name = info.plist.strings;
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
