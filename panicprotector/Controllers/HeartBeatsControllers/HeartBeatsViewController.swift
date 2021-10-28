@@ -145,7 +145,7 @@ class HeartBeatsViewController: UIViewController {
 
         switch authStatus {
         case .authorized:
-            print("AUTHORRIZED")
+            print("AUTHORIZED")
             isPermissionDenied = false
             initProcess()
         case .denied:
@@ -365,13 +365,13 @@ class HeartBeatsViewController: UIViewController {
                     lblInProcess.isHidden = true
                     if state == .heartbeats {
                         lblContinue.text = txtCompleteMeasure
-                        let trimAverage = 125//trimPulseAverage()
+                        let trimAverage = trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         savePreferencesPulse(bpm: trimAverage)
                         savePreferencesPulseLevel(level: pulseLevel)
                         viewBackDialogContinue.isHidden = false
                     } else {
-                        let trimAverage = 98//trimPulseAverage()
+                        let trimAverage = trimPulseAverage()
                         pulseLevel = getPulseLevel(value: trimAverage)
                         let previousBPM = readPulsePreferences()
                         viewBackMeasurement.isHidden = false
