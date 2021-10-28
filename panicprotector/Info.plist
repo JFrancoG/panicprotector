@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -26,8 +28,6 @@
 	<string>We need to use the camera to determine your stress level. No data will be stored or transmitted to third parties.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need to use the microphone to capture the intensity of your exhalation.</string>
-    <key>CFBundleAllowMixedLocalizations</key>
-    <true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

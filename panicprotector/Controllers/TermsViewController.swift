@@ -8,6 +8,7 @@
 import UIKit
 import BEMCheckBox
 
+
 class TermsViewController: UIViewController {
     
     @IBOutlet weak var scroll: UIScrollView!
@@ -98,7 +99,22 @@ class TermsViewController: UIViewController {
     }
     
     @IBAction func actionShowPrivacyPolicy(_ sender: UIButton) {
-        openURL(strUrl: urlPrivacyPolicy)
+        let langCode = NSLocale.current.languageCode
+        var urlLangCode = ""
+        if langCode != nil {
+            switch langCode {
+            case "es":
+                urlLangCode = ""
+            case "en":
+                urlLangCode = "en/"
+            case "de":
+                urlLangCode = "de/"
+            default:
+                urlLangCode = "en/"
+            }
+        }
+        let url = urlPrivacyPolicyBase + urlLangCode + urlPrivacyPolicy
+        openURL(strUrl: url)
     }
     
     @IBAction func actionStart(_ sender: UIButton) {

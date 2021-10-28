@@ -167,29 +167,7 @@ class BreathingViewController: UIViewController {
         default:
             break
         }
-        
-        
-        
-        
-//        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
-//
-//        switch authStatus {
-//        case .authorized:
-//            print("AUTHORRIZED")
-//            //isPermissionDenied = false
-//            startProcessBreath()
-//        case .denied:
-//            print("DENEGADO")
-//            //isPermissionDenied = true
-//            viewBackPermissionDenied.isHidden = false
-//        default:
-//            print("NOT DETERMINED")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//                self.checkPermissions()
-//            }
-//            startProcessBreath()
-//
-        
+
     }
     
     private func setMeasures(){
