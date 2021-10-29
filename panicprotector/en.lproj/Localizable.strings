@@ -45,7 +45,7 @@
 "txtHeartBeatsInstruction3" = "Wait for the HEART to turn RED and beat.";
 "txtHeartBeatsInstruction4" = "The EVALUATION of your STRESS LEVEL begins.";
 "txtHeartBeatsInstruction5" = "DO NOT MOVE YOUR FINGER until you have finished the process!";
-"txtHeartBeatsInstruction6" = "The SMILE indicates the input process.";
+"txtHeartBeatsInstruction6" = "The SMILE indicates the input process.\n";
 "txtHeartBeatsInstruction7" = "Once the smile is COMPLETE, the process is finished.";
 "txtCameraPermission" = "Permission to use the camera";
 "txtMicroPermission" = "Permission to use the microphone";
