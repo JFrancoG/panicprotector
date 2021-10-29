@@ -308,7 +308,7 @@ class HeartBeatsViewController: UIViewController {
         btnStart.styleDialog(txt: txtStart.uppercased())
         btnRestartCycleCorrect.styleDialog(txt: txtRestartCycle.uppercased())
         btnRestartCycleIncorrect.styleDialog(txt: txtRestartCycle.uppercased())
-        btnClose.styleDialog(txt: txtExit.uppercased())
+        btnClose.setTitle("", for: .normal)
         btnSettings.styleDialog(txt: txtSettings.uppercased())
         
         // progress

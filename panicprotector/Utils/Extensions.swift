@@ -105,6 +105,14 @@ extension UIButton {
         backgroundColor = .lightGray
         isUserInteractionEnabled = false
     }
+    func styleDialogPermission(txt: String){
+        titleLabel!.font = UIFont(name: fontArialBold, size: 14)
+        setTitle(txt, for: .normal)
+        layer.cornerRadius = radius24
+        layer.masksToBounds = true
+        setTitleColor(.colorPrimary, for: .normal)
+        backgroundColor = .colorPrimaryDark
+    }
 
 }
 

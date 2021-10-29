@@ -342,7 +342,7 @@ class BreathingViewController: UIViewController {
         btnEndProcess.styleDialog(txt: txtEnd.uppercased())
         btnEndHelp.style(txt: txtContinue.uppercased(), size: 16)
         btnEndHelp.isHidden = true
-        btnExit.styleDialog(txt: txtExit.uppercased())
+        btnExit.setTitle("", for: .normal)
         btnSettings.styleDialog(txt: txtSettings.uppercased())
         
         checkBoxHelp.customizeCheckBox()

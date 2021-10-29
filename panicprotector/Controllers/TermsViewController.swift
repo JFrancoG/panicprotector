@@ -114,6 +114,7 @@ class TermsViewController: UIViewController {
             }
         }
         let url = urlPrivacyPolicyBase + urlLangCode + urlPrivacyPolicy
+        print("url:\(url)")
         openURL(strUrl: url)
     }
     
