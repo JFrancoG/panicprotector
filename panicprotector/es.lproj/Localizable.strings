@@ -17,8 +17,8 @@
 "txtEnd" = "Finalizar";
 "txtCancel" = "Cancelar";
 "txtSubscriptionDialog" = "Para poder determinar tu nivel de estrés y la intensidad de tu exhalación debes adquirir una subscripción";
-"txtMonthlySubscription" = "Subscripción mensual";
-"txtYearlySubscription" = "Subscripción anual";
+"txtMonthlySubscription" = "Subscripción Mensual";
+"txtYearlySubscription" = "Subscripción Anual";
 "txtInProcess" = "procesando ...";
 "txtBlow" = "Sopla";
 "txtBreathAndBlow" = "Toma aire y sopla";
@@ -71,11 +71,12 @@
 "txtTerms4" = "Utilizaremos estos datos para optimizar el rendimiento de la aplicación conforme a nuestra Política de Privacidad.";
 "txtAcceptTerms" = "Al hacer click en el botón ACEPTAR, acepto el procesamiento de mis datos.";
 "txt7DaysTrial" = "¡7 DÍAS DE PRUEBA GRATIS!";
-//"txtSubsMonthly" = "%@ / mes";
-//"txtSubsYearly" = "%@ / año";
+"txtSubsMonthlyDinamic" = "%@ / mes";
+"txtSubsYearlyDinamic" = "%@ / año";
 "txtSubsMonthly" = "6,99€ / mes";
 "txtSubsYearly" = "49,99€ / año";
-"txtSaving" = "(12 meses por 4,16€ / mes. Ahorro del 40%)";
+"txtSavingDinamic" = "(12 meses por %@ / mes. Ahorro del 40%%)";
+"txtSaving" = "(12 meses por 4,16€ / mes. Ahorro del 40%%)";
 "txtExhaleAnxiety" = "EXHALA ANSIEDAD.\nINHALA CALMA.";
 "txtCalmYourAnxiety" = "Calma tu ansiedad al instante con ejercicios de respiración personalizados.";
 "txtCancelSubscription" = "Podrás cancelar la subscripción en cualquier momento.";

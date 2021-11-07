@@ -39,8 +39,8 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var prodSubscriptions = [SKProduct]()
-    let paymentQueue = SKPaymentQueue.default()
+//    var prodSubscriptions = [SKProduct]()
+//    let paymentQueue = SKPaymentQueue.default()
     
     enum StateSub {
         case purchased
@@ -49,12 +49,10 @@ class StartViewController: UIViewController {
         case error
     }
     
-    var checkedSubs = 0
-    var hasSubscription = false
-    var hasVerified = false
-    
     var stateMonthlySub = StateSub.error
     var stateYearlySub = StateSub.error
+    
+    var subsCont = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +61,9 @@ class StartViewController: UIViewController {
         savePreferencesPulseLevel(level: -1)
         savePreferencesPulse(bpm: -1)
         customizeControls()
-        fetchProducts()
-        verifySubscriptions()
+
+        productsInfo()
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,155 +79,177 @@ class StartViewController: UIViewController {
         return .lightContent
     }
     
-    private func verifySub() {
+    private func productsInfo() {
         activityIndicator.startAnimating()
-        verifySub(prodId: ProductSubscriptionID.yearlySubscription.rawValue) { state in
-            self.stateYearlySub = state
-            self.checkedSubs += 1
-            self.checkStates()
-        }
-        verifySub(prodId: ProductSubscriptionID.monthlySubscription.rawValue) { state in
-            self.stateMonthlySub = state
-            self.checkedSubs += 1
-            self.checkStates()
-        }
-    }
-    
-    private func verifySubscriptions() {
-        print("verifySubscriptions")
-        activityIndicator.startAnimating()
-        verifySubs { state in
-            self.activityIndicator.stopAnimating()
-            self.btnStart.isUserInteractionEnabled = true
-            switch state {
-            case .purchased:
-                print("purchased")
-                self.hasSubscription = true
-                self.hasVerified = true
-                self.viewBackSubscriptionDialog.isHidden = true
-            case .expired:
-                print("expired")
-                self.hasSubscription = false
-                self.hasVerified = true
-                self.viewBackSubscriptionDialog.isHidden = false
-                // Mostrar dialogo de compra
-                // si queremos mostrar fecha de cuando expiró hay que capturarla
-            case .notPurchased:
-                print("not purchased")
-                self.hasSubscription = false
-                self.hasVerified = true
-                self.viewBackSubscriptionDialog.isHidden = false
-            case .error:
-                print("error")
-                self.hasSubscription = false
-                self.viewBackSubscriptionDialog.isHidden = false
-                // Lanzar alert con problem
-            }
-        }
-    }
-    
-    private func checkStates() {
-        if checkedSubs > 1 {
-            activityIndicator.stopAnimating()
-            btnStart.isUserInteractionEnabled = true
-            if stateYearlySub == .purchased || stateMonthlySub == .purchased {
-                hasSubscription = true
-                hasVerified = true
-                // habilitamos botón comenzar y ocultamos dialogos si hace falta o activityIndicator
-            } else if stateYearlySub == .error || stateMonthlySub == .error {
-                hasVerified = false
-                // Lanzar alert con problem
-            } else {
-                hasVerified = true
-                viewBackSubscriptionDialog.isHidden = false
-                // Mostrar dialogo de compra
-                // si queremos mostrar fecha de cuando expiró hay que capturarla
-            }
-            checkedSubs = 0
-        }
-    }
-    
-    private func verifySubs(completionHandler: @escaping (StateSub) -> Void) {
-        print("verifySubs")
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
-        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
-                                ProductSubscriptionID.yearlySubscription.rawValue]
-        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-            print("verifyReceipt")
-            switch result {
-            case .success(let receipt):
-                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
-                    productIds: prods,
-                    inReceipt: receipt)
-                switch purchaseResult {
-                case .purchased(let expiryDate, let items):
-                    //print("\(prods) is valid until \(expiryDate)\n\(items)\n")
-                    //print("\(prodId) is valid until \(expiryDate)\n")
-                    print("is valid until \(expiryDate)\n")
-                    completionHandler(.purchased)
-                case .expired(let expiryDate, let items):
-                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
-                    //print("\(prodId) is expired since \(expiryDate)\n\n")
-                    print("is expired since \(expiryDate)\n")
-                    completionHandler(.expired)
-                case .notPurchased:
-//                    print("The user has never purchased \(prodId)")
-                    print("The user has never purchased")
-                    completionHandler(.notPurchased)
+        for i in 0..<subsIDs[0].count {
+            SwiftyStoreKit.retrieveProductsInfo(Set(arrayLiteral: subsIDs[0][i])) { result in
+                if let product = result.retrievedProducts.first {
+                    let id = product.productIdentifier
+                    self.verifySubscription(prodId: id)
+                    print("Product: \(product.localizedTitle), price: \(product.localizedPrice!)")
+                    if id == subsIDs[0][0] { // monthly
+                        let monthly = String.localizedStringWithFormat(
+                            txtSubsMonthlyDinamic,
+                            product.localizedPrice!)
+                            self.lblMonthlySub.style(text: product.localizedTitle,
+                                                color: .white,
+                                                size: 18,
+                                                fontName: fontArialBold)
+                            self.lblMonthlyPrice.style(text: monthly,
+                                                       color: .white,
+                                                       size: 24,
+                                                       fontName: fontArialBold)
+                    } else if id == subsIDs[0][1] {// yearly
+                        let savingDbl = Double(truncating: product.price) / 12.0
+                        let savingStr = savingDbl.formatTwoDecimals(unity: "")
+                        let yearly = String.localizedStringWithFormat(
+                            txtSubsYearlyDinamic,
+                            product.localizedPrice!)
+                        let saving = String.localizedStringWithFormat(
+                            txtSavingDinamic,
+                            savingStr)
+                            
+                        self.lblYearlySub.style(text: product.localizedTitle,
+                                                color: .white,
+                                                size: 18,
+                                                fontName: fontArialBold)
+                        self.lblYearlyPrice.style(text: yearly,
+                                                  color: .white,
+                                                  size: 24,
+                                                  fontName: fontArialBold)
+                        self.lblSaving.style(text: saving,
+                                             color: .white,
+                                             size: 13,
+                                             fontName: fontArialBold)
+                    }
+                } else if let invalidProductId = result.invalidProductIDs.first {
+                    print("Invalid product identifier: \(invalidProductId)")
+                } else {
+                    print("Error: \(String(describing: result.error))")
                 }
-            case .error(let error):
-                print("Receipt verification failed: \(error)")
-                completionHandler(.error)
             }
         }
     }
     
-    private func verifySub(prodId: String, completionHandler: @escaping (StateSub) -> Void) {
-        print("verifySub")
+
+    private func purchaseSubscription(id: String) {
+        SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { result in
+            switch result {
+            case .success(let product):
+                // fetch content from your server, then:
+                if product.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(product.transaction)
+                }
+                let id = product.productId
+                print("Purchase Success: \(id)")
+                self.verifySubscription(prodId: id)
+
+            case .error(let error):
+                switch error.code {
+                case .unknown: print("Unknown error. Please contact support")
+                case .clientInvalid: print("Not allowed to make the payment")
+                case .paymentCancelled: break
+                case .paymentInvalid: print("The purchase identifier was invalid")
+                case .paymentNotAllowed: print("The device is not allowed to make the payment")
+                case .storeProductNotAvailable: print("The product is not available in the current storefront")
+                case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+                case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+                case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+                default: print((error as NSError).localizedDescription)
+                }
+            }
+        }
+        
+    }
+    
+    
+    private func verifySubscription(prodId: String) {
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
-        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
-                                      ProductSubscriptionID.yearlySubscription.rawValue]
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-            print("")
+            self.activityIndicator.stopAnimating()
+            self.btnBuyMonthly.isUserInteractionEnabled = true
+            self.btnBuyYearly.isUserInteractionEnabled = true
             switch result {
             case .success(let receipt):
-                //print("receipt:\(receipt)")
-//                let purchaseResult = SwiftyStoreKit.verifySubscription(
-//                    ofType: .autoRenewable,
-//                    productId: prodId,
-//                    inReceipt: receipt)
-                
-                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
-                    productIds: prods,
+                let purchaseResult = SwiftyStoreKit.verifySubscription(
+                    ofType: .autoRenewable,
+                    productId: prodId,
                     inReceipt: receipt)
+                    
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
-                    //print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
-                    print("\(prodId) is valid until \(expiryDate)\n")
-                    completionHandler(.purchased)
+                    print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
+                    self.viewBackSubscriptionDialog.isHidden = true
                 case .expired(let expiryDate, let items):
-                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
-                    print("\(prodId) is expired since \(expiryDate)\n\n")
-                    completionHandler(.expired)
+                    print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
                 case .notPurchased:
                     print("The user has never purchased \(prodId)")
-                    completionHandler(.notPurchased)
                 }
+
             case .error(let error):
                 print("Receipt verification failed: \(error)")
-                completionHandler(.error)
             }
         }
     }
     
-    private func fetchProducts() {
-        let productSet: Set = [ProductSubscriptionID.monthlySubscription.rawValue,
-                             ProductSubscriptionID.yearlySubscription.rawValue]
-        let request = SKProductsRequest(productIdentifiers: productSet)
-        request.delegate = self
-        request.start()
-        paymentQueue.add(self)
+    
+    private func verifySubscriptions() {
+        
     }
+    
+    
+    
+    private func restoreSubscriptions() {
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedPurchases.count > 0 {
+                print("Restore Failed: \(results.restoreFailedPurchases)")
+            }
+            else if results.restoredPurchases.count > 0 {
+                print("Restore Success: \(results.restoredPurchases)")
+            }
+            else {
+                print("Nothing to Restore")
+            }
+        }
+    }
+    
+
+//
+//    private func verifySubs(completionHandler: @escaping (StateSub) -> Void) {
+//        print("verifySubs")
+//        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
+//        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
+//                                ProductSubscriptionID.yearlySubscription.rawValue]
+//        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+//            print("verifyReceipt")
+//            switch result {
+//            case .success(let receipt):
+//                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
+//                    productIds: prods,
+//                    inReceipt: receipt)
+//                switch purchaseResult {
+//                case .purchased(let expiryDate, let items):
+//                    //print("\(prods) is valid until \(expiryDate)\n\(items)\n")
+//                    //print("\(prodId) is valid until \(expiryDate)\n")
+//                    print("is valid until \(expiryDate)\n")
+//                    completionHandler(.purchased)
+//                case .expired(let expiryDate, let items):
+//                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+//                    //print("\(prodId) is expired since \(expiryDate)\n\n")
+//                    print("is expired since \(expiryDate)\n")
+//                    completionHandler(.expired)
+//                case .notPurchased:
+////                    print("The user has never purchased \(prodId)")
+//                    print("The user has never purchased")
+//                    completionHandler(.notPurchased)
+//                }
+//            case .error(let error):
+//                print("Receipt verification failed: \(error)")
+//                completionHandler(.error)
+//            }
+//        }
+//    }
+
 
     private func customizeControls() {
         activityIndicator.style()
@@ -236,7 +257,7 @@ class StartViewController: UIViewController {
         view.backgroundColor = .colorPrimaryDark
         viewBackground.backgroundColor = .colorPrimaryBackground
         viewBackSubscriptionDialog.backgroundColor = .colorPrimaryBackground
-        viewBackSubscriptionDialog.isHidden = true
+        viewBackSubscriptionDialog.isHidden = false
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackMonthlySub.round(cornerRadius: radius8)
         viewBackYearlySub.backgroundColor = .colorPrimary
@@ -289,40 +310,19 @@ class StartViewController: UIViewController {
                                  fontName: fontArialRegular)
 
         btnStart.style(txt: txtStart.uppercased())
-        btnStart.isUserInteractionEnabled = false
         btnCancel.setTitle("", for: .normal)
         btnBuyMonthly.setTitle("", for: .normal)
+        btnBuyMonthly.isUserInteractionEnabled = false
         btnBuyYearly.setTitle("", for: .normal)
-    }
-    
-    private func purchaseSubscription(product: ProductSubscriptionID) {
-        guard let productToPurchase = prodSubscriptions.filter({ $0.productIdentifier == product.rawValue }).first else { return }
-        
-        if SKPaymentQueue.canMakePayments() {
-            let payment = SKPayment(product: productToPurchase)
-            paymentQueue.add(payment)
-        } else {
-            print("User unable to make payments")
-        }
-    }
-    
-    private func showSubscriptionPrice() {
-        for subscription in prodSubscriptions {
-            if subscription.productIdentifier == ProductSubscriptionID.monthlySubscription.rawValue {
-                lblMonthlyPrice.text = String.localizedStringWithFormat(txtSubsMonthly, Double(truncating: subscription.price).formatTwoDecimals(unity: "€"))
-            }
-            if subscription.productIdentifier == ProductSubscriptionID.yearlySubscription.rawValue {
-                lblYearlyPrice.text = String.localizedStringWithFormat(txtSubsYearly, Double(truncating: subscription.price).formatTwoDecimals(unity: "€"))
-            }
-        }
+        btnBuyYearly.isUserInteractionEnabled = false
     }
     
     @IBAction func actionBuyMonthlySubscription(_ sender: Any) {
-        purchaseSubscription(product: .monthlySubscription)
+        purchaseSubscription(id: ProductSubscriptionID.monthlySubscription.rawValue)
     }
     
     @IBAction func actionBuyYearlySubscription(_ sender: Any) {
-        purchaseSubscription(product: .yearlySubscription)
+        purchaseSubscription(id: ProductSubscriptionID.yearlySubscription.rawValue)
     }
     
     @IBAction func actionCancelDialogSubscription(_ sender: Any) {
@@ -330,16 +330,9 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-        if hasSubscription {
-            performSegue(withIdentifier: "segueTransition", sender: nil)
-        } else {
-            verifySubscriptions()
-//            if hasVerified {
-//                viewBackSubscriptionDialog.isHidden = false
-//            } else {
-//                verifySubscriptions()
-//            }
-        }
+
+        performSegue(withIdentifier: "segueTransition", sender: nil)
+    
     }
 
     @IBAction func actionTerms(_ sender: UIButton) {
@@ -351,53 +344,53 @@ class StartViewController: UIViewController {
     }
     
 }
-
-extension StartViewController: SKProductsRequestDelegate {
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        for product in response.products {
-            print("product.productIdentifier: \(product.productIdentifier)")
-            print("product.price: \(product.price)")
-            print("product.priceLocale: \(product.priceLocale)")
-            print("product.localizedTitle: \(product.localizedTitle)")
-            print("product.localizedDescription: \(product.localizedDescription)")
-            prodSubscriptions.append(product)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            //self.showSubscriptionPrice()
-        }
-    }
-}
-
-extension StartViewController: SKPaymentTransactionObserver {
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-            print("SKPaymentTransactionObserver")
-            switch transaction.transactionState {
-            case .purchasing:
-                print("PURCHASINGG")
-                btnStart.isUserInteractionEnabled = false
-                viewBackSubscriptionDialog.isHidden = true
-                break
-            case .purchased, .restored:
-                print("PURCHASED OR RESTORED")
-                paymentQueue.finishTransaction(transaction)
-                paymentQueue.remove(self)
-                hasSubscription = true
-                verifySubscriptions()
-                viewBackSubscriptionDialog.isHidden = true
-            case .failed, .deferred:
-                print("FAILEDD")
-                print("purchase error : \(transaction.error?.localizedDescription ?? "")")
-                paymentQueue.finishTransaction(transaction)
-                paymentQueue.remove(self)
-                btnStart.isUserInteractionEnabled = true
-                fetchProducts()
-            default:
-                print("UNKNOWNN")
-                paymentQueue.finishTransaction(transaction)
-                paymentQueue.remove(self)
-            }
-        }
-    }
-}
+//
+//extension StartViewController: SKProductsRequestDelegate {
+//    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+//        for product in response.products {
+//            print("product.productIdentifier: \(product.productIdentifier)")
+//            print("product.price: \(product.price)")
+//            print("product.priceLocale: \(product.priceLocale)")
+//            print("product.localizedTitle: \(product.localizedTitle)")
+//            print("product.localizedDescription: \(product.localizedDescription)")
+//            prodSubscriptions.append(product)
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//            //self.showSubscriptionPrice()
+//        }
+//    }
+//}
+//
+//extension StartViewController: SKPaymentTransactionObserver {
+//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+//        for transaction in transactions {
+//            print("SKPaymentTransactionObserver")
+//            switch transaction.transactionState {
+//            case .purchasing:
+//                print("PURCHASINGG")
+//                btnStart.isUserInteractionEnabled = false
+//                viewBackSubscriptionDialog.isHidden = true
+//                break
+//            case .purchased, .restored:
+//                print("PURCHASED OR RESTORED")
+//                paymentQueue.finishTransaction(transaction)
+//                paymentQueue.remove(self)
+//                hasSubscription = true
+//                verifySubscriptions()
+//                viewBackSubscriptionDialog.isHidden = true
+//            case .failed, .deferred:
+//                print("FAILEDD")
+//                print("purchase error : \(transaction.error?.localizedDescription ?? "")")
+//                paymentQueue.finishTransaction(transaction)
+//                paymentQueue.remove(self)
+//                btnStart.isUserInteractionEnabled = true
+//                fetchProducts()
+//            default:
+//                print("UNKNOWNN")
+//                paymentQueue.finishTransaction(transaction)
+//                paymentQueue.remove(self)
+//            }
+//        }
+//    }
+//}
 

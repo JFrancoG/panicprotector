@@ -71,11 +71,12 @@
 "txtTerms4" = "Wir nutzen diese Daten zur Optimierung der Leistung der App gemäß unserer Datenschutzrichtlinien.";
 "txtAcceptTerms" = "Mit dem Klick auf die Schaltfläche AKZEPTIEREN stimme ich der Verarbeitung meiner Daten zu.";
 "txt7DaysTrial" = "7 TAGE GRATIS TESTEN!";
-//"txtSubsMonthly" = "%@ / Monat";
-//"txtSubsYearly" = "%@ / Jahr";
+"txtSubsMonthlyDinamic" = "%@ / Monat";
+"txtSubsYearlyDinamic" = "%@ / Jahr";
 "txtSubsMonthly" = "6,99€ / Monat";
 "txtSubsYearly" = "49,99€ / Jahr";
-"txtSaving" = "(12 Monate für 4,16€ / Monat. Spare 40%)";
+"txtSavingDinamic" = "(12 Monate für %@ / Monat. Spare 40%%)";
+"txtSaving" = "(12 Monate für 4,16€ / Monat. Spare 40%%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Beruhige deine Ängste auf der Stelle mit personalisierten Atemübungen.";
 "txtCancelSubscription" = "Dein Abonnement ist jederzeit kündbar.";

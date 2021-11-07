@@ -17,8 +17,8 @@
 "txtEnd" = "End";
 "txtCancel" = "Cancel";
 "txtSubscriptionDialog" = "To assess your stress level and the intensity of your exhalation, you must purchase a subscription.";
-"txtMonthlySubscription" = "Monthly subscription";
-"txtYearlySubscription" = "Yearly subscription";
+"txtMonthlySubscription" = "Monthly Subscription";
+"txtYearlySubscription" = "Yearly Subscription";
 "txtInProcess" = "processing ...";
 "txtBlow" = "Blow";
 "txtBreathAndBlow" = "Take deep breath and blow";
@@ -45,7 +45,7 @@
 "txtHeartBeatsInstruction3" = "Wait for the HEART to turn RED and beat.";
 "txtHeartBeatsInstruction4" = "The EVALUATION of your STRESS LEVEL begins.";
 "txtHeartBeatsInstruction5" = "DO NOT MOVE YOUR FINGER until you have finished the process!";
-"txtHeartBeatsInstruction6" = "The SMILE indicates the input process.\n";
+"txtHeartBeatsInstruction6" = "The SMILE indicates the input process.";
 "txtHeartBeatsInstruction7" = "Once the smile is COMPLETE, the process is finished.";
 "txtCameraPermission" = "Permission to use the camera";
 "txtMicroPermission" = "Permission to use the microphone";
@@ -71,11 +71,12 @@
 "txtTerms4" = "We will use this data to optimize the performance of the app, according to our Privacy Policy.";
 "txtAcceptTerms" = "By clicking on the ACCEPT button, I agree to panicPROTECTOR processing my data.";
 "txt7DaysTrial" = "7 DAY FREE TRIAL!";
-//"txtSubsMonthly" = "%@ / month";
-//"txtSubsYearly" = "%@ / year";
+"txtSubsMonthlyDinamic" = "%@ / month";
+"txtSubsYearlyDinamic" = "%@ / year";
 "txtSubsMonthly" = "6.99€ / month";
 "txtSubsYearly" = "49.99€ / year";
-"txtSaving" = "(12 months at 4,16€ / month. Save 40%)";
+"txtSavingDinamic" = "(12 months at %@ / month. Save 40%%)";
+"txtSaving" = "(12 months at 4,16€ / month. Save 40%%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Calm your anxiety on the spot with personalized breathing exercises.";
 "txtCancelSubscription" = "You may unsubscribe at any time.";
