@@ -53,6 +53,7 @@ class StartViewController: UIViewController {
     var stateYearlySub = StateSub.error
     
     var subsCont = 0
+    var hasSubscription = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +181,7 @@ class StartViewController: UIViewController {
                 case .purchased(let expiryDate, let items):
                     print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
                     self.viewBackSubscriptionDialog.isHidden = true
+                    self.hasSubscription = true
                 case .expired(let expiryDate, let items):
                     print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
                 case .notPurchased:
@@ -330,9 +332,11 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-
-        performSegue(withIdentifier: "segueTransition", sender: nil)
-    
+        if hasSubscription {
+            performSegue(withIdentifier: "segueTransition", sender: nil)
+        } else {
+            viewBackSubscriptionDialog.isHidden = false
+        }
     }
 
     @IBAction func actionTerms(_ sender: UIButton) {
