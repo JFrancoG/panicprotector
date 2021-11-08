@@ -49,10 +49,6 @@ class StartViewController: UIViewController {
         case error
     }
     
-    var stateMonthlySub = StateSub.error
-    var stateYearlySub = StateSub.error
-    
-    var subsCont = 0
     var hasSubscription = false
     
     override func viewDidLoad() {
@@ -146,10 +142,12 @@ class StartViewController: UIViewController {
                 self.verifySubscription(prodId: id)
 
             case .error(let error):
+                self.enabledPurchaseButtons()
                 switch error.code {
                 case .unknown: print("Unknown error. Please contact support")
                 case .clientInvalid: print("Not allowed to make the payment")
-                case .paymentCancelled: break
+                case .paymentCancelled:
+                    self.enabledPurchaseButtons()
                 case .paymentInvalid: print("The purchase identifier was invalid")
                 case .paymentNotAllowed: print("The device is not allowed to make the payment")
                 case .storeProductNotAvailable: print("The product is not available in the current storefront")
@@ -319,11 +317,32 @@ class StartViewController: UIViewController {
         btnBuyYearly.isUserInteractionEnabled = false
     }
     
+    private func disablePurchaseButtons() {
+        activityIndicator.startAnimating()
+        btnBuyMonthly.isUserInteractionEnabled = false
+        btnBuyYearly.isUserInteractionEnabled = false
+        viewBackMonthlySub.backgroundColor = .lightGray
+        viewBackYearlySub.backgroundColor = .lightGray
+        DispatchQueue.main.asyncAfter(deadline: .now() + 100.0) {
+            self.enabledPurchaseButtons()
+        }
+    }
+    
+    private func enabledPurchaseButtons() {
+        activityIndicator.stopAnimating()
+        btnBuyMonthly.isUserInteractionEnabled = true
+        btnBuyYearly.isUserInteractionEnabled = true
+        viewBackMonthlySub.backgroundColor = .colorPrimary
+        viewBackYearlySub.backgroundColor = .colorPrimary
+    }
+    
     @IBAction func actionBuyMonthlySubscription(_ sender: Any) {
+        disablePurchaseButtons()
         purchaseSubscription(id: ProductSubscriptionID.monthlySubscription.rawValue)
     }
     
     @IBAction func actionBuyYearlySubscription(_ sender: Any) {
+        disablePurchaseButtons()
         purchaseSubscription(id: ProductSubscriptionID.yearlySubscription.rawValue)
     }
     
