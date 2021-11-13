@@ -16,6 +16,7 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var lblTerms: UILabel!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnCancelSubscription: UIButton!
     
     @IBOutlet weak var viewBackSubscriptionDialog: UIView!
     @IBOutlet weak var viewSubscriptions: UIView!
@@ -315,6 +316,7 @@ class StartViewController: UIViewController {
         btnBuyMonthly.isUserInteractionEnabled = false
         btnBuyYearly.setTitle("", for: .normal)
         btnBuyYearly.isUserInteractionEnabled = false
+        btnCancelSubscription.clearStyle(txt: txtCancelSubscriptionText)
     }
     
     private func disablePurchaseButtons() {
@@ -334,6 +336,10 @@ class StartViewController: UIViewController {
         btnBuyYearly.isUserInteractionEnabled = true
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.backgroundColor = .colorPrimary
+    }
+    
+    @IBAction func actionCancelSubscription(_ sender: Any) {
+        openURL(strUrl: urlCancelSubscription)
     }
     
     @IBAction func actionBuyMonthlySubscription(_ sender: Any) {

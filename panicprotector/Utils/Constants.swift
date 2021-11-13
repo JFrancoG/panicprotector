@@ -19,3 +19,5 @@ let fontArialBold = "Arial-BoldMT"
 
 let urlPrivacyPolicyBase = "https://www.panicprotector.com/"
 let urlPrivacyPolicy = "politica-privacidad-apple"
+let urlCancelSubscription = "https://apps.apple.com/account/subscriptions"
+let urlPrivacyPolicyApple = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"

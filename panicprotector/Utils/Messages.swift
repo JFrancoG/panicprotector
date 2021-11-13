@@ -82,3 +82,4 @@ let txtExhaleAnxiety = "txtExhaleAnxiety".localized
 let txtCalmYourAnxiety = "txtCalmYourAnxiety".localized
 let txtCancelSubscription = "txtCancelSubscription".localized
 let txtVariationPrices = "txtVariationPrices".localized
+let txtCancelSubscriptionText = "txtCancelSubscriptionText".localized

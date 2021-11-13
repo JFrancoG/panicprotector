@@ -113,6 +113,15 @@ extension UIButton {
         setTitleColor(.colorPrimary, for: .normal)
         backgroundColor = .colorPrimaryDark
     }
+    func clearStyle(txt: String) {
+        setTitle(txt, for: .normal)
+        setTitleColor(.red, for: .normal)
+        titleLabel!.font = UIFont(name: fontArialRegular, size: 16)
+        layer.cornerRadius = radius8
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.red.cgColor
+        layer.masksToBounds = true
+    }
 
 }
 
