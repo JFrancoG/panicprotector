@@ -121,6 +121,29 @@ extension UIButton {
         layer.borderWidth = 1
         layer.borderColor = UIColor.red.cgColor
         layer.masksToBounds = true
+        isUserInteractionEnabled = true
+    }
+    func clearDisableStyle(txt: String) {
+        setTitle(txt, for: .normal)
+        setTitleColor(.red, for: .normal)
+        titleLabel!.font = UIFont(name: fontArialRegular, size: 16)
+        layer.cornerRadius = radius8
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.masksToBounds = true
+        isUserInteractionEnabled = false
+    }
+    func linkStyle(txt: String, color: UIColor) {
+        setTitle(txt, for: .normal)
+        setTitleColor(color, for: .normal)
+        titleLabel!.font = UIFont(name: fontArialBold, size: 20)
+        isUserInteractionEnabled = true
+    }
+    func linkStyleDisable(txt: String) {
+        setTitle(txt, for: .normal)
+        setTitleColor(.lightGray, for: .normal)
+        titleLabel!.font = UIFont(name: fontArialBold, size: 20)
+        isUserInteractionEnabled = false
     }
 
 }

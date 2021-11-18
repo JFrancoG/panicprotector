@@ -8,7 +8,8 @@
 
 "txtStart" = "Comenzar";
 "txtAccept" = "Aceptar";
-"txtTermsUsePrivacyPolicy" = "Condiciones de uso & Política de privacidad";
+"txtTermsUsePrivacyPolicy" = "Condiciones de uso  &  Política de privacidad";
+"txtTermsOfUse" = "Condiciones de uso";
 "txtPrivacyPolicy" = "Política de privacidad";
 "txtHeartBeats" = "Nivel de estrés";
 "txtBreathing" = "Respiración";
@@ -16,9 +17,9 @@
 "txtToContinue" = "Continuar";
 "txtEnd" = "Finalizar";
 "txtCancel" = "Cancelar";
-"txtSubscriptionDialog" = "Para poder determinar tu nivel de estrés y la intensidad de tu exhalación debes adquirir una subscripción";
-"txtMonthlySubscription" = "Subscripción Mensual";
-"txtYearlySubscription" = "Subscripción Anual";
+"txtSubscriptionDialog" = "Para poder determinar tu nivel de estrés y la intensidad de tu exhalación debes adquirir una suscripción";
+"txtMonthlySubscription" = "Suscripción Mensual";
+"txtYearlySubscription" = "Suscripción Anual";
 "txtInProcess" = "procesando ...";
 "txtBlow" = "Sopla";
 "txtBreathAndBlow" = "Toma aire y sopla";
@@ -78,7 +79,12 @@
 "txtSavingDinamic" = "(12 meses por %@ / mes. Ahorro del 40%%)";
 "txtSaving" = "(12 meses por 4,16€ / mes. Ahorro del 40%%)";
 "txtExhaleAnxiety" = "EXHALA ANSIEDAD.\nINHALA CALMA.";
-"txtCalmYourAnxiety" = "Calma tu ansiedad al instante con ejercicios de respiración personalizados.";
-"txtCancelSubscription" = "Podrás cancelar la subscripción en cualquier momento.";
+"txtCalmYourAnxiety" = "¡Suscríbete para calmar tu ansiedadal instante con ejercicios de respiración personalizados!";
+"txtCancelSubscription" = "panicPROTECTOR es una suscripción recurrente. Si decides adquirir una suscripción, se cargará en tu cuenta un pago inicial. Poco antes del final de cada período de suscripción, se cargarán los pagos siguientes. La renovación automática puede desactivarse en cualquier momento accediendo a tu configuración.";
 "txtVariationPrices" = "* Los precios pueden variar ligeramente dependiendo del país.";
-"txtCancelSubscriptionText" = "Cancelar subscripción";
+"txtCancelSubscriptionText" = "Cancelar suscripción";
+"txtAlreadySubscribed" = "¿Ya estás suscrito?";
+"txtRestoreSubscription" = "Restaurar suscripción";
+"urlTermsOfUse" = "https://www.panicprotector.com/condiciones-de-uso-apple";
+"urlPrivacyPolicy" = "https://www.panicprotector.com/politica-privacidad-apple";
+

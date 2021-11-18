@@ -31,12 +31,19 @@ class StartViewController: UIViewController {
     @IBOutlet weak var btnBuyMonthly: UIButton!
     @IBOutlet weak var btnBuyYearly: UIButton!
     @IBOutlet weak var lblSaving: UILabel!
+    @IBOutlet weak var btnRestoreSubscription: UIButton!
+    
+    @IBOutlet weak var lblTermsBase: UILabel!
+    @IBOutlet weak var lblTermsUse: UILabel!
+    @IBOutlet weak var lblPrivacyPolicy: UILabel!
+    @IBOutlet weak var btnTermsOfUse: UIButton!
+    @IBOutlet weak var btnPrivacyPolicy: UIButton!
+    
     
     @IBOutlet weak var lblExhaleAnxiety: UILabel!
     @IBOutlet weak var lblCalmYourAnxiety: UILabel!
     
     @IBOutlet weak var lblCancelSubscription: UILabel!
-    @IBOutlet weak var lblVariationPrices: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -66,11 +73,8 @@ class StartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        scroll.contentSize = CGSize(width: self.view.frame.width, height: 700)
+        scroll.contentSize = CGSize(width: self.view.frame.width, height: 860)
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
-        if !readAcceptTermsPreferences(){
-            performSegue(withIdentifier: "segueTerms", sender: nil)
-        }
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -90,7 +94,7 @@ class StartViewController: UIViewController {
                             txtSubsMonthlyDinamic,
                             product.localizedPrice!)
                             self.lblMonthlySub.style(text: product.localizedTitle,
-                                                color: .white,
+                                                color: .colorPrimaryDark,
                                                 size: 18,
                                                 fontName: fontArialBold)
                             self.lblMonthlyPrice.style(text: monthly,
@@ -108,7 +112,7 @@ class StartViewController: UIViewController {
                             savingStr)
                             
                         self.lblYearlySub.style(text: product.localizedTitle,
-                                                color: .white,
+                                                color: .colorPrimaryDark,
                                                 size: 18,
                                                 fontName: fontArialBold)
                         self.lblYearlyPrice.style(text: yearly,
@@ -116,7 +120,7 @@ class StartViewController: UIViewController {
                                                   size: 24,
                                                   fontName: fontArialBold)
                         self.lblSaving.style(text: saving,
-                                             color: .white,
+                                             color: .colorPrimaryDark,
                                              size: 13,
                                              fontName: fontArialBold)
                     }
@@ -263,22 +267,22 @@ class StartViewController: UIViewController {
         viewBackMonthlySub.round(cornerRadius: radius8)
         viewBackYearlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.round(cornerRadius: radius8)
-        viewSubscriptions.backgroundColor = .colorPrimaryDark
+        viewSubscriptions.backgroundColor = .clear
         
         lblTerms.style(text: txtTermsUsePrivacyPolicy,
                        color: .colorGreyTranslucid,
                        size: 14,
                        fontName: fontArialRegular)
         lblSubscriptionTrial.style(text: txt7DaysTrial,
-                                    color: .white,
-                                    size: 18,
+                                    color: .colorPrimaryDark,
+                                    size: 20,
                                     fontName: fontArialBold)
         lblMonthlySub.style(text: txtMonthlySubscription,
-                            color: .white,
+                            color: .colorPrimaryDark,
                             size: 18,
                             fontName: fontArialBold)
         lblYearlySub.style(text: txtYearlySubscription,
-                            color: .white,
+                            color: .colorPrimaryDark,
                             size: 18,
                             fontName: fontArialBold)
         lblMonthlyPrice.style(text: txtSubsMonthly,
@@ -290,7 +294,7 @@ class StartViewController: UIViewController {
                               size: 24,
                               fontName: fontArialBold)
         lblSaving.style(text: txtSaving,
-                        color: .white,
+                        color: .colorPrimaryDark,
                         size: 13,
                         fontName: fontArialBold)
         lblExhaleAnxiety.style(text: txtExhaleAnxiety,
@@ -298,17 +302,25 @@ class StartViewController: UIViewController {
                                size: 16,
                                fontName: fontArialBold)
         lblCalmYourAnxiety.style(text: txtCalmYourAnxiety,
-                                 color: .colorPrimary,
-                                 size: 14,
-                                 fontName: fontArialBold)
+                                 color: .colorPrimaryDark,
+                                 size: 15,
+                                 fontName: fontArialRegular)
         lblCancelSubscription.style(text: txtCancelSubscription,
-                                    color: .colorPrimary,
+                                    color: .colorPrimaryDark,
                                     size: 14,
                                     fontName: fontArialRegular)
-        lblVariationPrices.style(text: txtVariationPrices,
-                                 color: .colorPrimary,
-                                 size: 12,
-                                 fontName: fontArialRegular)
+        lblTermsBase.style(text: txtTermsUsePrivacyPolicy,
+                           color: .lightGray,
+                           size: 14,
+                           fontName: fontArialRegular)
+        lblTermsUse.style(text: txtTermsOfUse,
+                          color: .colorPrimaryDark,
+                          size: 14,
+                          fontName: fontArialRegular)
+        lblPrivacyPolicy.style(text: txtPrivacyPolicy,
+                               color: .colorPrimaryDark,
+                               size: 14,
+                               fontName: fontArialRegular)
 
         btnStart.style(txt: txtStart.uppercased())
         btnCancel.setTitle("", for: .normal)
@@ -316,7 +328,10 @@ class StartViewController: UIViewController {
         btnBuyMonthly.isUserInteractionEnabled = false
         btnBuyYearly.setTitle("", for: .normal)
         btnBuyYearly.isUserInteractionEnabled = false
-        btnCancelSubscription.clearStyle(txt: txtCancelSubscriptionText)
+        btnCancelSubscription.linkStyle(txt: txtCancelSubscriptionText, color: .red)
+        btnRestoreSubscription.linkStyle(txt: txtRestoreSubscription, color: .colorPrimaryDark)
+        btnTermsOfUse.setTitle("", for: .normal)
+        btnPrivacyPolicy.setTitle("", for: .normal)
     }
     
     private func disablePurchaseButtons() {
@@ -336,6 +351,18 @@ class StartViewController: UIViewController {
         btnBuyYearly.isUserInteractionEnabled = true
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.backgroundColor = .colorPrimary
+    }
+    
+    @IBAction func actionShowTermsOfUse(_ sender: Any) {
+        openURL(strUrl: urlTermsOfUse)
+    }
+    
+    @IBAction func actionShowPrivacyPolicy(_ sender: Any) {
+        openURL(strUrl: urlPrivacyPolicy)
+    }
+    
+    @IBAction func actionRestoreSubscription(_ sender: Any) {
+        restoreSubscriptions()
     }
     
     @IBAction func actionCancelSubscription(_ sender: Any) {

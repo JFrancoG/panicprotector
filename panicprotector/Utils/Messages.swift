@@ -10,6 +10,7 @@ import Foundation
 let txtStart = "txtStart".localized
 let txtAccept = "txtAccept".localized
 let txtTermsUsePrivacyPolicy = "txtTermsUsePrivacyPolicy".localized
+let txtTermsOfUse = "txtTermsOfUse".localized
 let txtPrivacyPolicy = "txtPrivacyPolicy".localized
 let txtHeartBeats = "txtHeartBeats".localized
 let txtBreathing = "txtBreathing".localized
@@ -83,3 +84,5 @@ let txtCalmYourAnxiety = "txtCalmYourAnxiety".localized
 let txtCancelSubscription = "txtCancelSubscription".localized
 let txtVariationPrices = "txtVariationPrices".localized
 let txtCancelSubscriptionText = "txtCancelSubscriptionText".localized
+let txtAlreadySubscribed = "txtAlreadySubscribed".localized
+let txtRestoreSubscription = "txtRestoreSubscription".localized

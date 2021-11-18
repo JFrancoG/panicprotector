@@ -113,7 +113,7 @@ class TermsViewController: UIViewController {
                 urlLangCode = "en/"
             }
         }
-        let url = urlPrivacyPolicyBase + urlLangCode + urlPrivacyPolicy
+        let url = urlTermsPrivacyPolicyBase + urlLangCode + urlTermsPrivacyPolicy
         print("url:\(url)")
         openURL(strUrl: url)
     }

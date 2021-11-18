@@ -8,7 +8,8 @@
 
 "txtStart" = "Starten";
 "txtAccept" = "Akzeptieren";
-"txtTermsUsePrivacyPolicy" = "Nutzungsbedingungen & Datenschutzrichtlinien";
+"txtTermsUsePrivacyPolicy" = "Nutzungsbedingungen  &  Datenschutzrichtlinien";
+"txtTermsOfUse" = "Nutzungsbedingungen";
 "txtPrivacyPolicy" = "Datenschutzrichtlinien";
 "txtHeartBeats" = "Stresslevel";
 "txtBreathing" = "Atmung";
@@ -78,7 +79,12 @@
 "txtSavingDinamic" = "(12 Monate für %@ / Monat. Spare 40%%)";
 "txtSaving" = "(12 Monate für 4,16€ / Monat. Spare 40%%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
-"txtCalmYourAnxiety" = "Beruhige deine Ängste auf der Stelle mit personalisierten Atemübungen.";
-"txtCancelSubscription" = "Dein Abonnement ist jederzeit kündbar.";
+"txtCalmYourAnxiety" = "Abonniere panicPROTECTOR um deineÄngste auf der Stelle mit personalisierten Atemübungen zuberuhigen!";
+"txtCancelSubscription" = "Das Abonnement für panicPROTECTOR erneuert sich automatisch.  Wenn du dich für den Kauf eines Abonnements entscheidest, wird dein Konto mit einer ersten Zahlung belastet. Jeweils kurz vor Ende des Abonnementzeitraums wird dein Konto erneut belastet. Die automatische Erneuerung kann jederzeit in den Einstellungen deaktiviert werden.";
 "txtVariationPrices" = "* Preise können je nach Land leicht variieren.";
 "txtCancelSubscriptionText" = "Abonnement kündigen";
+"txtAlreadySubscribed" = "Bereits abonniert?";
+"txtRestoreSubscription" = "Abonnement wiederherstellen";
+"urlTermsOfUse" = "https://www.panicprotector.com/de/nutzungsbedingungen-apple";
+"urlPrivacyPolicy" = "https://www.panicprotector.com/de/datenschutzrichtlinien-apple";
+
