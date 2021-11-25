@@ -70,8 +70,9 @@
 "txtTerms2" = "WIR SCHÄTZEN DEINE PRIVATSPHÄRE UND SCHÜTZEN DEINE DATEN.";
 "txtTerms3" = "Mit deinem Einverständnis verwendet panicPROTECTOR die Kamera und das Mikrofon, um deinen Stresslevel bzw. deine Ausatmung zu ermitteln. Kamera und Mikrofon werden innerhalb der App nicht für andere Zwecke verwendet.";
 "txtTerms4" = "Wir nutzen diese Daten zur Optimierung der Leistung der App gemäß unserer Datenschutzrichtlinien.";
-"txtAcceptTerms" = "Mit dem Klick auf die Schaltfläche AKZEPTIEREN stimme ich der Verarbeitung meiner Daten zu.";
+"txtAcceptTerms" = "Wenn du auf \"weiter\" klickst, erklärst du dich mit den Nutzungsbedingungen und den Datenschutzrichtlinien von panicPROTECTOR einverstanden.";
 "txt7DaysTrial" = "7 TAGE GRATIS TESTEN!";
+"txtStartFreeTrial" = "Starten Sie den 7-tägigen kostenlosen Test, dann";
 "txtSubsMonthlyDinamic" = "%@ / Monat";
 "txtSubsYearlyDinamic" = "%@ / Jahr";
 "txtSubsMonthly" = "6,99€ / Monat";
@@ -80,8 +81,9 @@
 "txtSaving" = "(12 Monate für 4,16€ / Monat. Spare 40%%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Abonniere panicPROTECTOR um deineÄngste auf der Stelle mit personalisierten Atemübungen zuberuhigen!";
-"txtCancelSubscription" = "Das Abonnement für panicPROTECTOR erneuert sich automatisch.  Wenn du dich für den Kauf eines Abonnements entscheidest, wird dein Konto mit einer ersten Zahlung belastet. Jeweils kurz vor Ende des Abonnementzeitraums wird dein Konto erneut belastet. Die automatische Erneuerung kann jederzeit in den Einstellungen deaktiviert werden.";
-"txtVariationPrices" = "* Preise können je nach Land leicht variieren.";
+"txtCancelSubscription" = "Sie können das Abonnement jederzeit über Ihre Kontoeinstellungen abbestellen.";
+"txtFreeTrialPeriodEnds" = "Ihr Konto wird nach Ablauf des kostenlosen Testzeitraums belastet.";
+"txtSubsAutoRenewed" = "Das Abonnement wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums automatisch erneuert.";
 "txtCancelSubscriptionText" = "Abonnement kündigen";
 "txtAlreadySubscribed" = "Bereits abonniert?";
 "txtRestoreSubscription" = "Abonnement wiederherstellen";

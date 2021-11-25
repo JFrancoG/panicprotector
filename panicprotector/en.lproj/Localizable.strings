@@ -70,8 +70,9 @@
 "txtTerms2" = "WE VALUE YOUR PRIVACY AND HOW TO PROTECT YOUR DATA.";
 "txtTerms3" = "With your consent, panicPROTECTOR will use the camera and the microphone on your phone to process your stress level and your exhalation respectively. We will use neither the camera nor the microphone for any other purposes.";
 "txtTerms4" = "We will use this data to optimize the performance of the app, according to our Privacy Policy.";
-"txtAcceptTerms" = "By clicking on the ACCEPT button, I agree to panicPROTECTOR processing my data.";
+"txtAcceptTerms" = "By continuing, you agree to panicPROTECTOR’s Terms of Use & Privacy Policy.";
 "txt7DaysTrial" = "7 DAY FREE TRIAL!";
+"txtStartFreeTrial" = "Start 7-day free trial, then";
 "txtSubsMonthlyDinamic" = "%@ / month";
 "txtSubsYearlyDinamic" = "%@ / year";
 "txtSubsMonthly" = "6.99€ / month";
@@ -80,8 +81,9 @@
 "txtSaving" = "(12 months at 4,16€ / month. Save 40%%)";
 "txtExhaleAnxiety" = "EXHALE ANXIETY.\nINHALE CALM.";
 "txtCalmYourAnxiety" = "Subscribe to calm your anxiety on the spot with personalized breathing exercises!";
-"txtCancelSubscription" = "panicPROTECTOR is a recurring subscription. If you decide to purchase a subscription, an initial payment will be charged to your account. Shortly before the end of each subscription period, your account will be charged. Auto-renewable may be disabled at any time by going to your settings.";
-"txtVariationPrices" = "* Prices may vary slightly based on country of purchase.";
+"txtCancelSubscription" = "You can unsubscribe at any time from your account settings.";
+"txtFreeTrialPeriodEnds" = "Your account will be charged after the free trial period ends.";
+"txtSubsAutoRenewed" = "Subscription will be auto-renewed within 24 hours before the current period ends.";
 "txtCancelSubscriptionText" = "Cancel subscription";
 "txtAlreadySubscribed" = "Already subscribed?";
 "txtRestoreSubscription" = "Restore subscription";

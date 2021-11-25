@@ -13,12 +13,17 @@ class TermsViewController: UIViewController {
     
     @IBOutlet weak var scroll: UIScrollView!
     
+    @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var lblTerms1: UILabel!
     @IBOutlet weak var lblTerms2: UILabel!
     @IBOutlet weak var lblTerms3: UILabel!
     @IBOutlet weak var lblTerms4: UILabel!
     
+    @IBOutlet weak var lblTermsBase: UILabel!
+    @IBOutlet weak var lblTermsUse: UILabel!
     @IBOutlet weak var lblPrivacyPolicy: UILabel!
+    @IBOutlet weak var btnTermsOfUse: UIButton!
+    @IBOutlet weak var btnPrivacyPolicy: UIButton!
     
     @IBOutlet weak var checkBoxTerms: BEMCheckBox!
     @IBOutlet weak var lblAcceptTermsText: UILabel!
@@ -43,7 +48,7 @@ class TermsViewController: UIViewController {
         let height = max(getFloatHeightDevice() - getFloatStatusBarHeight(), heightContent)
         constrainHeightContentScroll.constant = height
         scroll.contentSize = CGSize(width: scroll.contentSize.width, height: heightContent)
-        lblPrivacyPolicy.addBottomBorderWithColor(color: .colorOrangeBreath, thickness: 1)
+        //lblPrivacyPolicy.addBottomBorderWithColor(color: .colorOrangeBreath, thickness: 1)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -53,6 +58,7 @@ class TermsViewController: UIViewController {
     private func customizeControls() {
         // views
         view.backgroundColor = .colorPrimaryDark
+        viewContent.backgroundColor = .colorPrimaryBackground
         
         // checkBox
         checkBoxTerms.customizeCheckBox()
@@ -74,8 +80,16 @@ class TermsViewController: UIViewController {
                         color: .colorPrimaryDark,
                         size: 14,
                         fontName: fontArialBold)
+        lblTermsBase.style(text: txtTermsUsePrivacyPolicy,
+                           color: .lightGray,
+                           size: 14,
+                           fontName: fontArialRegular)
+        lblTermsUse.style(text: txtTermsOfUse,
+                          color: .colorPrimaryDark,
+                          size: 14,
+                          fontName: fontArialRegular)
         lblPrivacyPolicy.style(text: txtPrivacyPolicy,
-                               color: .colorOrangeBreath,
+                               color: .colorPrimaryDark,
                                size: 14,
                                fontName: fontArialRegular)
         lblAcceptTermsText.style(text: txtAcceptTerms,
@@ -84,38 +98,28 @@ class TermsViewController: UIViewController {
                                  fontName: fontArialBold)
 
         // buttons
-        btnAcceptTerms.disableStyle(txt: txtAccept.uppercased())
+        btnAcceptTerms.disableStyle(txt: txtToContinue.uppercased())
+        btnTermsOfUse.setTitle("", for: .normal)
+        btnPrivacyPolicy.setTitle("", for: .normal)
         
     }
     
     @IBAction func actionCkeckTerms(_ sender: BEMCheckBox) {
         if sender.on {
-            btnAcceptTerms.style(txt: txtAccept.uppercased())
+            btnAcceptTerms.style(txt: txtToContinue.uppercased())
             savePreferencesAcceptTerms(acceptTerms: true)
         } else {
-            btnAcceptTerms.disableStyle(txt: txtAccept.uppercased())
+            btnAcceptTerms.disableStyle(txt: txtToContinue.uppercased())
             savePreferencesAcceptTerms(acceptTerms: false)
         }
     }
     
-    @IBAction func actionShowPrivacyPolicy(_ sender: UIButton) {
-        let langCode = NSLocale.current.languageCode
-        var urlLangCode = ""
-        if langCode != nil {
-            switch langCode {
-            case "es":
-                urlLangCode = ""
-            case "en":
-                urlLangCode = "en/"
-            case "de":
-                urlLangCode = "de/"
-            default:
-                urlLangCode = "en/"
-            }
-        }
-        let url = urlTermsPrivacyPolicyBase + urlLangCode + urlTermsPrivacyPolicy
-        print("url:\(url)")
-        openURL(strUrl: url)
+    @IBAction func actionShowTermsOfUse(_ sender: Any) {
+        openURL(strUrl: urlTermsOfUse)
+    }
+    
+    @IBAction func actionShowPrivacyPolicy(_ sender: Any) {
+        openURL(strUrl: urlPrivacyPolicy)
     }
     
     @IBAction func actionStart(_ sender: UIButton) {

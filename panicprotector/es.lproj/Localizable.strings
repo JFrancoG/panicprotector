@@ -70,8 +70,9 @@
 "txtTerms2" = "VALORAMOS TU PRIVACIDAD Y PROTEGEMOS TUS DATOS.";
 "txtTerms3" = "Con tu consentimiento, panicPROTECTOR utilizará la cámara y el micrófono para detectar tu nivel de estrés y tu exhalación respectivamente. No utilizaremos ni la cámara ni el micrófono para otros fines.";
 "txtTerms4" = "Utilizaremos estos datos para optimizar el rendimiento de la aplicación conforme a nuestra Política de Privacidad.";
-"txtAcceptTerms" = "Al hacer click en el botón ACEPTAR, acepto el procesamiento de mis datos.";
+"txtAcceptTerms" = "Al continuar, aceptas las Condiciones de Uso y Política de Privacidad de panicPROTECTOR.";
 "txt7DaysTrial" = "¡7 DÍAS DE PRUEBA GRATIS!";
+"txtStartFreeTrial" = "Iniciar prueba gratuita de 7 días, luego";
 "txtSubsMonthlyDinamic" = "%@ / mes";
 "txtSubsYearlyDinamic" = "%@ / año";
 "txtSubsMonthly" = "6,99€ / mes";
@@ -80,8 +81,9 @@
 "txtSaving" = "(12 meses por 4,16€ / mes. Ahorro del 40%%)";
 "txtExhaleAnxiety" = "EXHALA ANSIEDAD.\nINHALA CALMA.";
 "txtCalmYourAnxiety" = "¡Suscríbete para calmar tu ansiedadal instante con ejercicios de respiración personalizados!";
-"txtCancelSubscription" = "panicPROTECTOR es una suscripción recurrente. Si decides adquirir una suscripción, se cargará en tu cuenta un pago inicial. Poco antes del final de cada período de suscripción, se cargarán los pagos siguientes. La renovación automática puede desactivarse en cualquier momento accediendo a tu configuración.";
-"txtVariationPrices" = "* Los precios pueden variar ligeramente dependiendo del país.";
+"txtCancelSubscription" = "Podrá cancelar en cualquier momento la subscripción desde la configuración de su cuenta.";
+"txtFreeTrialPeriodEnds" = "Una vez finalizado el periodo de prueba gratuito, se realizará un cargo en su cuenta.";
+"txtSubsAutoRenewed" = "La suscripción se renovará automáticamente 24 horas antes de que finalice el periodo actual.";
 "txtCancelSubscriptionText" = "Cancelar suscripción";
 "txtAlreadySubscribed" = "¿Ya estás suscrito?";
 "txtRestoreSubscription" = "Restaurar suscripción";

@@ -32,6 +32,8 @@ class StartViewController: UIViewController {
     @IBOutlet weak var btnBuyYearly: UIButton!
     @IBOutlet weak var lblSaving: UILabel!
     @IBOutlet weak var btnRestoreSubscription: UIButton!
+    @IBOutlet weak var lblStartFreeTrialM: UILabel!
+    @IBOutlet weak var lblStartFreeTrialY: UILabel!
     
     @IBOutlet weak var lblTermsBase: UILabel!
     @IBOutlet weak var lblTermsUse: UILabel!
@@ -39,10 +41,11 @@ class StartViewController: UIViewController {
     @IBOutlet weak var btnTermsOfUse: UIButton!
     @IBOutlet weak var btnPrivacyPolicy: UIButton!
     
-    
     @IBOutlet weak var lblExhaleAnxiety: UILabel!
     @IBOutlet weak var lblCalmYourAnxiety: UILabel!
     
+    @IBOutlet weak var lblFreeTrialPeriodEnds: UILabel!
+    @IBOutlet weak var lblSubsAutoRenewed: UILabel!
     @IBOutlet weak var lblCancelSubscription: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -73,7 +76,7 @@ class StartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        scroll.contentSize = CGSize(width: self.view.frame.width, height: 860)
+        scroll.contentSize = CGSize(width: self.view.frame.width, height: 820)
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
     }
     
@@ -277,6 +280,14 @@ class StartViewController: UIViewController {
                                     color: .colorPrimaryDark,
                                     size: 20,
                                     fontName: fontArialBold)
+        lblStartFreeTrialM.style(text: txtStartFreeTrial,
+                                 color: .white,
+                                 size: 16,
+                                 fontName: fontArialBold)
+        lblStartFreeTrialY.style(text: txtStartFreeTrial,
+                                 color: .white,
+                                 size: 16,
+                                 fontName: fontArialBold)
         lblMonthlySub.style(text: txtMonthlySubscription,
                             color: .colorPrimaryDark,
                             size: 18,
@@ -305,21 +316,29 @@ class StartViewController: UIViewController {
                                  color: .colorPrimaryDark,
                                  size: 15,
                                  fontName: fontArialRegular)
+        lblFreeTrialPeriodEnds.style(text: txtFreeTrialPeriodEnds,
+                                     color: .colorPrimaryDark,
+                                     size: 14,
+                                     fontName: fontArialBold)
+        lblSubsAutoRenewed.style(text: txtSubsAutoRenewed,
+                                 color: .colorPrimaryDark,
+                                 size: 14,
+                                 fontName: fontArialBold)
         lblCancelSubscription.style(text: txtCancelSubscription,
                                     color: .colorPrimaryDark,
                                     size: 14,
-                                    fontName: fontArialRegular)
+                                    fontName: fontArialBold)
         lblTermsBase.style(text: txtTermsUsePrivacyPolicy,
                            color: .lightGray,
-                           size: 14,
+                           size: 16,
                            fontName: fontArialRegular)
         lblTermsUse.style(text: txtTermsOfUse,
                           color: .colorPrimaryDark,
-                          size: 14,
+                          size: 16,
                           fontName: fontArialRegular)
         lblPrivacyPolicy.style(text: txtPrivacyPolicy,
                                color: .colorPrimaryDark,
-                               size: 14,
+                               size: 16,
                                fontName: fontArialRegular)
 
         btnStart.style(txt: txtStart.uppercased())
@@ -328,7 +347,7 @@ class StartViewController: UIViewController {
         btnBuyMonthly.isUserInteractionEnabled = false
         btnBuyYearly.setTitle("", for: .normal)
         btnBuyYearly.isUserInteractionEnabled = false
-        btnCancelSubscription.linkStyle(txt: txtCancelSubscriptionText, color: .red)
+        btnCancelSubscription.linkStyleDisable(txt: txtCancelSubscriptionText)
         btnRestoreSubscription.linkStyle(txt: txtRestoreSubscription, color: .colorPrimaryDark)
         btnTermsOfUse.setTitle("", for: .normal)
         btnPrivacyPolicy.setTitle("", for: .normal)
@@ -392,7 +411,7 @@ class StartViewController: UIViewController {
     }
 
     @IBAction func actionTerms(_ sender: UIButton) {
-        performSegue(withIdentifier: "segueTerms", sender: nil)
+        //performSegue(withIdentifier: "segueTerms", sender: nil)
     }
     
     @IBAction func unwindTerms(segue: UIStoryboardSegue) {
