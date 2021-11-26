@@ -75,7 +75,9 @@ class StartViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        if !readAcceptTermsPreferences() {
+            performSegue(withIdentifier: "segueTerms", sender: nil)
+        }
         scroll.contentSize = CGSize(width: self.view.frame.width, height: 820)
         lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
     }
@@ -411,7 +413,7 @@ class StartViewController: UIViewController {
     }
 
     @IBAction func actionTerms(_ sender: UIButton) {
-        //performSegue(withIdentifier: "segueTerms", sender: nil)
+        performSegue(withIdentifier: "segueTerms", sender: nil)
     }
     
     @IBAction func unwindTerms(segue: UIStoryboardSegue) {
