@@ -32,7 +32,6 @@ class StartViewController: UIViewController {
     @IBOutlet weak var viewBackYearlySub: UIView!
     @IBOutlet weak var lblYearlySub: UILabel!
     @IBOutlet weak var lblYearlyPrice: UILabel!
-    @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnBuyMonthly: UIButton!
     @IBOutlet weak var btnBuyYearly: UIButton!
     @IBOutlet weak var lblSaving: UILabel!
@@ -94,7 +93,7 @@ class StartViewController: UIViewController {
         if !readAcceptTermsPreferences() {
             performSegue(withIdentifier: "segueTerms", sender: nil)
         }
-        scroll.contentSize = CGSize(width: self.view.frame.width, height: 820)
+        scroll.contentSize = CGSize(width: self.view.frame.width, height: 780)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -390,7 +389,6 @@ class StartViewController: UIViewController {
                                    fontName: fontArialBold)
 
         btnStart.style(txt: txtStart.uppercased())
-        btnCancel.setTitle("", for: .normal)
         btnBuyMonthly.setTitle("", for: .normal)
         btnBuyMonthly.isUserInteractionEnabled = false
         btnBuyYearly.setTitle("", for: .normal)
@@ -463,7 +461,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionCancelDialogSubscription(_ sender: Any) {
-        viewBackSubscriptionDialog.isHidden = true
+        //viewBackSubscriptionDialog.isHidden = true
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
