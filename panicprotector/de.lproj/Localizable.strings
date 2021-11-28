@@ -85,7 +85,9 @@
 "txtFreeTrialPeriodEnds" = "Ihr Konto wird nach Ablauf des kostenlosen Testzeitraums belastet.";
 "txtSubsAutoRenewed" = "Das Abonnement wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums automatisch erneuert.";
 "txtCancelSubscriptionText" = "Abonnement kündigen";
-"txtAlreadySubscribed" = "Bereits abonniert?";
+"txtExplanationAttention" = "Achtung!";
+"txtExplanationAccess" = "panicPROTECTOR ist eine App, auf die man nur zugreifen kann, wenn man ein monatliches oder jährliches Abonnement abschließt.";
+"txtExplanationFreeTrial" = "Bei beiden Optionen haben Sie eine kostenlose Testphase von 7 Tagen. Am Ende des kostenlosen Testzeitraums wird Ihr Konto zum ersten Mal belastet.";
 "txtRestoreSubscription" = "Abonnement wiederherstellen";
 "urlTermsOfUse" = "https://www.panicprotector.com/de/nutzungsbedingungen-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/de/datenschutzrichtlinien-apple";

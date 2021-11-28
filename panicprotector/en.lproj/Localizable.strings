@@ -85,7 +85,9 @@
 "txtFreeTrialPeriodEnds" = "Your account will be charged after the free trial period ends.";
 "txtSubsAutoRenewed" = "Subscription will be auto-renewed within 24 hours before the current period ends.";
 "txtCancelSubscriptionText" = "Cancel subscription";
-"txtAlreadySubscribed" = "Already subscribed?";
+"txtExplanationAttention" = "Attention!";
+"txtExplanationAccess" = "panicPROTECTOR is an app that can only be accessed by subscribing on a monthly or yearly basis.";
+"txtExplanationFreeTrial" = "In both options you will have a 7 day free trial period. At the end of the free trial period, your account will be charged for the first time.";
 "txtRestoreSubscription" = "Restore subscription";
 "urlTermsOfUse" = "https://www.panicprotector.com/en/terms-of-use-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/en/privacy-policy-apple";

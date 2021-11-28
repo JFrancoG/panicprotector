@@ -85,7 +85,9 @@
 "txtFreeTrialPeriodEnds" = "Una vez finalizado el periodo de prueba gratuito, se realizará un cargo en su cuenta.";
 "txtSubsAutoRenewed" = "La suscripción se renovará automáticamente 24 horas antes de que finalice el periodo actual.";
 "txtCancelSubscriptionText" = "Cancelar suscripción";
-"txtAlreadySubscribed" = "¿Ya estás suscrito?";
+"txtExplanationAttention" = "¡Atención!";
+"txtExplanationAccess" = "panicPROTECTOR es una app a la cual solo se puede acceder si se suscribe mensual o anualmente.";
+"txtExplanationFreeTrial" = "En ambas opciones tendrá un periodo de prueba de 7 días completamente gratis. Una vez finalizado el periodo de prueba gratuito, se realizará el primer cargo en su cuenta.";
 "txtRestoreSubscription" = "Restaurar suscripción";
 "urlTermsOfUse" = "https://www.panicprotector.com/condiciones-de-uso-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/politica-privacidad-apple";

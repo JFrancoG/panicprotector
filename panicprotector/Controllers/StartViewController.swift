@@ -14,7 +14,12 @@ class StartViewController: UIViewController {
     @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var scroll: UIScrollView!
     
-    @IBOutlet weak var lblTerms: UILabel!
+    @IBOutlet weak var lblStartTermsBase: UILabel!
+    @IBOutlet weak var lblStartTerms: UILabel!
+    @IBOutlet weak var lblStartPrivacy: UILabel!
+    @IBOutlet weak var btnStartTerms: UIButton!
+    @IBOutlet weak var btnStartPrivacy: UIButton!
+    
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnCancelSubscription: UIButton!
     
@@ -50,6 +55,17 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+    @IBOutlet weak var viewBackDialogExplanation: UIView!
+    @IBOutlet weak var viewExplanation: UIView!
+    
+    @IBOutlet weak var lblExplanationAttention: UILabel!
+    @IBOutlet weak var lblExplanationAccess: UILabel!
+    @IBOutlet weak var lblExplanationFreeTrial: UILabel!
+    @IBOutlet weak var lblExplanationAutoRenewed: UILabel!
+    @IBOutlet weak var lblExplanationCancel: UILabel!
+    @IBOutlet weak var btnAcceptDialog: UIButton!
+    
 //    var prodSubscriptions = [SKProduct]()
 //    let paymentQueue = SKPaymentQueue.default()
     
@@ -79,7 +95,6 @@ class StartViewController: UIViewController {
             performSegue(withIdentifier: "segueTerms", sender: nil)
         }
         scroll.contentSize = CGSize(width: self.view.frame.width, height: 820)
-        lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -104,7 +119,7 @@ class StartViewController: UIViewController {
                                                 fontName: fontArialBold)
                             self.lblMonthlyPrice.style(text: monthly,
                                                        color: .white,
-                                                       size: 24,
+                                                       size: 22,
                                                        fontName: fontArialBold)
                     } else if id == subsIDs[0][1] {// yearly
                         let savingDbl = Double(truncating: product.price) / 12.0
@@ -122,7 +137,7 @@ class StartViewController: UIViewController {
                                                 fontName: fontArialBold)
                         self.lblYearlyPrice.style(text: yearly,
                                                   color: .white,
-                                                  size: 24,
+                                                  size: 22,
                                                   fontName: fontArialBold)
                         self.lblSaving.style(text: saving,
                                              color: .colorPrimaryDark,
@@ -273,11 +288,10 @@ class StartViewController: UIViewController {
         viewBackYearlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.round(cornerRadius: radius8)
         viewSubscriptions.backgroundColor = .clear
+        viewBackDialogExplanation.backgroundColor = .colorGreyTranslucid
+        viewBackDialogExplanation.isHidden = true
+        viewExplanation.backgroundColor = .colorPrimary
         
-        lblTerms.style(text: txtTermsUsePrivacyPolicy,
-                       color: .colorGreyTranslucid,
-                       size: 14,
-                       fontName: fontArialRegular)
         lblSubscriptionTrial.style(text: txt7DaysTrial,
                                     color: .colorPrimaryDark,
                                     size: 20,
@@ -300,11 +314,11 @@ class StartViewController: UIViewController {
                             fontName: fontArialBold)
         lblMonthlyPrice.style(text: txtSubsMonthly,
                               color: .white,
-                              size: 24,
+                              size: 22,
                               fontName: fontArialBold)
         lblYearlyPrice.style(text: txtSubsYearly,
                               color: .white,
-                              size: 24,
+                              size: 22,
                               fontName: fontArialBold)
         lblSaving.style(text: txtSaving,
                         color: .colorPrimaryDark,
@@ -342,6 +356,38 @@ class StartViewController: UIViewController {
                                color: .colorPrimaryDark,
                                size: 16,
                                fontName: fontArialRegular)
+        lblStartTermsBase.style(text: txtTermsUsePrivacyPolicy,
+                           color: .lightGray,
+                           size: 16,
+                           fontName: fontArialRegular)
+        lblStartTerms.style(text: txtTermsOfUse,
+                          color: .colorPrimaryDark,
+                          size: 16,
+                          fontName: fontArialRegular)
+        lblStartPrivacy.style(text: txtPrivacyPolicy,
+                               color: .colorPrimaryDark,
+                               size: 16,
+                               fontName: fontArialRegular)
+        lblExplanationAttention.style(text: txtExplanationAttention,
+                                     color: .colorPrimaryDark,
+                                     size: 24,
+                                     fontName: fontArialBold)
+        lblExplanationAccess.style(text: txtExplanationAccess,
+                                   color: .colorPrimaryDark,
+                                   size: 16,
+                                   fontName: fontArialBold)
+        lblExplanationFreeTrial.style(text: txtExplanationFreeTrial,
+                                      color: .colorPrimaryDark,
+                                      size: 16,
+                                      fontName: fontArialBold)
+        lblExplanationAutoRenewed.style(text: txtSubsAutoRenewed,
+                                        color: .colorPrimaryDark,
+                                        size: 16,
+                                        fontName: fontArialBold)
+        lblExplanationCancel.style(text: txtCancelSubscription,
+                                   color: .colorPrimaryDark,
+                                   size: 16,
+                                   fontName: fontArialBold)
 
         btnStart.style(txt: txtStart.uppercased())
         btnCancel.setTitle("", for: .normal)
@@ -353,6 +399,9 @@ class StartViewController: UIViewController {
         btnRestoreSubscription.linkStyle(txt: txtRestoreSubscription, color: .colorPrimaryDark)
         btnTermsOfUse.setTitle("", for: .normal)
         btnPrivacyPolicy.setTitle("", for: .normal)
+        btnStartTerms.setTitle("", for: .normal)
+        btnStartPrivacy.setTitle("", for: .normal)
+        btnAcceptDialog.styleDialog(txt: txtAccept.uppercased())
     }
     
     private func disablePurchaseButtons() {
@@ -372,6 +421,19 @@ class StartViewController: UIViewController {
         btnBuyYearly.isUserInteractionEnabled = true
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.backgroundColor = .colorPrimary
+    }
+    
+    @IBAction func actionAcceptDialog(_ sender: Any) {
+        viewBackDialogExplanation.isHidden = true
+        viewBackSubscriptionDialog.isHidden = false
+    }
+    
+    @IBAction func actionShowStartTermsOfUse(_ sender: Any) {
+        openURL(strUrl: urlTermsOfUse)
+    }
+    
+    @IBAction func actionShowStartPrivacyPolicy(_ sender: Any) {
+        openURL(strUrl: urlPrivacyPolicy)
     }
     
     @IBAction func actionShowTermsOfUse(_ sender: Any) {
@@ -408,16 +470,12 @@ class StartViewController: UIViewController {
         if hasSubscription {
             performSegue(withIdentifier: "segueTransition", sender: nil)
         } else {
-            viewBackSubscriptionDialog.isHidden = false
+            viewBackDialogExplanation.isHidden = false
         }
-    }
-
-    @IBAction func actionTerms(_ sender: UIButton) {
-        performSegue(withIdentifier: "segueTerms", sender: nil)
     }
     
     @IBAction func unwindTerms(segue: UIStoryboardSegue) {
-        lblTerms.addBottomBorderWithColor(color: .colorGreyTranslucid, thickness: 1)
+        
     }
     
 }

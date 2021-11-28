@@ -82,15 +82,15 @@ class TermsViewController: UIViewController {
                         fontName: fontArialBold)
         lblTermsBase.style(text: txtTermsUsePrivacyPolicy,
                            color: .lightGray,
-                           size: 14,
+                           size: 16,
                            fontName: fontArialRegular)
         lblTermsUse.style(text: txtTermsOfUse,
                           color: .colorPrimaryDark,
-                          size: 14,
+                          size: 16,
                           fontName: fontArialRegular)
         lblPrivacyPolicy.style(text: txtPrivacyPolicy,
                                color: .colorPrimaryDark,
-                               size: 14,
+                               size: 16,
                                fontName: fontArialRegular)
         lblAcceptTermsText.style(text: txtAcceptTerms,
                                  color: .colorPrimaryDark,
