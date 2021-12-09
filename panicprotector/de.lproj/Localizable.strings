@@ -91,4 +91,8 @@
 "txtRestoreSubscription" = "Abonnement wiederherstellen";
 "urlTermsOfUse" = "https://www.panicprotector.com/de/nutzungsbedingungen-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/de/datenschutzrichtlinien-apple";
-
+"txtValidUntil" = "Abonnement gültig bis";
+"txtExpiredSince" = "Das Abonnement läuft am";
+"txtRestoreSuccess" = "Das (aktuelle oder abgelaufene) Abonnement wurde wiederhergestellt";
+"txtRestoreFailed" = "Bei der Wiederherstellung des Abonnements ist ein Fehler aufgetreten";
+"txtNothingToRestore" = "Es gibt kein Abonnement zur Wiederherstellung";

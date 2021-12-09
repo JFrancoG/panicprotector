@@ -65,6 +65,19 @@ class StartViewController: UIViewController {
     @IBOutlet weak var lblExplanationCancel: UILabel!
     @IBOutlet weak var btnAcceptDialog: UIButton!
     
+    @IBOutlet weak var viewBackDialogDateExpiry: UIView!
+    @IBOutlet weak var viewDateExpiry: UIView!
+    @IBOutlet weak var lblValidOrExpired: UILabel!
+    @IBOutlet weak var lblDateExpired: UILabel!
+    @IBOutlet weak var btnAcceptDateExpiredDialog: UIButton!
+    
+    @IBOutlet weak var viewBackDialogRestore: UIView!
+    @IBOutlet weak var viewRestore: UIView!
+    @IBOutlet weak var lblRestoreDialog: UILabel!
+    @IBOutlet weak var btnAcceptRestoreDialog: UIButton!
+    
+    
+    
 //    var prodSubscriptions = [SKProduct]()
 //    let paymentQueue = SKPaymentQueue.default()
     
@@ -76,6 +89,11 @@ class StartViewController: UIViewController {
     }
     
     var hasSubscription = false
+    
+    var dateExpiry = ""
+    var dateExpiryMillis: Int64 = 0
+    
+    //let receiptItemNull = ReceiptItem(productId: "", quantity: 0, transactionId: "", originalTransactionId: "", purchaseDate: "", originalPurchaseDate: "", webOrderLineItemId: nil, subscriptionExpirationDate: nil, cancellationDate: nil, isTrialPeriod: false, isInIntroOfferPeriod: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -203,19 +221,58 @@ class StartViewController: UIViewController {
                 case .purchased(let expiryDate, let items):
                     print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
                     self.viewBackSubscriptionDialog.isHidden = true
-                    self.hasSubscription = true
+                    self.dateExpiry = expiryDate.toString()
+                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                        self.checkDate()
+                        self.hasSubscription = true
+                        self.checkCancelBtn()
+                    }
+                    
                 case .expired(let expiryDate, let items):
                     print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+                    self.dateExpiry = expiryDate.toString()
+                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
+                    self.checkDate()
+                    self.hasSubscription = false
+                    self.checkCancelBtn()
                 case .notPurchased:
-                    print("The user has never purchased \(prodId)")
+                    print("The user has never purchased \(prodId)")                   
                 }
-
             case .error(let error):
                 print("Receipt verification failed: \(error)")
             }
         }
     }
     
+    private func checkDate() {
+        print("dateExpiry: \(dateExpiry)")
+        guard let nowMillis = Date().currentTimeMillis() else { return }
+        viewBackDialogDateExpiry.isHidden = false
+        if nowMillis < dateExpiryMillis { // valid
+            lblValidOrExpired.style(text: txtValidUntil,
+                                    color: .colorPrimaryDark,
+                                    size: 18,
+                                    fontName: fontArialBold)
+        } else { // expired
+            lblValidOrExpired.style(text: txtExpiredSince,
+                                    color: .colorPrimaryDark,
+                                    size: 18,
+                                    fontName: fontArialBold)
+        }
+        lblDateExpired.style(text: dateExpiry,
+                             color: .colorPrimaryDark,
+                             size: 18,
+                             fontName: fontArialBold)
+    }
+    
+    private func checkCancelBtn() {
+        if hasSubscription {
+            btnCancelSubscription.linkStyle(txt: txtCancelSubscriptionText, color: .red)
+        } else {
+            btnCancelSubscription.linkStyleDisable(txt: txtCancelSubscriptionText)
+        }
+    }
     
     private func verifySubscriptions() {
         
@@ -224,56 +281,37 @@ class StartViewController: UIViewController {
     
     
     private func restoreSubscriptions() {
+        activityIndicator.startAnimating()
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             if results.restoreFailedPurchases.count > 0 {
                 print("Restore Failed: \(results.restoreFailedPurchases)")
+                self.viewBackDialogRestore.isHidden = false
+                self.lblRestoreDialog.style(text: txtRestoreFailed,
+                                       color: .colorPrimaryDark,
+                                       size: 16,
+                                       fontName: fontArialBold)
+                self.activityIndicator.stopAnimating()
             }
             else if results.restoredPurchases.count > 0 {
                 print("Restore Success: \(results.restoredPurchases)")
+                self.viewBackDialogRestore.isHidden = false
+                self.lblRestoreDialog.style(text: txtRestoreSuccess,
+                                       color: .colorPrimaryDark,
+                                       size: 16,
+                                       fontName: fontArialBold)
+                self.activityIndicator.stopAnimating()
             }
             else {
                 print("Nothing to Restore")
+                self.viewBackDialogRestore.isHidden = false
+                self.lblRestoreDialog.style(text: txtNothingToRestore,
+                                       color: .colorPrimaryDark,
+                                       size: 16,
+                                       fontName: fontArialBold)
+                self.activityIndicator.stopAnimating()
             }
         }
     }
-    
-
-//
-//    private func verifySubs(completionHandler: @escaping (StateSub) -> Void) {
-//        print("verifySubs")
-//        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
-//        let prods: Set<String> = [ProductSubscriptionID.monthlySubscription.rawValue,
-//                                ProductSubscriptionID.yearlySubscription.rawValue]
-//        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-//            print("verifyReceipt")
-//            switch result {
-//            case .success(let receipt):
-//                let purchaseResult = SwiftyStoreKit.verifySubscriptions(
-//                    productIds: prods,
-//                    inReceipt: receipt)
-//                switch purchaseResult {
-//                case .purchased(let expiryDate, let items):
-//                    //print("\(prods) is valid until \(expiryDate)\n\(items)\n")
-//                    //print("\(prodId) is valid until \(expiryDate)\n")
-//                    print("is valid until \(expiryDate)\n")
-//                    completionHandler(.purchased)
-//                case .expired(let expiryDate, let items):
-//                    //print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
-//                    //print("\(prodId) is expired since \(expiryDate)\n\n")
-//                    print("is expired since \(expiryDate)\n")
-//                    completionHandler(.expired)
-//                case .notPurchased:
-////                    print("The user has never purchased \(prodId)")
-//                    print("The user has never purchased")
-//                    completionHandler(.notPurchased)
-//                }
-//            case .error(let error):
-//                print("Receipt verification failed: \(error)")
-//                completionHandler(.error)
-//            }
-//        }
-//    }
-
 
     private func customizeControls() {
         activityIndicator.style()
@@ -290,6 +328,12 @@ class StartViewController: UIViewController {
         viewBackDialogExplanation.backgroundColor = .colorGreyTranslucid
         viewBackDialogExplanation.isHidden = true
         viewExplanation.backgroundColor = .colorPrimary
+        viewBackDialogDateExpiry.backgroundColor = .colorGreyTranslucid
+        viewBackDialogDateExpiry.isHidden = true
+        viewDateExpiry.backgroundColor = .colorPrimary
+        viewBackDialogRestore.backgroundColor = .colorGreyTranslucid
+        viewBackDialogRestore.isHidden = true
+        viewRestore.backgroundColor = .colorPrimary
         
         lblSubscriptionTrial.style(text: txt7DaysTrial,
                                     color: .colorPrimaryDark,
@@ -297,11 +341,11 @@ class StartViewController: UIViewController {
                                     fontName: fontArialBold)
         lblStartFreeTrialM.style(text: txtStartFreeTrial,
                                  color: .white,
-                                 size: 16,
+                                 size: 14,
                                  fontName: fontArialBold)
         lblStartFreeTrialY.style(text: txtStartFreeTrial,
                                  color: .white,
-                                 size: 16,
+                                 size: 14,
                                  fontName: fontArialBold)
         lblMonthlySub.style(text: txtMonthlySubscription,
                             color: .colorPrimaryDark,
@@ -400,6 +444,8 @@ class StartViewController: UIViewController {
         btnStartTerms.setTitle("", for: .normal)
         btnStartPrivacy.setTitle("", for: .normal)
         btnAcceptDialog.styleDialog(txt: txtAccept.uppercased())
+        btnAcceptDateExpiredDialog.styleDialog(txt: txtAccept.uppercased())
+        btnAcceptRestoreDialog.styleDialog(txt: txtAccept.uppercased())
     }
     
     private func disablePurchaseButtons() {
@@ -419,6 +465,14 @@ class StartViewController: UIViewController {
         btnBuyYearly.isUserInteractionEnabled = true
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackYearlySub.backgroundColor = .colorPrimary
+    }
+    
+    @IBAction func actionAcceptRestoreDialog(_ sender: Any) {
+        self.viewBackDialogRestore.isHidden = true
+    }
+    
+    @IBAction func actionAcceptExpiredDialog(_ sender: Any) {
+        viewBackDialogDateExpiry.isHidden = true
     }
     
     @IBAction func actionAcceptDialog(_ sender: Any) {

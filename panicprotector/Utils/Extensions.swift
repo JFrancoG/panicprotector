@@ -191,6 +191,24 @@ extension UIActivityIndicatorView {
     }
 }
 
+extension Date {
+    func toSeconds() -> Int {
+        return Int(self.timeIntervalSince1970)
+    }
+    
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let language = Locale.current.languageCode
+        dateFormatter.locale = Locale(identifier: language ?? "en")
+        return dateFormatter.string(from: self)
+    }
+    
+    func currentTimeMillis() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+}
+
 extension BEMCheckBox {
     func customizeCheckBox() {
         boxType = .square

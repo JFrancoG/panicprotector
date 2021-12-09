@@ -24,6 +24,7 @@
 		F71F078F2709943B00C5A4C9 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F078E2709943B00C5A4C9 /* StoreService.swift */; };
 		F77C73D726E37176002B975C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C73D626E37176002B975C /* GlobalVariables.swift */; };
 		F77FBAC9267DD9180059517D /* PulseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBAC8267DD9170059517D /* PulseViewController.swift */; };
+		F78785C6275D6EF200566B0F /* ReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78785C5275D6EF200566B0F /* ReceiptItem.swift */; };
 		F78DB72C2663E7E300747269 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78DB72E2663E7E300747269 /* InfoPlist.strings */; };
 		F7C426802671605700EE11C8 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4267F2671605700EE11C8 /* TransitionViewController.swift */; };
 		F7D85E262646AB82007D624D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D85E252646AB82007D624D /* Messages.swift */; };
@@ -62,6 +63,7 @@
 		F71F078E2709943B00C5A4C9 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		F77C73D626E37176002B975C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		F77FBAC8267DD9170059517D /* PulseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewController.swift; sourceTree = "<group>"; };
+		F78785C5275D6EF200566B0F /* ReceiptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptItem.swift; sourceTree = "<group>"; };
 		F78DB72D2663E7E300747269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F78DB7302663E7E800747269 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F78DB7312663E7E900747269 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		F70C8543263A0AB00098442A /* panicprotector */ = {
 			isa = PBXGroup;
 			children = (
+				F78785C7275D6EFD00566B0F /* Model */,
 				F71F078B270634C200C5A4C9 /* Store */,
 				F7D85E2C265ABD89007D624D /* Controllers */,
 				F7D85E2D265ABDA4007D624D /* Utils */,
@@ -152,6 +155,14 @@
 				F71F078E2709943B00C5A4C9 /* StoreService.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		F78785C7275D6EFD00566B0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F78785C5275D6EF200566B0F /* ReceiptItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F7D85E2C265ABD89007D624D /* Controllers */ = {
@@ -330,6 +341,7 @@
 				F70C8564263D5EE90098442A /* Constants.swift in Sources */,
 				F7FED1DF268E36660096E05A /* Device.swift in Sources */,
 				F70C8549263A0AB00098442A /* ViewController.swift in Sources */,
+				F78785C6275D6EF200566B0F /* ReceiptItem.swift in Sources */,
 				F71F078F2709943B00C5A4C9 /* StoreService.swift in Sources */,
 				F7D85E262646AB82007D624D /* Messages.swift in Sources */,
 				F7D85E4426603918007D624D /* ColorHeartBeats.swift in Sources */,
@@ -517,7 +529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,7 +552,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

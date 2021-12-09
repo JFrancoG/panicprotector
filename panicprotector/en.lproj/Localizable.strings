@@ -91,4 +91,8 @@
 "txtRestoreSubscription" = "Restore subscription";
 "urlTermsOfUse" = "https://www.panicprotector.com/en/terms-of-use-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/en/privacy-policy-apple";
-
+"txtValidUntil" = "Subscription valid until";
+"txtExpiredSince" = "Subscription expires on";
+"txtRestoreSuccess" = "Subscription (current or expired) has been restored";
+"txtRestoreFailed" = "An error occurred while restoring the subscription";
+"txtNothingToRestore" = "There is no subscription to restore";

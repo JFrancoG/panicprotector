@@ -91,4 +91,8 @@
 "txtRestoreSubscription" = "Restaurar suscripción";
 "urlTermsOfUse" = "https://www.panicprotector.com/condiciones-de-uso-apple";
 "urlPrivacyPolicy" = "https://www.panicprotector.com/politica-privacidad-apple";
-
+"txtValidUntil" = "Suscripción válida hasta el";
+"txtExpiredSince" = "Suscripción expirada desde el";
+"txtRestoreSuccess" = "La suscripción (en vigor o expirada) se ha restaurado";
+"txtRestoreFailed" = "Ha ocurrido un error restaurando la suscripción";
+"txtNothingToRestore" = "No hay ninguna suscripción a restaurar";

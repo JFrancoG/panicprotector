@@ -506,11 +506,111 @@
                                     <constraint firstAttribute="bottom" secondItem="1Ps-Nl-Sev" secondAttribute="bottom" id="kcV-XL-ZBT"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Os3-w7-7lr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN6-LP-iJq">
+                                        <rect key="frame" x="37.666666666666657" y="286" width="300" height="240"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suscripción válida hasta el" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUm-iG-WJd">
+                                                <rect key="frame" x="34.333333333333329" y="48" width="231.33333333333337" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 de noviembre de 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3n-yY-BaH">
+                                                <rect key="frame" x="43.333333333333329" y="92.333333333333314" width="213.33333333333337" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFw-ql-2cJ">
+                                                <rect key="frame" x="50" y="160" width="200" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="4No-DP-D9w"/>
+                                                    <constraint firstAttribute="width" constant="200" id="rif-S4-nLk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="ACEPTAR"/>
+                                                <connections>
+                                                    <action selector="actionAcceptExpiredDialog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="evM-5f-pcN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="8in-f2-wCJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="NFw-ql-2cJ" secondAttribute="bottom" constant="32" id="9wq-va-2oQ"/>
+                                            <constraint firstItem="TUm-iG-WJd" firstAttribute="centerX" secondItem="HN6-LP-iJq" secondAttribute="centerX" id="GYm-cN-hod"/>
+                                            <constraint firstItem="m3n-yY-BaH" firstAttribute="top" secondItem="TUm-iG-WJd" secondAttribute="bottom" constant="24" id="IxA-hS-GrI"/>
+                                            <constraint firstAttribute="width" constant="300" id="L4c-Vb-7PS"/>
+                                            <constraint firstItem="m3n-yY-BaH" firstAttribute="centerX" secondItem="HN6-LP-iJq" secondAttribute="centerX" id="N3h-ld-Ce3"/>
+                                            <constraint firstItem="NFw-ql-2cJ" firstAttribute="centerX" secondItem="HN6-LP-iJq" secondAttribute="centerX" id="WW7-8c-874"/>
+                                            <constraint firstItem="TUm-iG-WJd" firstAttribute="top" secondItem="HN6-LP-iJq" secondAttribute="top" constant="48" id="cqx-oX-qnJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HN6-LP-iJq" firstAttribute="centerY" secondItem="Os3-w7-7lr" secondAttribute="centerY" id="Ztt-5l-klo"/>
+                                    <constraint firstItem="HN6-LP-iJq" firstAttribute="centerX" secondItem="Os3-w7-7lr" secondAttribute="centerX" id="ben-bb-xPL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PE-uE-RVH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-dn-kMk">
+                                        <rect key="frame" x="37.666666666666657" y="306" width="300" height="200"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGe-eS-X2B">
+                                                <rect key="frame" x="20" y="48" width="260" height="20.333333333333329"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="260" id="z4s-sa-ium"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTN-5z-mVt">
+                                                <rect key="frame" x="50" y="120" width="200" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="ghR-gl-RY2"/>
+                                                    <constraint firstAttribute="width" constant="200" id="vYK-ox-D4N"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="ACEPTAR"/>
+                                                <connections>
+                                                    <action selector="actionAcceptRestoreDialog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nJW-Lv-9Ci"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="FIU-Gm-DnP"/>
+                                            <constraint firstAttribute="bottom" secondItem="UTN-5z-mVt" secondAttribute="bottom" constant="32" id="bpg-po-idW"/>
+                                            <constraint firstItem="PGe-eS-X2B" firstAttribute="centerX" secondItem="hzf-dn-kMk" secondAttribute="centerX" id="inn-iC-h3Z"/>
+                                            <constraint firstItem="UTN-5z-mVt" firstAttribute="centerX" secondItem="hzf-dn-kMk" secondAttribute="centerX" id="mog-ft-N39"/>
+                                            <constraint firstItem="PGe-eS-X2B" firstAttribute="top" secondItem="hzf-dn-kMk" secondAttribute="top" constant="48" id="omd-6n-ble"/>
+                                            <constraint firstAttribute="height" constant="200" id="tYn-4b-D6g"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hzf-dn-kMk" firstAttribute="centerX" secondItem="7PE-uE-RVH" secondAttribute="centerX" id="BOt-sc-789"/>
+                                    <constraint firstItem="hzf-dn-kMk" firstAttribute="centerY" secondItem="7PE-uE-RVH" secondAttribute="centerY" id="JXs-Qi-n11"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="Zxq-gx-7z4" firstAttribute="centerY" secondItem="kV4-Jy-274" secondAttribute="centerY" id="0lp-Dy-I5R"/>
+                            <constraint firstItem="Os3-w7-7lr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1W8-Kj-V5G"/>
                             <constraint firstItem="jr0-co-00N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Zh-WY-ZTw"/>
                             <constraint firstItem="kV4-Jy-274" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="68f-ZU-7xf"/>
                             <constraint firstItem="fao-0n-nT1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="91r-Xv-JYs"/>
@@ -520,17 +620,23 @@
                             <constraint firstItem="jUP-WA-5Pi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cvb-lv-p2Z"/>
                             <constraint firstItem="Mvn-UB-cBI" firstAttribute="width" secondItem="Cdx-wG-7BR" secondAttribute="width" id="Dur-Se-FiU"/>
                             <constraint firstItem="lN0-CK-0AK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GIM-kb-vfP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Os3-w7-7lr" secondAttribute="trailing" id="Kbv-7e-eS8"/>
                             <constraint firstItem="693-D3-yZX" firstAttribute="width" secondItem="Zxq-gx-7z4" secondAttribute="width" id="NVG-X1-gla"/>
                             <constraint firstItem="Zxq-gx-7z4" firstAttribute="trailing" secondItem="kV4-Jy-274" secondAttribute="trailing" id="QAs-JB-c0C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lN0-CK-0AK" secondAttribute="trailing" id="QIM-xJ-hbr"/>
                             <constraint firstItem="693-D3-yZX" firstAttribute="top" secondItem="n52-PL-NC4" secondAttribute="bottom" constant="24" id="TwQ-qz-V7Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7PE-uE-RVH" secondAttribute="trailing" id="WGa-Zr-XLh"/>
                             <constraint firstItem="jr0-co-00N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wld-E7-jfC"/>
                             <constraint firstItem="Mvn-UB-cBI" firstAttribute="centerY" secondItem="kV4-Jy-274" secondAttribute="centerY" id="Ygr-Gg-gOf"/>
                             <constraint firstItem="693-D3-yZX" firstAttribute="centerY" secondItem="kV4-Jy-274" secondAttribute="centerY" id="blm-uc-lEf"/>
                             <constraint firstItem="Mvn-UB-cBI" firstAttribute="leading" secondItem="kV4-Jy-274" secondAttribute="leading" id="bvH-6z-bqn"/>
+                            <constraint firstAttribute="bottom" secondItem="7PE-uE-RVH" secondAttribute="bottom" id="cEO-fy-fQ4"/>
                             <constraint firstItem="n52-PL-NC4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="clP-Ex-zth"/>
+                            <constraint firstItem="7PE-uE-RVH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gfl-EC-P0U"/>
                             <constraint firstItem="693-D3-yZX" firstAttribute="trailing" secondItem="kV4-Jy-274" secondAttribute="trailing" id="k9d-ax-kz7"/>
                             <constraint firstItem="Cdx-wG-7BR" firstAttribute="leading" secondItem="kV4-Jy-274" secondAttribute="leading" id="kSW-Fu-sLf"/>
+                            <constraint firstItem="7PE-uE-RVH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lTz-hO-Olz"/>
+                            <constraint firstItem="Os3-w7-7lr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oAJ-dO-ERJ"/>
                             <constraint firstAttribute="bottom" secondItem="lN0-CK-0AK" secondAttribute="bottom" id="obI-Nu-6QQ"/>
                             <constraint firstAttribute="bottom" secondItem="fao-0n-nT1" secondAttribute="bottom" constant="24" id="phd-Oz-Sa7"/>
                             <constraint firstItem="lN0-CK-0AK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rqw-9p-CA1"/>
@@ -539,12 +645,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fao-0n-nT1" secondAttribute="trailing" constant="20" id="wCy-z6-Tfw"/>
                             <constraint firstAttribute="bottom" secondItem="jr0-co-00N" secondAttribute="bottom" id="wQT-2H-il5"/>
                             <constraint firstItem="jUP-WA-5Pi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zIH-SW-Mbp"/>
+                            <constraint firstAttribute="bottom" secondItem="Os3-w7-7lr" secondAttribute="bottom" id="zRK-Zn-4Bo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YtC-Nf-ftH"/>
                     <connections>
                         <outlet property="activityIndicator" destination="kHT-Aa-r4I" id="1MH-Cu-6TD"/>
+                        <outlet property="btnAcceptDateExpiredDialog" destination="NFw-ql-2cJ" id="mMV-9h-8kn"/>
                         <outlet property="btnAcceptDialog" destination="YeK-TP-qcE" id="gio-bw-jBD"/>
+                        <outlet property="btnAcceptRestoreDialog" destination="UTN-5z-mVt" id="LIz-Ah-mfn"/>
                         <outlet property="btnBuyMonthly" destination="nDm-nf-mS5" id="GUk-8h-AER"/>
                         <outlet property="btnBuyYearly" destination="Dxb-ic-gve" id="3bc-LV-3ev"/>
                         <outlet property="btnCancelSubscription" destination="fao-0n-nT1" id="Unh-Xx-yF1"/>
@@ -556,6 +665,7 @@
                         <outlet property="btnTermsOfUse" destination="f6h-9O-aID" id="KuB-sH-sMN"/>
                         <outlet property="lblCalmYourAnxiety" destination="X5W-8t-I6Z" id="VRl-bM-Bq8"/>
                         <outlet property="lblCancelSubscription" destination="ull-ek-APt" id="VqY-bx-1JB"/>
+                        <outlet property="lblDateExpired" destination="m3n-yY-BaH" id="kXI-FO-IqU"/>
                         <outlet property="lblExhaleAnxiety" destination="buL-XR-Vn4" id="JXp-L4-D7a"/>
                         <outlet property="lblExplanationAccess" destination="UD1-tK-kkT" id="qzZ-XT-OPg"/>
                         <outlet property="lblExplanationAttention" destination="6hJ-cH-j7O" id="gYd-tb-y7Q"/>
@@ -566,6 +676,7 @@
                         <outlet property="lblMonthlyPrice" destination="uXx-hG-kUg" id="m2G-Hv-JDK"/>
                         <outlet property="lblMonthlySub" destination="9UN-SG-bDp" id="j9Z-dd-L0D"/>
                         <outlet property="lblPrivacyPolicy" destination="aje-dM-tZh" id="hby-H0-h6A"/>
+                        <outlet property="lblRestoreDialog" destination="PGe-eS-X2B" id="ztf-Io-tFG"/>
                         <outlet property="lblSaving" destination="Oau-jL-LVa" id="wGJ-h0-ejK"/>
                         <outlet property="lblStartFreeTrialM" destination="cS1-hD-GMc" id="kYk-2c-5mN"/>
                         <outlet property="lblStartFreeTrialY" destination="CFX-yy-ne4" id="JZT-NG-exu"/>
@@ -576,15 +687,20 @@
                         <outlet property="lblSubscriptionTrial" destination="3jT-Wi-G7G" id="sRq-3o-Mmc"/>
                         <outlet property="lblTermsBase" destination="q6M-JD-rpd" id="URh-Ta-ycZ"/>
                         <outlet property="lblTermsUse" destination="Nt4-wV-7Mu" id="iDW-fX-KKC"/>
+                        <outlet property="lblValidOrExpired" destination="TUm-iG-WJd" id="kGF-XK-Mrw"/>
                         <outlet property="lblYearlyPrice" destination="OVy-n0-Cd8" id="drL-Fr-2WW"/>
                         <outlet property="lblYearlySub" destination="cMx-6L-8Dy" id="QyW-q4-inG"/>
                         <outlet property="scroll" destination="1Ps-Nl-Sev" id="D0z-bw-gjb"/>
+                        <outlet property="viewBackDialogDateExpiry" destination="Os3-w7-7lr" id="Y1f-85-slK"/>
                         <outlet property="viewBackDialogExplanation" destination="lN0-CK-0AK" id="8QA-di-KlF"/>
+                        <outlet property="viewBackDialogRestore" destination="7PE-uE-RVH" id="Hyq-bs-F7F"/>
                         <outlet property="viewBackMonthlySub" destination="xzH-H8-Sf4" id="kBc-wW-I2s"/>
                         <outlet property="viewBackSubscriptionDialog" destination="jr0-co-00N" id="Wzw-Zt-YKt"/>
                         <outlet property="viewBackYearlySub" destination="dV8-Rv-WD3" id="mTt-z3-fSa"/>
                         <outlet property="viewBackground" destination="jUP-WA-5Pi" id="XJa-jP-m3R"/>
+                        <outlet property="viewDateExpiry" destination="HN6-LP-iJq" id="few-Vm-Pr5"/>
                         <outlet property="viewExplanation" destination="sIj-uk-1oA" id="tTN-fJ-NOs"/>
+                        <outlet property="viewRestore" destination="hzf-dn-kMk" id="D2X-UD-oVN"/>
                         <outlet property="viewSubscriptions" destination="l8h-Yv-5I2" id="QJh-TG-04V"/>
                         <segue destination="T2H-ne-s9V" kind="show" identifier="segueTransition" id="JdY-Y4-SsE"/>
                         <segue destination="E3U-sA-DRv" kind="show" identifier="segueTerms" id="bCz-Qw-aWE"/>
