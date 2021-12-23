@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import StoreKit
-import SwiftyStoreKit
 
 class StartViewController: UIViewController {
     
@@ -103,7 +101,7 @@ class StartViewController: UIViewController {
         savePreferencesPulse(bpm: -1)
         customizeControls()
 
-        productsInfo()
+        //productsInfo()
     
     }
     
@@ -117,201 +115,206 @@ class StartViewController: UIViewController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
-    
-    private func productsInfo() {
-        activityIndicator.startAnimating()
-        for i in 0..<subsIDs[0].count {
-            SwiftyStoreKit.retrieveProductsInfo(Set(arrayLiteral: subsIDs[0][i])) { result in
-                if let product = result.retrievedProducts.first {
-                    let id = product.productIdentifier
-                    self.verifySubscription(prodId: id)
-                    print("Product: \(product.localizedTitle), price: \(product.localizedPrice!)")
-                    if id == subsIDs[0][0] { // monthly
-                        let monthly = String.localizedStringWithFormat(
-                            txtSubsMonthlyDinamic,
-                            product.localizedPrice!)
-                            self.lblMonthlySub.style(text: product.localizedTitle,
-                                                color: .colorPrimaryDark,
-                                                size: 18,
-                                                fontName: fontArialBold)
-                            self.lblMonthlyPrice.style(text: monthly,
-                                                       color: .white,
-                                                       size: 22,
-                                                       fontName: fontArialBold)
-                    } else if id == subsIDs[0][1] {// yearly
-                        let savingDbl = Double(truncating: product.price) / 12.0
-                        let savingStr = savingDbl.formatTwoDecimals(unity: "")
-                        let yearly = String.localizedStringWithFormat(
-                            txtSubsYearlyDinamic,
-                            product.localizedPrice!)
-                        let saving = String.localizedStringWithFormat(
-                            txtSavingDinamic,
-                            savingStr)
-                            
-                        self.lblYearlySub.style(text: product.localizedTitle,
-                                                color: .colorPrimaryDark,
-                                                size: 18,
-                                                fontName: fontArialBold)
-                        self.lblYearlyPrice.style(text: yearly,
-                                                  color: .white,
-                                                  size: 22,
-                                                  fontName: fontArialBold)
-                        self.lblSaving.style(text: saving,
-                                             color: .colorPrimaryDark,
-                                             size: 13,
-                                             fontName: fontArialBold)
-                    }
-                } else if let invalidProductId = result.invalidProductIDs.first {
-                    print("Invalid product identifier: \(invalidProductId)")
-                } else {
-                    print("Error: \(String(describing: result.error))")
-                }
-            }
-        }
-    }
-    
-
-    private func purchaseSubscription(id: String) {
-        SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { result in
-            switch result {
-            case .success(let product):
-                // fetch content from your server, then:
-                if product.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(product.transaction)
-                }
-                let id = product.productId
-                print("Purchase Success: \(id)")
-                self.verifySubscription(prodId: id)
-
-            case .error(let error):
-                self.enabledPurchaseButtons()
-                switch error.code {
-                case .unknown: print("Unknown error. Please contact support")
-                case .clientInvalid: print("Not allowed to make the payment")
-                case .paymentCancelled:
-                    self.enabledPurchaseButtons()
-                case .paymentInvalid: print("The purchase identifier was invalid")
-                case .paymentNotAllowed: print("The device is not allowed to make the payment")
-                case .storeProductNotAvailable: print("The product is not available in the current storefront")
-                case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
-                case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
-                case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
-                default: print((error as NSError).localizedDescription)
-                }
-            }
-        }
-        
-    }
-    
-    
-    private func verifySubscription(prodId: String) {
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
-        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-            self.activityIndicator.stopAnimating()
-            self.btnBuyMonthly.isUserInteractionEnabled = true
-            self.btnBuyYearly.isUserInteractionEnabled = true
-            switch result {
-            case .success(let receipt):
-                let purchaseResult = SwiftyStoreKit.verifySubscription(
-                    ofType: .autoRenewable,
-                    productId: prodId,
-                    inReceipt: receipt)
-                    
-                switch purchaseResult {
-                case .purchased(let expiryDate, let items):
-                    print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
-                    self.viewBackSubscriptionDialog.isHidden = true
-                    self.dateExpiry = expiryDate.toString()
-                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                        self.checkDate()
-                        self.hasSubscription = true
-                        self.checkCancelBtn()
-                    }
-                    
-                case .expired(let expiryDate, let items):
-                    print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
-                    self.dateExpiry = expiryDate.toString()
-                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
-                    self.checkDate()
-                    self.hasSubscription = false
-                    self.checkCancelBtn()
-                case .notPurchased:
-                    print("The user has never purchased \(prodId)")                   
-                }
-            case .error(let error):
-                print("Receipt verification failed: \(error)")
-            }
-        }
-    }
-    
-    private func checkDate() {
-        print("dateExpiry: \(dateExpiry)")
-        guard let nowMillis = Date().currentTimeMillis() else { return }
-        viewBackDialogDateExpiry.isHidden = false
-        if nowMillis < dateExpiryMillis { // valid
-            lblValidOrExpired.style(text: txtValidUntil,
-                                    color: .colorPrimaryDark,
-                                    size: 18,
-                                    fontName: fontArialBold)
-        } else { // expired
-            lblValidOrExpired.style(text: txtExpiredSince,
-                                    color: .colorPrimaryDark,
-                                    size: 18,
-                                    fontName: fontArialBold)
-        }
-        lblDateExpired.style(text: dateExpiry,
-                             color: .colorPrimaryDark,
-                             size: 18,
-                             fontName: fontArialBold)
-    }
-    
-    private func checkCancelBtn() {
-        if hasSubscription {
-            btnCancelSubscription.linkStyle(txt: txtCancelSubscriptionText, color: .red)
-        } else {
-            btnCancelSubscription.linkStyleDisable(txt: txtCancelSubscriptionText)
-        }
-    }
-    
-    private func verifySubscriptions() {
-        
-    }
-    
-    
-    
-    private func restoreSubscriptions() {
-        activityIndicator.startAnimating()
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedPurchases.count > 0 {
-                print("Restore Failed: \(results.restoreFailedPurchases)")
-                self.viewBackDialogRestore.isHidden = false
-                self.lblRestoreDialog.style(text: txtRestoreFailed,
-                                       color: .colorPrimaryDark,
-                                       size: 16,
-                                       fontName: fontArialBold)
-                self.activityIndicator.stopAnimating()
-            }
-            else if results.restoredPurchases.count > 0 {
-                print("Restore Success: \(results.restoredPurchases)")
-                self.viewBackDialogRestore.isHidden = false
-                self.lblRestoreDialog.style(text: txtRestoreSuccess,
-                                       color: .colorPrimaryDark,
-                                       size: 16,
-                                       fontName: fontArialBold)
-                self.activityIndicator.stopAnimating()
-            }
-            else {
-                print("Nothing to Restore")
-                self.viewBackDialogRestore.isHidden = false
-                self.lblRestoreDialog.style(text: txtNothingToRestore,
-                                       color: .colorPrimaryDark,
-                                       size: 16,
-                                       fontName: fontArialBold)
-                self.activityIndicator.stopAnimating()
-            }
-        }
-    }
+//
+//    private func productsInfo() {
+//        activityIndicator.startAnimating()
+//        for i in 0..<subsIDs[0].count {
+//            SwiftyStoreKit.retrieveProductsInfo(Set(arrayLiteral: subsIDs[0][i])) { result in
+//                if let product = result.retrievedProducts.first {
+//                    let id = product.productIdentifier
+//                    self.verifySubscription(prodId: id)
+//                    print("Product: \(product.localizedTitle), price: \(product.localizedPrice!)")
+//                    if id == subsIDs[0][0] { // monthly
+//                        let monthly = String.localizedStringWithFormat(
+//                            txtSubsMonthlyDinamic,
+//                            product.localizedPrice!)
+//                            self.lblMonthlySub.style(text: product.localizedTitle,
+//                                                color: .colorPrimaryDark,
+//                                                size: 18,
+//                                                fontName: fontArialBold)
+//                            self.lblMonthlyPrice.style(text: monthly,
+//                                                       color: .white,
+//                                                       size: 22,
+//                                                       fontName: fontArialBold)
+//                    } else if id == subsIDs[0][1] {// yearly
+//                        let savingDbl = Double(truncating: product.price) / 12.0
+//                        let savingStr = savingDbl.formatTwoDecimals(unity: "")
+//                        let yearly = String.localizedStringWithFormat(
+//                            txtSubsYearlyDinamic,
+//                            product.localizedPrice!)
+//                        let saving = String.localizedStringWithFormat(
+//                            txtSavingDinamic,
+//                            savingStr)
+//
+//                        self.lblYearlySub.style(text: product.localizedTitle,
+//                                                color: .colorPrimaryDark,
+//                                                size: 18,
+//                                                fontName: fontArialBold)
+//                        self.lblYearlyPrice.style(text: yearly,
+//                                                  color: .white,
+//                                                  size: 22,
+//                                                  fontName: fontArialBold)
+//                        self.lblSaving.style(text: saving,
+//                                             color: .colorPrimaryDark,
+//                                             size: 13,
+//                                             fontName: fontArialBold)
+//                    }
+//                } else if let invalidProductId = result.invalidProductIDs.first {
+//                    print("Invalid product identifier: \(invalidProductId)")
+//                } else {
+//                    print("Error: \(String(describing: result.error))")
+//                }
+//            }
+//        }
+//    }
+//
+//
+//    private func purchaseSubscription(id: String) {
+//        SwiftyStoreKit.purchaseProduct(id, quantity: 1, atomically: true) { result in
+//            switch result {
+//            case .success(let product):
+//                // fetch content from your server, then:
+//                if product.needsFinishTransaction {
+//                    SwiftyStoreKit.finishTransaction(product.transaction)
+//                }
+//                let id = product.productId
+//                print("Purchase Success: \(id)")
+//                self.verifySubscription(prodId: id)
+//
+//            case .error(let error):
+//                self.enabledPurchaseButtons()
+//                switch error.code {
+//                case .unknown: print("Unknown error. Please contact support")
+//                case .clientInvalid: print("Not allowed to make the payment")
+//                case .paymentCancelled:
+//                    self.enabledPurchaseButtons()
+//                case .paymentInvalid: print("The purchase identifier was invalid")
+//                case .paymentNotAllowed: print("The device is not allowed to make the payment")
+//                case .storeProductNotAvailable: print("The product is not available in the current storefront")
+//                case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+//                case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+//                case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+//                default: print((error as NSError).localizedDescription)
+//                }
+//            }
+//        }
+//
+//    }
+//
+//    private func verifySubscription(prodId: String) {
+//        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: sharedSecret)
+//        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+//            self.activityIndicator.stopAnimating()
+//            self.btnBuyMonthly.isUserInteractionEnabled = true
+//            self.btnBuyYearly.isUserInteractionEnabled = true
+//            switch result {
+//            case .success(let receipt):
+//                let purchaseResult = SwiftyStoreKit.verifySubscription(
+//                    ofType: .autoRenewable,
+//                    productId: prodId,
+//                    inReceipt: receipt)
+//
+//                switch purchaseResult {
+//                case .purchased(let expiryDate, let items):
+//                    print("\(prodId) is valid until \(expiryDate)\n\(items)\n")
+//                    if let mostRecent = items.first {
+//                        print("Active, isTrial: \(mostRecent.isTrialPeriod)")
+//                    }
+//                    self.viewBackSubscriptionDialog.isHidden = true
+//                    self.dateExpiry = expiryDate.toString()
+//                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                        self.checkDate()
+//                        self.hasSubscription = true
+//                        self.checkCancelBtn()
+//                    }
+//
+//                case .expired(let expiryDate, let items):
+//                    print("\(prodId) is expired since \(expiryDate)\n\(items)\n")
+//                    if let mostRecent = items.first {
+//                        print("Expired, isTrial: \(mostRecent.isTrialPeriod)")
+//                    }
+//                    self.dateExpiry = expiryDate.toString()
+//                    self.dateExpiryMillis = expiryDate.currentTimeMillis()
+//                    self.checkDate()
+//                    self.hasSubscription = false
+//                    self.checkCancelBtn()
+//                case .notPurchased:
+//                    print("The user has never purchased \(prodId)")
+//                }
+//            case .error(let error):
+//                print("Receipt verification failed: \(error)")
+//            }
+//        }
+//    }
+//
+//    private func checkDate() {
+//        print("dateExpiry: \(dateExpiry)")
+//        guard let nowMillis = Date().currentTimeMillis() else { return }
+//        viewBackDialogDateExpiry.isHidden = false
+//        if nowMillis < dateExpiryMillis { // valid
+//            lblValidOrExpired.style(text: txtValidUntil,
+//                                    color: .colorPrimaryDark,
+//                                    size: 18,
+//                                    fontName: fontArialBold)
+//        } else { // expired
+//            lblValidOrExpired.style(text: txtExpiredSince,
+//                                    color: .colorPrimaryDark,
+//                                    size: 18,
+//                                    fontName: fontArialBold)
+//        }
+//        lblDateExpired.style(text: dateExpiry,
+//                             color: .colorPrimaryDark,
+//                             size: 18,
+//                             fontName: fontArialBold)
+//    }
+//
+//    private func checkCancelBtn() {
+//        if hasSubscription {
+//            btnCancelSubscription.linkStyle(txt: txtCancelSubscriptionText, color: .red)
+//        } else {
+//            btnCancelSubscription.linkStyleDisable(txt: txtCancelSubscriptionText)
+//        }
+//    }
+//
+//    private func verifySubscriptions() {
+//
+//    }
+//
+//
+//
+//    private func restoreSubscriptions() {
+//        activityIndicator.startAnimating()
+//        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+//            if results.restoreFailedPurchases.count > 0 {
+//                print("Restore Failed: \(results.restoreFailedPurchases)")
+//                self.viewBackDialogRestore.isHidden = false
+//                self.lblRestoreDialog.style(text: txtRestoreFailed,
+//                                       color: .colorPrimaryDark,
+//                                       size: 16,
+//                                       fontName: fontArialBold)
+//                self.activityIndicator.stopAnimating()
+//            }
+//            else if results.restoredPurchases.count > 0 {
+//                print("Restore Success: \(results.restoredPurchases)")
+//                self.viewBackDialogRestore.isHidden = false
+//                self.lblRestoreDialog.style(text: txtRestoreSuccess,
+//                                       color: .colorPrimaryDark,
+//                                       size: 16,
+//                                       fontName: fontArialBold)
+//                self.activityIndicator.stopAnimating()
+//            }
+//            else {
+//                print("Nothing to Restore")
+//                self.viewBackDialogRestore.isHidden = false
+//                self.lblRestoreDialog.style(text: txtNothingToRestore,
+//                                       color: .colorPrimaryDark,
+//                                       size: 16,
+//                                       fontName: fontArialBold)
+//                self.activityIndicator.stopAnimating()
+//            }
+//        }
+//    }
 
     private func customizeControls() {
         activityIndicator.style()
@@ -319,7 +322,7 @@ class StartViewController: UIViewController {
         view.backgroundColor = .colorPrimaryDark
         viewBackground.backgroundColor = .colorPrimaryBackground
         viewBackSubscriptionDialog.backgroundColor = .colorPrimaryBackground
-        viewBackSubscriptionDialog.isHidden = false
+        viewBackSubscriptionDialog.isHidden = true
         viewBackMonthlySub.backgroundColor = .colorPrimary
         viewBackMonthlySub.round(cornerRadius: radius8)
         viewBackYearlySub.backgroundColor = .colorPrimary
@@ -438,6 +441,7 @@ class StartViewController: UIViewController {
         btnBuyYearly.setTitle("", for: .normal)
         btnBuyYearly.isUserInteractionEnabled = false
         btnCancelSubscription.linkStyleDisable(txt: txtCancelSubscriptionText)
+        btnCancelSubscription.isHidden = true
         btnRestoreSubscription.linkStyle(txt: txtRestoreSubscription, color: .colorPrimaryDark)
         btnTermsOfUse.setTitle("", for: .normal)
         btnPrivacyPolicy.setTitle("", for: .normal)
@@ -497,21 +501,21 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionRestoreSubscription(_ sender: Any) {
-        restoreSubscriptions()
+        //restoreSubscriptions()
     }
     
     @IBAction func actionCancelSubscription(_ sender: Any) {
-        openURL(strUrl: urlCancelSubscription)
+        //openURL(strUrl: urlCancelSubscription)
     }
     
     @IBAction func actionBuyMonthlySubscription(_ sender: Any) {
-        disablePurchaseButtons()
-        purchaseSubscription(id: ProductSubscriptionID.monthlySubscription.rawValue)
+//        disablePurchaseButtons()
+//        purchaseSubscription(id: ProductSubscriptionID.monthlySubscription.rawValue)
     }
     
     @IBAction func actionBuyYearlySubscription(_ sender: Any) {
-        disablePurchaseButtons()
-        purchaseSubscription(id: ProductSubscriptionID.yearlySubscription.rawValue)
+//        disablePurchaseButtons()
+//        purchaseSubscription(id: ProductSubscriptionID.yearlySubscription.rawValue)
     }
     
     @IBAction func actionCancelDialogSubscription(_ sender: Any) {
@@ -519,11 +523,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func actionStart(_ sender: UIButton) {
-        if hasSubscription {
-            performSegue(withIdentifier: "segueTransition", sender: nil)
-        } else {
-            viewBackDialogExplanation.isHidden = false
-        }
+        performSegue(withIdentifier: "segueTransition", sender: nil)
     }
     
     @IBAction func unwindTerms(segue: UIStoryboardSegue) {
