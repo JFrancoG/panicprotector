@@ -19,7 +19,6 @@
 		F70C8561263D334C0098442A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8560263D334C0098442A /* Extensions.swift */; };
 		F70C8564263D5EE90098442A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8563263D5EE90098442A /* Constants.swift */; };
 		F70C856F263D65010098442A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C8571263D65010098442A /* Localizable.strings */; };
-		F71F07882706265D00C5A4C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71F07872706265D00C5A4C9 /* StoreKit.framework */; };
 		F71F078D2706350300C5A4C9 /* StoreSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F078C2706350300C5A4C9 /* StoreSetup.swift */; };
 		F71F078F2709943B00C5A4C9 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F078E2709943B00C5A4C9 /* StoreService.swift */; };
 		F77C73D726E37176002B975C /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C73D626E37176002B975C /* GlobalVariables.swift */; };
@@ -58,7 +57,6 @@
 		F70C8570263D65010098442A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8573263D65180098442A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C8574263D652F0098442A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F71F07872706265D00C5A4C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F71F078C2706350300C5A4C9 /* StoreSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSetup.swift; sourceTree = "<group>"; };
 		F71F078E2709943B00C5A4C9 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		F77C73D626E37176002B975C /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F71F07882706265D00C5A4C9 /* StoreKit.framework in Frameworks */,
 				F7E9C6AD26C44F2900ACDCFF /* BEMCheckBox in Frameworks */,
 				8C7D6EF6BC3FD85BACCCAB81 /* Pods_panicprotector.framework in Frameworks */,
 			);
@@ -96,7 +93,6 @@
 		914A286F71CE38EE9FFF0891 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F71F07872706265D00C5A4C9 /* StoreKit.framework */,
 				B5D72372BF0B69459E11A835 /* Pods_panicprotector.framework */,
 			);
 			name = Frameworks;
@@ -529,7 +525,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -552,7 +548,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = W5Z8PP52AY;
 				INFOPLIST_FILE = panicprotector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
